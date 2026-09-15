@@ -1,9 +1,9 @@
-[9/16/2026 1:51 AM] مصطفى خضير: <!DOCTYPE html>
+[9/16/2026 2:10 AM] مصطفى خضير: <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>مصطفى للخدمات الرقمية</title>
+<title>مصطفى خضير للخدمات الرقمية</title>
 <style>
 :root{
   --bg:#070a12;
@@ -84,6 +84,9 @@ textarea:focus{border-color:var(--gold)}
   display:block;text-align:center;margin-top:20px;padding:15px;
   background:#25d366;color:#fff;font-weight:bold;border-radius:12px;text-decoration:none;
 }
+footer{
+  text-align:center;margin-top:30px;font-size:12px;color:var(--muted);
+}
 </style>
 </head>
 <body>
@@ -92,7 +95,7 @@ textarea:focus{border-color:var(--gold)}
   <div class="container brand">
     <div class="logo">م</div>
     <div>
-      <h3>مصطفى للخدمات الرقمية</h3>
+      <h3>مصطفى خضير للخدمات الرقمية</h3>
       <small style="color:var(--muted)">خدمات وترويج وشحن بسهولة</small>
     </div>
   </div>
@@ -130,7 +133,7 @@ textarea:focus{border-color:var(--gold)}
       <p>• بيس، لودو، ببجي وغيرها من الألعاب</p>
     </div>
   </section>
-[9/16/2026 1:51 AM] مصطفى خضير: <section class="order-box" id="orderSection">
+[9/16/2026 2:10 AM] مصطفى خضير: <section class="order-box" id="orderSection">
     <div class="status" id="statusText">الخدمة المختارة: لم يتم اختيار خدمة بعد</div>
 
     <label for="details">رابط أو اسم الحساب / ID اللعبة:</label>
@@ -143,6 +146,10 @@ textarea:focus{border-color:var(--gold)}
     تواصل مباشر عبر الواتساب: 07815955995
   </a>
 </main>
+
+<footer>
+  © 2026 مصطفى خضير للخدمات الرقمية — جميع الحقوق محفوظة
+</footer>
 
 <script>
 let chosenService = "";
@@ -171,7 +178,7 @@ function sendOrder() {
     return;
   }
 
-  let msg = "السلام عليكم مصطفى 👋\n\nأريد طلب خدمة:\nالخدمة: " + chosenService + "\n\nرابط/اسم الحساب أو التفاصيل:\n" + detailsText;
+  let msg = "السلام عليكم مصطفى خضير 👋\n\nأريد طلب خدمة:\nالخدمة: " + chosenService + "\n\nرابط/اسم الحساب أو التفاصيل:\n" + detailsText;
   let url = "https://wa.me/9647815955995?text=" + encodeURIComponent(msg);
   
   window.open(url, '_blank');
