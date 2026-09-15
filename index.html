@@ -1,0 +1,181 @@
+[9/16/2026 1:51 AM] مصطفى خضير: <!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مصطفى للخدمات الرقمية</title>
+<style>
+:root{
+  --bg:#070a12;
+  --card:#101522;
+  --card2:#151b2a;
+  --text:#f7f8fc;
+  --muted:#9aa5bb;
+  --gold:#e7bd67;
+  --gold2:#fff0b8;
+  --border:rgba(255,255,255,.09);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:"Segoe UI",Tahoma,Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  padding-bottom:30px;
+}
+.container{width:min(1120px,92%);margin:auto}
+header{
+  padding:20px 0;
+  position:sticky;top:0;z-index:20;
+  background:rgba(7,10,18,.9);
+  border-bottom:1px solid var(--border);
+}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{
+  width:45px;height:45px;border-radius:12px;
+  display:grid;place-items:center;font-weight:900;font-size:20px;
+  color:#111;background:linear-gradient(135deg,var(--gold2),var(--gold));
+}
+.hero{padding:40px 0 20px;text-align:center}
+.hero h2{font-size:32px;margin-bottom:10px;color:var(--gold2)}
+.hero p{color:var(--muted);font-size:15px}
+
+.services{
+  display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:15px;
+  margin-top:20px;
+}
+.service-card{
+  background:linear-gradient(145deg,var(--card2),var(--card));
+  border:1px solid var(--border);border-radius:18px;padding:20px;
+  cursor:pointer;
+}
+.service-card:hover, .service-card.active{
+  border-color:var(--gold);
+  background:rgba(231,189,103,.08);
+}
+.service-card h4{font-size:20px;color:var(--gold2);margin-bottom:8px}
+.service-card p{font-size:13px;color:var(--muted);line-height:1.6}
+
+.order-box{
+  margin-top:30px;
+  background:var(--card);
+  border:1px solid var(--border);border-radius:20px;padding:22px;
+}
+.status{
+  padding:12px;background:rgba(231,189,103,.1);
+  border:1px solid var(--gold);border-radius:10px;
+  color:var(--gold2);font-weight:bold;margin-bottom:15px;text-align:center;
+}
+label{
+  display:block;font-size:14px;color:#dfe4ef;margin-bottom:8px;
+}
+textarea{
+  width:100%;background:#090d17;border:1px solid var(--border);
+  color:#fff;border-radius:12px;padding:14px;font-size:15px;
+  min-height:90px;outline:none;
+}
+textarea:focus{border-color:var(--gold)}
+.btn{
+  width:100%;padding:15px;border:0;border-radius:12px;
+  background:linear-gradient(135deg,var(--gold2),var(--gold));
+  color:#000;font-weight:bold;font-size:16px;margin-top:15px;cursor:pointer;
+}
+.whatsapp-link{
+  display:block;text-align:center;margin-top:20px;padding:15px;
+  background:#25d366;color:#fff;font-weight:bold;border-radius:12px;text-decoration:none;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container brand">
+    <div class="logo">م</div>
+    <div>
+      <h3>مصطفى للخدمات الرقمية</h3>
+      <small style="color:var(--muted)">خدمات وترويج وشحن بسهولة</small>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <h2>اختر الخدمة المطلوبة</h2>
+    <p>اضغط على إحدى الخدمات بالأسفل للتحديد مباشرة</p>
+  </section>
+
+  <section class="services">
+    <div class="service-card" onclick="selectService('ترويج فيسبوك', this)">
+      <h4>ترويج فيسبوك</h4>
+      <p>• يوم: 15 ألف<br>• 7 أيام: 70 ألف<br>• 10 أيام: 100 ألف<br>• تحديد السعر حسب رغبتك</p>
+    </div>
+
+    <div class="service-card" onclick="selectService('ترويج تيكتوك', this)">
+      <h4>ترويج تيكتوك</h4>
+      <p>• 1k متابعين حقيقي بـ 15 ألف<br>• دعم منشورات وحسابات</p>
+    </div>
+
+    <div class="service-card" onclick="selectService('ترويج انستغرام', this)">
+      <h4>ترويج انستغرام</h4>
+      <p>• 1k متابعين حقيقي بـ 15 ألف<br>• زيادة تفاعل وإعلانات</p>
+    </div>
+
+    <div class="service-card" onclick="selectService('شحن عمل', this)">
+      <h4>شحن عمل</h4>
+      <p>• شحن كافة الأرصدة والخدمات المتاحة</p>
+    </div>
+
+    <div class="service-card" onclick="selectService('شحن جميع الألعاب', this)">
+      <h4>شحن جميع الألعاب</h4>
+      <p>• بيس، لودو، ببجي وغيرها من الألعاب</p>
+    </div>
+  </section>
+[9/16/2026 1:51 AM] مصطفى خضير: <section class="order-box" id="orderSection">
+    <div class="status" id="statusText">الخدمة المختارة: لم يتم اختيار خدمة بعد</div>
+
+    <label for="details">رابط أو اسم الحساب / ID اللعبة:</label>
+    <textarea id="details" placeholder="اكتب رابط أو اسم الحساب أو التفاصيل هنا..."></textarea>
+
+    <button class="btn" onclick="sendOrder()">إرسال الطلب عبر واتساب ↗</button>
+  </section>
+
+  <a class="whatsapp-link" href="https://wa.me/9647815955995" target="_blank">
+    تواصل مباشر عبر الواتساب: 07815955995
+  </a>
+</main>
+
+<script>
+let chosenService = "";
+
+function selectService(name, element) {
+  chosenService = name;
+  document.getElementById('statusText').innerText = "الخدمة المختارة: " + chosenService;
+  
+  let cards = document.querySelectorAll('.service-card');
+  cards.forEach(c => c.classList.remove('active'));
+  element.classList.add('active');
+
+  document.getElementById('orderSection').scrollIntoView({ behavior: 'smooth' });
+}
+
+function sendOrder() {
+  let detailsText = document.getElementById('details').value.trim();
+
+  if (!chosenService) {
+    alert("يرجى اختيار خدمة من الأعلى أولاً!");
+    return;
+  }
+
+  if (!detailsText) {
+    alert("يرجى كتابة اسم الحساب أو الرابط!");
+    return;
+  }
+
+  let msg = "السلام عليكم مصطفى 👋\n\nأريد طلب خدمة:\nالخدمة: " + chosenService + "\n\nرابط/اسم الحساب أو التفاصيل:\n" + detailsText;
+  let url = "https://wa.me/9647815955995?text=" + encodeURIComponent(msg);
+  
+  window.open(url, '_blank');
+}
+</script>
+</body>
+</html>
