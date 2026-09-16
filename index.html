@@ -215,21 +215,21 @@
       <label>🔥 العروض الخاصة والخصومات:</label>
       <select id="select-offers" class="service-box" onchange="handleSelectChange(this)">
         <option value="" data-price="0">-- اختر عرض خاص --</option>
-        <option value="ترويج متابعين إنستغرام 1k" data-price="15,000 د.ع">ترويج متابعين إنستغرام حقيقي - 1k (15,000 د.ع)</option>
+        <option value="ترويج متابعين إنستغرام 1k" data-price="15,000 د.ع">ترويج متابعين إنستغرام - 1k (15,000 د.ع)</option>
         <option value="ترويج متابعين إنستغرام 3k" data-price="40,000 د.ع">ترويج متابعين إنستغرام - 3k (40,000 د.ع)</option>
         <option value="ترويج صفحة فيسبوك 3 أيام" data-price="30,000 د.ع">ترويج صفحة فيسبوك - 3 أيام (30,000 د.ع)</option>
       </select>
     </div>
 
-    <!-- خدمات إنستغرام -->
+    <!-- خدمات إنستغرام (مطابقة للصورة تماماً) -->
     <div class="form-group">
       <label>📸 خدمات إنستغرام:</label>
       <select id="select-insta" class="service-box" onchange="handleSelectChange(this)">
         <option value="" data-price="0">-- اختر خدمة إنستغرام --</option>
-        <option value="ترويج إنستغرام ممول - فيديوهات" data-price="10,000 د.ع">ترويج إنستغرام ممول - فيديوهات حقيقي (10,000 د.ع)</option>
-        <option value="متابعين إنستغرام (ضمان) - 1,000" data-price="15,000 د.ع">متابعين إنستغرام (ضمان) - 1,000 متابع حقيقي (15,000 د.ع)</option>
-        <option value="لايكات إنستغرام - 1,000" data-price="8,000 د.ع">لايكات إنستغرام حقيقي - 1,000 لايك (8,000 د.ع)</option>
-        <option value="مشاهدات ريلز - 10,000" data-price="5,000 د.ع">مشاهدات ريلز - 10,000 مشاهدة  وهمي (5,000 د.ع)</option>
+        <option value="ترويج إنستغرام ممول - فيديوهات حقيقي (10,000 د.ع)" data-price="10,000 د.ع">ترويج إنستغرام ممول - فيديوهات حقيقي (10,000 د.ع)</option>
+        <option value="متابعين إنستغرام (ضمان) - 1,000 متابع حقيقي (15,000 د.ع)" data-price="15,000 د.ع">متابعين إنستغرام (ضمان) - 1,000 متابع حقيقي (15,000 د.ع)</option>
+        <option value="لايكات إنستغرام - 1,000 لايك (8,000 د.ع)" data-price="8,000 د.ع">لايكات إنستغرام حقيقي - 1,000 لايك (8,000 د.ع)</option>
+        <option value="مشاهدات ريلز - 10,000 مشاهدة وهمي (5,000 د.ع)" data-price="5,000 د.ع">مشاهدات ريلز - 10,000 مشاهدة وهمي (5,000 د.ع)</option>
       </select>
     </div>
 
@@ -249,12 +249,11 @@
       <label>🎵 خدمات تيك توك:</label>
       <select id="select-tiktok" class="service-box" onchange="handleSelectChange(this)">
         <option value="" data-price="0">-- اختر خدمة تيك توك --</option>
-        <option value="متابعين تيك توك - 1,000" data-price="15,000 د.ع">متابعين تيك توك - 1,000 متابع حقيقي (15,000 د.ع)</option>
-        <option value="مشاهدات تيك توك - 10,000" data-price="8,000 د.ع">مشاهدات تيك توك - 10,000 مشاهدة  حقيقي (8,000 د.ع)</option>
+        <option value="متابعين تيك توك - 1,000" data-price="15,000 د.ع">متابعين تيك توك - 1,000 متابع (15,000 د.ع)</option>
+        <option value="مشاهدات تيك توك - 10,000" data-price="8,000 د.ع">مشاهدات تيك توك - 10,000 مشاهدة (8,000 د.ع)</option>
       </select>
     </div>
-
-    <!-- خدمات تليجرام -->
+ مصطفى خضير: <!-- خدمات تليجرام -->
     <div class="form-group">
       <label>✈️ خدمات تليجرام:</label>
       <select id="select-telegram" class="service-box" onchange="handleSelectChange(this)">
@@ -262,6 +261,8 @@
         <option value="أعضاء قنوات تليجرام - 1,000" data-price="10,000 د.ع">أعضاء قنوات تليجرام - 1,000 عضو (10,000 د.ع)</option>
       </select>
     </div>
+
+    <div class="form-group">
       <label>رابط الحساب / المنشور المطلوب:</label>
       <input type="url" id="link-input" placeholder="https://...">
     </div>
@@ -284,7 +285,6 @@
 
   function handleSelectChange(currentSelect) {
     if (currentSelect.value !== "") {
-      // صفر الخيارات الأخرى
       const allSelects = document.querySelectorAll('.service-box');
       allSelects.forEach(select => {
         if (select !== currentSelect) {
@@ -316,15 +316,12 @@
       return;
     }
 
-    // بناء نص الرسالة بأسلوب متوافق مع كافة المتصفحات
     const message = "طلب جديد من التطبيق 🚀\n\n" +
                     "*الخدمة المطلوبة:* " + activeService + "\n" +
                     "*السعر:* " + activePrice + "\n" +
                     "*الرابط:* " + link;
 
     const url = "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(message);
-    
-    // فتح الواتساب مباشرة
     window.open(url, '_blank');
   }
 </script>
