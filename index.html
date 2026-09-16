@@ -1,4 +1,4 @@
-: <!DOCTYPE html>
+مصطفى خضير: <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
@@ -187,7 +187,7 @@
     </div>
     <div class="stat-icon">📊</div>
   </div>
- <div class="stat-card">
+  <div class="stat-card">
     <div class="stat-info">
       <h3>طلب مباشر</h3>
       <p>الدفع والتنفيذ فوراً عبر الواتساب</p>
@@ -202,7 +202,7 @@
     <a href="#" class="action-btn" onclick="alert('تواصل معنا عبر الواتساب لمعرفة طرق الدفع المتاحة (زين كاش / آسيا حوالة)')">
       <span>💳</span> طرق الدفع
     </a>
-    <a href="https://wa.me/9647815955995?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%8BB%20%D8%B3%D8%AC%D9%84%20%D8%B7%D9%84%D8%A8%D8%A7%D8%AA%D9%8A" class="action-btn" target="_blank">
+    <a href="https://wa.me/9647815955995?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%8BB%20%D8%B3%D8%AC%D9%84%20%D8%B7%D9%84%D8%A8%D8%A7%D8%AA%D9%8I" class="action-btn" target="_blank">
       <span>📜</span> سجل الطلبات
     </a>
   </div>
@@ -213,6 +213,7 @@
     <div class="form-group">
       <label>الفئة المنصة:</label>
       <select id="category-select" onchange="updateServices()">
+        <option value="offers">🔥 العروض والخصومات 💥</option>
         <option value="insta">خدمات إنستغرام 📸</option>
         <option value="facebook">خدمات فيسبوك 📘</option>
         <option value="tiktok">خدمات تيك توك 🎵</option>
@@ -244,9 +245,12 @@
 
 <script>
   const servicesData = {
+    offers: [
+      { name: '🔥 عرض خاص: ترويج متابعين إنستغرام (1k)', priceText: '15,000 د.ع' },
+      { name: '🔥 عرض خاص: ترويج متابعين إنستغرام (3k)', priceText: '40,000 د.ع' },
+      { name: '🔥 عرض خاص: ترويج صفحة فيسبوك 3 أيام', priceText: '18,000 د.ع' }
+    ],
     insta: [
-      { name: 'ترويج متابعين إنستغرام - 1K متابع', priceText: '15,000 د.ع' },
-      { name: 'ترويج متابعين إنستغرام - 3K متابع', priceText: '40,000 د.ع' },
       { name: 'ترويج إنستغرام ممول - يوم واحد (1 يوم)', priceText: '7,500 د.ع' },
       { name: 'متابعين إنستغرام (ضمان) - 1,000 متابع', priceText: '2,250 د.ع' },
       { name: 'لايكات إنستغرام - 1,000 لايك', priceText: '750 د.ع' },
@@ -254,7 +258,6 @@
     ],
     facebook: [
       { name: 'ترويج فيسبوك - يوم واحد (1 يوم)', priceText: '7,500 د.ع' },
-      { name: 'ترويج فيسبوك - 3 أيام', priceText: '18,000 د.ع' },
       { name: 'ترويج فيسبوك - أسبوع كامل (7 أيام)', priceText: '37,500 د.ع' },
       { name: 'متابعين صفحة فيسبوك - 1,000 متابع', priceText: '4,500 د.ع' },
       { name: 'لايكات وتفاعلات منشورات - 1,000 لايك', priceText: '2,250 د.ع' }
@@ -286,7 +289,7 @@
 
     calculatePrice();
   }
-[9/16/2026 10:06 AM] مصطفى خضير: function calculatePrice() {
+[9/16/2026 10:09 AM] مصطفى خضير: function calculatePrice() {
     const serviceSelect = document.getElementById('service-select');
     const selectedOption = serviceSelect.options[serviceSelect.selectedIndex];
     const priceText = selectedOption ? selectedOption.dataset.price : '';
