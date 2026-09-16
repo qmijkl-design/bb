@@ -1,4 +1,4 @@
-[9/16/2026 9:16 AM] مصطفى خضير: <!DOCTYPE html>
+[9/16/2026 9:59 AM] مصطفى خضير: <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
@@ -187,7 +187,7 @@
     </div>
     <div class="stat-icon">📊</div>
   </div>
-[9/16/2026 9:16 AM] مصطفى خضير: <div class="stat-card">
+[9/16/2026 9:59 AM] مصطفى خضير: <div class="stat-card">
     <div class="stat-info">
       <h3>طلب مباشر</h3>
       <p>الدفع والتنفيذ فوراً عبر الواتساب</p>
@@ -196,13 +196,13 @@
   </div>
 
   <div class="quick-actions">
-    <a href="https://wa.me/9647815955995?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%8A%20%D8%A3%D8%AD%D8%AA%D8%A7%D8%AC%20%D8%AF%D8%B9%D9%85%20%D9%81%D9%86%D9%8A" class="action-btn" target="_blank">
+    <a href="https://wa.me/9647815955995?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%A3%D8%AD%D8%AA%D8%A7%D8%AC%20%D8%AF%D8%B9%D9%85%20%D9%81%D9%86%D9%8A" class="action-btn" target="_blank">
       <span>🎧</span> الدعم الفني
     </a>
     <a href="#" class="action-btn" onclick="alert('تواصل معنا عبر الواتساب لمعرفة طرق الدفع المتاحة (زين كاش / آسيا حوالة)')">
       <span>💳</span> طرق الدفع
     </a>
-    <a href="https://wa.me/9647815955995?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%B3%D8%A4%D8%A7%D9%84%20%D8%B9%D9%8BD%20%D8%B3%D8%AC%D9%84%20%D8%B7%D9%84%D8%A8%D8%A7%D8%AA%D9%8A" class="action-btn" target="_blank">
+    <a href="https://wa.me/9647815955995?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%B3%D8%A4%D8%A7%D9%84%20%D8%B9%D9%86%20%D8%B3%D8%AC%D9%84%20%D8%B7%D9%84%D8%A8%D8%A7%D8%AA%D9%8A" class="action-btn" target="_blank">
       <span>📜</span> سجل الطلبات
     </a>
   </div>
@@ -213,10 +213,12 @@
     <div class="form-group">
       <label>الفئة المنصة:</label>
       <select id="category-select" onchange="updateServices()">
-        <option value="facebook">خدمات وترويج فيسبوك 📘</option>
-        <option value="insta">خدمات وترويج إنستغرام 📸</option>
+        <option value="insta">خدمات إنستغرام 📸</option>
         <option value="tiktok">خدمات تيك توك 🎵</option>
         <option value="telegram">خدمات تليجرام ✈️</option>
+        <option value="facebook">خدمات فيسبوك 📘</option>
+        <option value="promo_fb">ترويج ممول فيسبوك 📢</option>
+        <option value="promo_insta">ترويج ممول إنستغرام 📢</option>
       </select>
     </div>
 
@@ -231,8 +233,13 @@
       <input type="url" id="link-input" placeholder="https://..." oninput="updateWhatsAppLink()">
     </div>
 
+    <div class="form-group" id="quantity-group">
+      <label>الكمية:</label>
+      <input type="number" id="quantity-input" value="1000" min="100" oninput="calculatePrice()">
+    </div>
+
     <div class="price-display" id="price-box">
-      السعر الكلي: $5.00
+      السعر التقديري: $1.50
     </div>
 
     <a id="whatsapp-link" href="https://wa.me/9647815955995" class="submit-btn" onclick="return validateLink(event)" target="_blank">
@@ -243,39 +250,37 @@
 </div>
 
 <script>
-  // قائمة الخدمات والترويج بأسعار محددة جاهزة للاختيار Direct
   const servicesData = {
-    facebook: [
-      { name: 'ترويج فيسبوك - يوم واحد (1 يوم)', price: 5.00 },
-      { name: 'ترويج فيسبوك - 3 أيام', price: 12.00 },
-      { name: 'ترويج فيسبوك - 5 أيام', price: 18.00 },
-      { name: 'ترويج فيسبوك - أسبوع كامل (7 أيام)', price: 25.00 },
-      { name: 'ترويج فيسبوك - شهر كامل (30 يوم)', price: 90.00 },
-      { name: 'متابعين صفحة فيسبوك - 1,000 متابع', price: 3.00 },
-      { name: 'متابعين صفحة فيسبوك - 5,000 متابع', price: 14.00 },
-      { name: 'لايكات وتفاعلات منشورات - 1,000 لايك', price: 1.50 }
-    ],
     insta: [
-      { name: 'ترويج إنستغرام - يوم واحد (1 يوم)', price: 5.00 },
-      { name: 'ترويج إنستغرام - 3 أيام', price: 12.00 },
-      { name: 'ترويج إنستغرام - 5 أيام', price: 18.00 },
-      { name: 'ترويج إنستغرام - أسبوع كامل (7 أيام)', price: 25.00 },
-      { name: 'متابعين إنستغرام (مع ضمان) - 1,000 متابع', price: 1.50 },
-      { name: 'متابعين إنستغرام (مع ضمان) - 5,000 متابع', price: 7.00 },
-      { name: 'متابعين إنستغرام (مع ضمان) - 10,000 متابع', price: 13.00 },
-      { name: 'لايكات إنستغرام - 1,000 لايك', price: 0.50 },
-      { name: 'مشاهدات ريلز إنستغرام - 10,000 مشاهدة', price: 1.00 }
+      { id: 'i1', name: 'متابعين إنستغرام (ضمان) - $1.50 لكل 1000', pricePer1000: 1.50, isFixed: false },
+      { id: 'i2', name: 'لايكات إنستغرام حقيقية - $0.50 لكل 1000', pricePer1000: 0.50, isFixed: false },
+      { id: 'i3', name: 'مشاهدات ريلز إنستغرام - $0.20 لكل 1000', pricePer1000: 0.20, isFixed: false }
     ],
     tiktok: [
-      { name: 'متابعين تيك توك - 1,000 متابع', price: 2.50 },
-      { name: 'متابعين تيك توك - 5,000 متابع', price: 11.00 },
-      { name: 'مشاهدات تيك توك - 10,000 مشاهدة', price: 1.00 },
-      { name: 'لايكات تيك توك - 1,000 لايك', price: 0.80 }
+      { id: 't1', name: 'متابعين تيك توك - $2.50 لكل 1000', pricePer1000: 2.50, isFixed: false },
+      { id: 't2', name: 'مشاهدات فيديو تيك توك - $0.10 لكل 1000', pricePer1000: 0.10, isFixed: false },
+      { id: 't3', name: 'لايكات تيك توك - $0.80 لكل 1000', pricePer1000: 0.80, isFixed: false }
     ],
     telegram: [
-      { name: 'أعضاء قنوات تليجرام - 1,000 عضو', price: 1.80 },
-      { name: 'أعضاء قنوات تليجرام - 5,000 عضو', price: 8.50 },
-      { name: 'مشاهدات منشورات تليجرام - 5,000 مشاهدة', price: 0.80 }
+      { id: 'g1', name: 'أعضاء قنوات تليجرام - $1.80 لكل 1000', pricePer1000: 1.80, isFixed: false },
+      { id: 'g2', name: 'مشاهدات منشورات تليجرام - $0.15 لكل 1000', pricePer1000: 0.15, isFixed: false }
+    ],
+    facebook: [
+      { id: 'f1', name: 'متابعين صفحات فيسبوك - $3.00 لكل 1000', pricePer1000: 3.00, isFixed: false },
+      { id: 'f2', name: 'لايكات منشورات فيسبوك - $1.00 لكل 1000', pricePer1000: 1.00, isFixed: false }
+    ],
+    promo_fb: [
+      { id: 'pf1', name: 'ترويج فيسبوك - يوم واحد (1 يوم)', fixedPrice: 5.00, isFixed: true },
+      { id: 'pf2', name: 'ترويج فيسبوك - 3 أيام', fixedPrice: 12.00, isFixed: true },
+      { id: 'pf3', name: 'ترويج فيسبوك - 5 أيام', fixedPrice: 18.00, isFixed: true },
+[9/16/2026 9:59 AM] مصطفى خضير: { id: 'pf4', name: 'ترويج فيسبوك - أسبوع كامل (7 أيام)', fixedPrice: 25.00, isFixed: true },
+      { id: 'pf5', name: 'ترويج فيسبوك - شهر كامل (30 يوم)', fixedPrice: 90.00, isFixed: true }
+    ],
+    promo_insta: [
+      { id: 'pi1', name: 'ترويج إنستغرام - يوم واحد (1 يوم)', fixedPrice: 5.00, isFixed: true },
+      { id: 'pi2', name: 'ترويج إنستغرام - 3 أيام', fixedPrice: 12.00, isFixed: true },
+      { id: 'pi3', name: 'ترويج إنستغرام - 5 أيام', fixedPrice: 18.00, isFixed: true },
+      { id: 'pi4', name: 'ترويج إنستغرام - أسبوع كامل (7 أيام)', fixedPrice: 25.00, isFixed: true }
     ]
   };
 
@@ -284,11 +289,30 @@
   function updateServices() {
     const category = document.getElementById('category-select').value;
     const serviceSelect = document.getElementById('service-select');
+    const quantityGroup = document.getElementById('quantity-group');
     serviceSelect.innerHTML = '';
-[9/16/2026 9:16 AM] مصطفى خضير: servicesData[category].forEach(service => {
+
+    const services = servicesData[category];
+    const isPromo = category.startsWith('promo_');
+
+    if (isPromo) {
+      quantityGroup.style.display = 'none';
+    } else {
+      quantityGroup.style.display = 'block';
+    }
+
+    services.forEach(service => {
       const option = document.createElement('option');
-      option.dataset.price = service.price;
-      option.textContent = ${service.name} — السعر: $${service.price.toFixed(2)};
+      option.value = service.id;
+      if (service.isFixed) {
+        option.dataset.fixed = service.fixedPrice;
+        option.dataset.isFixed = "true";
+        option.textContent = ${service.name} — $${service.fixedPrice.toFixed(2)};
+      } else {
+        option.dataset.price = service.pricePer1000;
+        option.dataset.isFixed = "false";
+        option.textContent = service.name;
+      }
       serviceSelect.appendChild(option);
     });
 
@@ -298,23 +322,44 @@
   function calculatePrice() {
     const serviceSelect = document.getElementById('service-select');
     const selectedOption = serviceSelect.options[serviceSelect.selectedIndex];
-    const price = parseFloat(selectedOption ? selectedOption.dataset.price : 0);
+    
+    if (!selectedOption) return;
 
-    document.getElementById('price-box').textContent = السعر الكلي: $${price.toFixed(2)};
+    const isFixed = selectedOption.dataset.isFixed === "true";
+    let totalPrice = 0;
+
+    if (isFixed) {
+      totalPrice = parseFloat(selectedOption.dataset.fixed);
+    } else {
+      const pricePer1000 = parseFloat(selectedOption.dataset.price || 0);
+      const quantity = parseInt(document.getElementById('quantity-input').value) || 0;
+      totalPrice = (quantity / 1000) * pricePer1000;
+    }
+
+    document.getElementById('price-box').textContent = السعر التقديري: $${totalPrice.toFixed(2)};
     updateWhatsAppLink();
   }
 
   function updateWhatsAppLink() {
     const categoryName = document.getElementById('category-select').selectedOptions[0].text;
-    const serviceName = document.getElementById('service-select').selectedOptions[0] ? document.getElementById('service-select').selectedOptions[0].text : '';
+    const serviceSelect = document.getElementById('service-select');
+    const selectedOption = serviceSelect.options[serviceSelect.selectedIndex];
+    const serviceName = selectedOption ? selectedOption.text : '';
     const link = document.getElementById('link-input').value.trim();
+    const quantityGroup = document.getElementById('quantity-group');
+    const quantity = document.getElementById('quantity-input').value;
     const priceText = document.getElementById('price-box').textContent;
 
-    const message = طلب جديد من التطبيق 🚀\n\n +
-                    *المنصة:* ${categoryName}\n +
-                    *الخدمة المختارة:* ${serviceName}\n +
-                    *الرابط:* ${link}\n +
-                    *${priceText}*;
+    let message = طلب جديد من التطبيق 🚀\n\n +
+                  *الفئة:* ${categoryName}\n +
+                  *الخدمة:* ${serviceName}\n +
+                  *الرابط:* ${link}\n;
+
+    if (quantityGroup.style.display !== 'none') {
+      message += *الكمية:* ${quantity}\n;
+    }
+
+    message += *${priceText}*;
 
     const btn = document.getElementById('whatsapp-link');
     btn.href = https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)};
