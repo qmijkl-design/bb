@@ -1,4 +1,3 @@
- مصطفى خضير: <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
@@ -187,7 +186,6 @@
     </div>
     <div class="stat-icon">📊</div>
   </div>
- مصطفى خضير: <div class="stat-card">
     <div class="stat-info">
       <h3>طلب مباشر</h3>
       <p>الدفع والتنفيذ فوراً عبر الواتساب</p>
@@ -209,15 +207,27 @@
 
   <div class="order-card">
     <h2>طلب جديد 🚀</h2>
+
+    <!-- العروض والخصومات -->
+    <div class="form-group">
+      <label>🔥 العروض الخاصة والخصومات:</label>
+      <select id="select-offers" class="service-box" onchange="handleSelectChange(this)">
+        <option value="" data-price="0">-- اختر عرض خاص --</option>
+        <option value="ترويج متابعين إنستغرام 1k" data-price="15,000 د.ع">ترويج متابعين إنستغرام - 1k (15,000 د.ع)</option>
+        <option value="ترويج متابعين إنستغرام 3k" data-price="40,000 د.ع">ترويج متابعين إنستغرام - 3k (40,000 د.ع)</option>
+        <option value="ترويج صفحة فيسبوك 3 أيام" data-price="30,000 د.ع">ترويج صفحة فيسبوك - 3 أيام (30,000 د.ع)</option>
+      </select>
+    </div>
+
     <!-- خدمات إنستغرام -->
     <div class="form-group">
       <label>📸 خدمات إنستغرام:</label>
       <select id="select-insta" class="service-box" onchange="handleSelectChange(this)">
         <option value="" data-price="0">-- اختر خدمة إنستغرام --</option>
-        <option value="ترويج إنستغرام ممول - يوم واحد" data-price="7,500 د.ع">ترويج إنستغرام ممول - يوم واحد (15,000 د.ع)</option>
-        <option value="متابعين إنستغرام (ضمان) - 1,000" data-price="2,250 د.ع">متابعين إنستغرام (ضمان) - 1,000 متابع (15,000 د.ع)</option>
-        <option value="لايكات إنستغرام - 1,000" data-price="750 د.ع">لايكات إنستغرام - 1,000 لايك (5,000 د.ع)</option>
-        <option value="مشاهدات ريلز - 10,000" data-price="1,500 د.ع">مشاهدات ريلز - 10,000 مشاهدة (5,000 د.ع)</option>
+        <option value="ترويج إنستغرام ممول - يوم واحد" data-price="10,000 د.ع">ترويج إنستغرام ممول - فديوهات ( 10,000د.ع)</option>
+        <option value="متابعين إنستغرام (ضمان) - 1,000" data-price="15,000 د.ع">متابعين إنستغرام (ضمان) - 1,000 متابع (15,000 د.ع)</option>
+        <option value="لايكات إنستغرام - 1,000" data-price="8,000 د.ع">لايكات إنستغرام - 1,000 لايك (8,000 د.ع)</option>
+        <option value="مشاهدات ريلز - 10,000" data-price="5,000 د.ع">مشاهدات ريلز - 10,000 مشاهدة (5,000 د.ع)</option>
       </select>
     </div>
 
@@ -226,9 +236,9 @@
       <label>📘 خدمات فيسبوك:</label>
       <select id="select-facebook" class="service-box" onchange="handleSelectChange(this)">
         <option value="" data-price="0">-- اختر خدمة فيسبوك --</option>
-        <option value="ترويج فيسبوك - يوم واحد" data-price="7,500 د.ع">ترويج فيسبوك - يوم واحد (15 د.ع)</option>
-        <option value="ترويج فيسبوك - أسبوع كامل" data-price="37,500 د.ع">ترويج فيسبوك - أسبوع كامل (70,000 د.ع)</option>
-        <option value="متابعين صفحة فيسبوك - 1,000" data-price="4,500 د.ع">متابعين صفحة فيسبوك - 1,000 متابع (8,000 د.ع)</option>
+        <option value="ترويج فيسبوك - يوم واحد" data-price="15,000 د.ع">ترويج فيسبوك - يوم واحد (15,000 د.ع)</option>
+        <option value="ترويج فيسبوك - أسبوع كامل" data-price="70,000 د.ع">ترويج فيسبوك - أسبوع كامل (70,000 د.ع)</option>
+        <option value="متابعين صفحة فيسبوك - 1,000" data-price="8,000 د.ع">متابعين صفحة فيسبوك - 1,000 متابع (8,000 د.ع)</option>
       </select>
     </div>
 
@@ -237,8 +247,8 @@
       <label>🎵 خدمات تيك توك:</label>
       <select id="select-tiktok" class="service-box" onchange="handleSelectChange(this)">
         <option value="" data-price="0">-- اختر خدمة تيك توك --</option>
-        <option value="متابعين تيك توك - 1,000" data-price="3,750 د.ع">متابعين تيك توك - 1,000 متابع (15,000 د.ع)</option>
-        <option value="مشاهدات تيك توك - 10,000" data-price="1,500 د.ع">مشاهدات تيك توك - 10,000 مشاهدة (5,000 د.ع)</option>
+        <option value="متابعين تيك توك - 1,000" data-price="15,000 د.ع">متابعين تيك توك - 1,000 متابع (15,000 د.ع)</option>
+        <option value="مشاهدات تيك توك - 10,000" data-price="8,000 د.ع">مشاهدات تيك توك - 10,000 مشاهدة (8,000 د.ع)</option>
       </select>
     </div>
 
@@ -250,6 +260,10 @@
         <option value="أعضاء قنوات تليجرام - 1,000" data-price="2,700 د.ع">أعضاء قنوات تليجرام - 1,000 عضو (10,000 د.ع)</option>
       </select>
     </div>
+      <label>رابط الحساب / المنشور المطلوب:</label>
+      <input type="url" id="link-input" placeholder="https://..." oninput="updateWhatsAppLink()">
+    </div>
+
     <div class="price-display" id="price-box">
       السعر الكلي: اختر خدمة أولاً
     </div>
