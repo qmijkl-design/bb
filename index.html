@@ -1,4 +1,4 @@
-مصطفى خضير: <!DOCTYPE html>
+ مصطفى خضير: <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
@@ -187,7 +187,7 @@
     </div>
     <div class="stat-icon">📊</div>
   </div>
-  <div class="stat-card">
+[9/16/2026 10:15 AM] مصطفى خضير: <div class="stat-card">
     <div class="stat-info">
       <h3>طلب مباشر</h3>
       <p>الدفع والتنفيذ فوراً عبر الواتساب</p>
@@ -280,16 +280,18 @@
     const serviceSelect = document.getElementById('service-select');
     serviceSelect.innerHTML = '';
 
-    servicesData[category].forEach(service => {
-      const option = document.createElement('option');
-      option.dataset.price = service.priceText;
-      option.textContent = ${service.name} — السعر: ${service.priceText};
-      serviceSelect.appendChild(option);
-    });
+    if (servicesData[category]) {
+      servicesData[category].forEach(service => {
+        const option = document.createElement('option');
+        option.dataset.price = service.priceText;
+        option.textContent = ${service.name} — السعر: ${service.priceText};
+        serviceSelect.appendChild(option);
+      });
+    }
 
     calculatePrice();
   }
-[9/16/2026 10:09 AM] مصطفى خضير: function calculatePrice() {
+ مصطفى خضير: function calculatePrice() {
     const serviceSelect = document.getElementById('service-select');
     const selectedOption = serviceSelect.options[serviceSelect.selectedIndex];
     const priceText = selectedOption ? selectedOption.dataset.price : '';
@@ -299,7 +301,8 @@
   }
 
   function updateWhatsAppLink() {
-    const categoryName = document.getElementById('category-select').selectedOptions[0].text;
+    const categorySelect = document.getElementById('category-select');
+    const categoryName = categorySelect.options[categorySelect.selectedIndex] ? categorySelect.options[categorySelect.selectedIndex].text : '';
     const serviceSelect = document.getElementById('service-select');
     const selectedOption = serviceSelect.options[serviceSelect.selectedIndex];
     const serviceName = selectedOption ? selectedOption.text : '';
@@ -326,7 +329,10 @@
     return true;
   }
 
-  updateServices();
+  // تشغيل الدالة فور تحميل الصفحة لإظهار قائمة العروض مباشرة
+  window.onload = function() {
+    updateServices();
+  };
 </script>
 
 </body>
