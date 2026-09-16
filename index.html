@@ -1,4 +1,4 @@
- مصطفى خضير: <!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
@@ -187,7 +187,7 @@
     </div>
     <div class="stat-icon">📊</div>
   </div>
-[9/16/2026 10:15 AM] مصطفى خضير: <div class="stat-card">
+[9/16/2026 10:36 AM] مصطفى خضير: <div class="stat-card">
     <div class="stat-info">
       <h3>طلب مباشر</h3>
       <p>الدفع والتنفيذ فوراً عبر الواتساب</p>
@@ -211,32 +211,44 @@
     <h2>طلب جديد 🚀</h2>
 
     <div class="form-group">
-      <label>الفئة المنصة:</label>
-      <select id="category-select" onchange="updateServices()">
-        <option value="offers">🔥 العروض والخصومات 💥</option>
-        <option value="insta">خدمات إنستغرام 📸</option>
-        <option value="facebook">خدمات فيسبوك 📘</option>
-        <option value="tiktok">خدمات تيك توك 🎵</option>
-        <option value="telegram">خدمات تليجرام ✈️</option>
-      </select>
-    </div>
-
-    <div class="form-group">
       <label>اختر الخدمة / العرض المطلوب:</label>
-      <select id="service-select" onchange="calculatePrice()">
+      <select id="service-select" onchange="updatePriceAndLink()">
+        <optgroup label="🔥 العروض والخصومات">
+          <option value="15000">🔥 ترويج متابعين إنستغرام - 1k (بسعر 15,000 د.ع)</option>
+          <option value="40000">🔥 ترويج متابعين إنستغرام - 3k (بسعر 40,000 د.ع)</option>
+          <option value="18000">🔥 ترويج صفحة فيسبوك 3 أيام (بسعر 18,000 د.ع)</option>
+        </optgroup>
+        <optgroup label="📸 خدمات إنستغرام">
+          <option value="7500">ترويج إنستغرام ممول - يوم واحد (بسعر 7,500 د.ع)</option>
+          <option value="2250">متابعين إنستغرام (ضمان) - 1,000 متابع (بسعر 2,250 د.ع)</option>
+          <option value="750">لايكات إنستغرام - 1,000 لايك (بسعر 750 د.ع)</option>
+          <option value="1500">مشاهدات ريلز - 10,000 مشاهدة (بسعر 1,500 د.ع)</option>
+        </optgroup>
+        <optgroup label="📘 خدمات فيسبوك">
+          <option value="7500">ترويج فيسبوك - يوم واحد (بسعر 7,500 د.ع)</option>
+          <option value="37500">ترويج فيسبوك - أسبوع كامل (بسعر 37,500 د.ع)</option>
+          <option value="4500">متابعين صفحة فيسبوك - 1,000 متابع (بسعر 4,500 د.ع)</option>
+        </optgroup>
+        <optgroup label="🎵 خدمات تيك توك">
+          <option value="3750">متابعين تيك توك - 1,000 متابع (بسعر 3,750 د.ع)</option>
+          <option value="1500">مشاهدات تيك توك - 10,000 مشاهدة (بسعر 1,500 د.ع)</option>
+        </optgroup>
+        <optgroup label="✈️ خدمات تليجرام">
+          <option value="2700">أعضاء قنوات تليجرام - 1,000 عضو (بسعر 2,700 د.ع)</option>
+        </optgroup>
       </select>
     </div>
 
     <div class="form-group">
       <label>رابط الحساب / المنشور المطلوب:</label>
-      <input type="url" id="link-input" placeholder="https://..." oninput="updateWhatsAppLink()">
+      <input type="url" id="link-input" placeholder="https://..." oninput="updatePriceAndLink()">
     </div>
 
     <div class="price-display" id="price-box">
       السعر الكلي: 15,000 د.ع
     </div>
 
-    <a id="whatsapp-link" href="https://wa.me/9647815955995" class="submit-btn" onclick="return validateLink(event)" target="_blank">
+    <a id="whatsapp-link" href="#" class="submit-btn" onclick="return validateLink(event)" target="_blank">
       تأكيد الطلب عبر الواتساب 💬
     </a>
   </div>
@@ -244,78 +256,26 @@
 </div>
 
 <script>
-  const servicesData = {
-    offers: [
-      { name: '🔥 عرض خاص: ترويج متابعين إنستغرام (1k)', priceText: '15,000 د.ع' },
-      { name: '🔥 عرض خاص: ترويج متابعين إنستغرام (3k)', priceText: '40,000 د.ع' },
-      { name: '🔥 عرض خاص: ترويج صفحة فيسبوك 3 أيام', priceText: '18,000 د.ع' }
-    ],
-    insta: [
-      { name: 'ترويج إنستغرام ممول - يوم واحد (1 يوم)', priceText: '7,500 د.ع' },
-      { name: 'متابعين إنستغرام (ضمان) - 1,000 متابع', priceText: '2,250 د.ع' },
-      { name: 'لايكات إنستغرام - 1,000 لايك', priceText: '750 د.ع' },
-      { name: 'مشاهدات ريلز - 10,000 مشاهدة', priceText: '1,500 د.ع' }
-    ],
-    facebook: [
-      { name: 'ترويج فيسبوك - يوم واحد (1 يوم)', priceText: '7,500 د.ع' },
-      { name: 'ترويج فيسبوك - أسبوع كامل (7 أيام)', priceText: '37,500 د.ع' },
-      { name: 'متابعين صفحة فيسبوك - 1,000 متابع', priceText: '4,500 د.ع' },
-      { name: 'لايكات وتفاعلات منشورات - 1,000 لايك', priceText: '2,250 د.ع' }
-    ],
-    tiktok: [
-      { name: 'متابعين تيك توك - 1,000 متابع', priceText: '3,750 د.ع' },
-      { name: 'مشاهدات تيك توك - 10,000 مشاهدة', priceText: '1,500 د.ع' },
-      { name: 'لايكات تيك توك - 1,000 لايك', priceText: '1,200 د.ع' }
-    ],
-    telegram: [
-      { name: 'أعضاء قنوات تليجرام - 1,000 عضو', priceText: '2,700 د.ع' },
-      { name: 'مشاهدات منشورات تليجرام - 5,000 مشاهدة', priceText: '1,200 د.ع' }
-    ]
-  };
-
   const whatsappNumber = "9647815955995";
 
-  function updateServices() {
-    const category = document.getElementById('category-select').value;
-    const serviceSelect = document.getElementById('service-select');
-    serviceSelect.innerHTML = '';
-
-    if (servicesData[category]) {
-      servicesData[category].forEach(service => {
-        const option = document.createElement('option');
-        option.dataset.price = service.priceText;
-        option.textContent = ${service.name} — السعر: ${service.priceText};
-        serviceSelect.appendChild(option);
-      });
-    }
-
-    calculatePrice();
-  }
- مصطفى خضير: function calculatePrice() {
+  function updatePriceAndLink() {
     const serviceSelect = document.getElementById('service-select');
     const selectedOption = serviceSelect.options[serviceSelect.selectedIndex];
-    const priceText = selectedOption ? selectedOption.dataset.price : '';
+    const serviceText = selectedOption ? selectedOption.text : '';
+    
+    // استخراج السعر المكتوب من النص المختار
+    const priceMatch = serviceText.match(/\((.*?)\)/);
+    const priceText = priceMatch ? priceMatch[1] : '';
 
-    document.getElementById('price-box').textContent = السعر الكلي: ${priceText};
-    updateWhatsAppLink();
-  }
+    document.getElementById('price-box').textContent = السعر الكلي: ${priceText.replace('بسعر ', '')};
 
-  function updateWhatsAppLink() {
-    const categorySelect = document.getElementById('category-select');
-    const categoryName = categorySelect.options[categorySelect.selectedIndex] ? categorySelect.options[categorySelect.selectedIndex].text : '';
-    const serviceSelect = document.getElementById('service-select');
-    const selectedOption = serviceSelect.options[serviceSelect.selectedIndex];
-    const serviceName = selectedOption ? selectedOption.text : '';
     const link = document.getElementById('link-input').value.trim();
-    const priceText = document.getElementById('price-box').textContent;
 
     const message = طلب جديد من التطبيق 🚀\n\n +
-                    *المنصة:* ${categoryName}\n +
-                    *الخدمة المختارة:* ${serviceName}\n +
-                    *الرابط:* ${link}\n +
-                    *${priceText}*;
-
-    const btn = document.getElementById('whatsapp-link');
+                    *الخدمة المطلوبة:* ${serviceText}\n +
+                    *الرابط:* ${link || 'لم يدخل رابط'}\n +
+                    *المبلغ:* ${priceText};
+ : const btn = document.getElementById('whatsapp-link');
     btn.href = https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)};
   }
 
@@ -329,9 +289,8 @@
     return true;
   }
 
-  // تشغيل الدالة فور تحميل الصفحة لإظهار قائمة العروض مباشرة
   window.onload = function() {
-    updateServices();
+    updatePriceAndLink();
   };
 </script>
 
