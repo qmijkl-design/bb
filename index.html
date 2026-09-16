@@ -1,259 +1,166 @@
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mustafa SMM Store</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap');
-
-    :root {
-      --bg-gradient: radial-gradient(circle at top, #1e0b36 0%, #0d041a 100%);
-      --card-bg: rgba(255, 255, 255, 0.95);
-      --card-text: #111827;
-      --primary-purple: #6d28d9;
-      --primary-purple-hover: #5b21b6;
-      --accent-gold: #fbbf24;
-      --whatsapp-color: #25d366;
-      --whatsapp-hover: #22c55e;
-    }
-
     body {
-      font-family: 'Cairo', system-ui, -apple-system, sans-serif;
-      background: #090214;
-      background-image: var(--bg-gradient);
+      font-family: Arial, sans-serif;
+      background-color: #0f071b;
       color: #ffffff;
       margin: 0;
-      padding: 20px 15px;
-      min-height: 100vh;
-      box-sizing: border-box;
-      -webkit-tap-highlight-color: transparent;
+      padding: 15px;
+      direction: rtl;
     }
 
     .container {
-      max-width: 480px;
+      max-width: 450px;
       margin: 0 auto;
     }
 
-    header {
+    .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 5px 25px 5px;
+      padding-bottom: 15px;
     }
 
     .logo {
-      font-size: 26px;
-      font-weight: 900;
-      letter-spacing: 1px;
+      font-size: 22px;
+      font-weight: bold;
       color: #ffffff;
-      text-shadow: 0 2px 10px rgba(251, 191, 36, 0.3);
     }
 
     .logo span {
-      color: var(--accent-gold);
-    }
-
-    .menu-icon {
-      font-size: 22px;
-      background: rgba(255, 255, 255, 0.1);
-      width: 42px;
-      height: 42px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 12px;
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      cursor: pointer;
+      color: #f59e0b;
     }
 
     .stat-card {
-      background: rgba(255, 255, 255, 0.07);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      color: #ffffff;
-      border-radius: 20px;
-      padding: 18px 22px;
-      margin-bottom: 15px;
+      background-color: #1a0f2e;
+      border: 1px solid #2d1a4d;
+      border-radius: 14px;
+      padding: 15px;
+      margin-bottom: 12px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-      transition: transform 0.2s ease;
-    }
-
-    .stat-card:active {
-      transform: scale(0.98);
     }
 
     .stat-info h3 {
       margin: 0;
-      font-size: 22px;
-      font-weight: 800;
-      letter-spacing: 0.5px;
-      background: linear-gradient(90deg, #ffffff, #e9d5ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      font-size: 20px;
+      color: #ffffff;
     }
 
     .stat-info p {
-      margin: 4px 0 0 0;
-      color: #c084fc;
+      margin: 5px 0 0 0;
+      color: #a78bfa;
       font-size: 13px;
-      font-weight: 600;
     }
 
     .stat-icon {
-      font-size: 28px;
-      background: linear-gradient(135deg, rgba(109, 40, 217, 0.4), rgba(251, 191, 36, 0.2));
-      width: 52px;
-      height: 52px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      font-size: 26px;
     }
 
     .quick-actions {
       display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 25px;
+      gap: 8px;
+      margin-bottom: 20px;
     }
 
     .action-btn {
       flex: 1;
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      background-color: #1a0f2e;
+      border: 1px solid #2d1a4d;
       color: #ffffff;
-      border-radius: 16px;
-      padding: 14px 8px;
+      border-radius: 12px;
+      padding: 10px 5px;
       text-align: center;
       font-size: 12px;
-      font-weight: 700;
       text-decoration: none;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-
-    .action-btn:hover {
-      background: rgba(255, 255, 255, 0.15);
-      border-color: var(--accent-gold);
+      display: block;
     }
 
     .action-btn span {
       display: block;
-      font-size: 22px;
-      margin-bottom: 6px;
+      font-size: 18px;
+      margin-bottom: 3px;
     }
 
     .order-card {
-      background: var(--card-bg);
-      color: var(--card-text);
-      border-radius: 28px;
-      padding: 24px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.1);
+      background-color: #ffffff;
+      color: #111111;
+      border-radius: 20px;
+      padding: 20px;
+      box-sizing: border-box;
     }
-[9/16/2026 1:45 PM] مصطفى خضير: .order-card h2 {
+
+    .order-card h2 {
       margin-top: 0;
-      font-size: 20px;
-      font-weight: 800;
-      border-bottom: 2px solid #f1f5f9;
-      padding-bottom: 12px;
-      color: var(--primary-purple);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      font-size: 18px;
+      color: #6d28d9;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 10px;
     }
 
     .form-group {
-      margin-bottom: 18px;
+      margin-bottom: 15px;
     }
 
     label {
       display: block;
       font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 8px;
-      color: #374151;
+      font-weight: bold;
+      margin-bottom: 6px;
+      color: #333333;
     }
 
-    input, select {
+    select, input {
       width: 100%;
-      padding: 14px 16px;
-      border-radius: 14px;
-      border: 1.5px solid #e2e8f0;
-      background: #f8fafc;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #cccccc;
+      background-color: #f9f9f9;
       font-size: 14px;
-      font-family: inherit;
-      color: #0f172a;
+      color: #000000;
       box-sizing: border-box;
       outline: none;
-      transition: all 0.25s ease;
-      cursor: pointer;
-    }
-
-    input:focus, select:focus {
-      border-color: var(--primary-purple);
-      background: #ffffff;
-      box-shadow: 0 0 0 4px rgba(109, 40, 217, 0.15);
     }
 
     .price-display {
-      background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
-      color: var(--primary-purple);
-      padding: 16px;
-      border-radius: 16px;
-      font-weight: 800;
+      background-color: #f3e8ff;
+      color: #6d28d9;
+      padding: 14px;
+      border-radius: 10px;
+      font-weight: bold;
       text-align: center;
-      margin-top: 20px;
-      font-size: 17px;
-      border: 1px solid rgba(109, 40, 217, 0.2);
-      box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.6);
+      margin-top: 15px;
+      font-size: 16px;
     }
 
     .submit-btn {
       width: 100%;
-      background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
-      color: white;
-      padding: 16px;
-      border-radius: 16px;
+      background-color: #25d366;
+      color: #ffffff;
+      padding: 14px;
+      border-radius: 12px;
       font-size: 16px;
-      font-weight: 800;
-      font-family: inherit;
-      margin-top: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
+      font-weight: bold;
+      margin-top: 15px;
       border: none;
       cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .submit-btn:hover {
-      box-shadow: 0 10px 28px rgba(37, 211, 102, 0.5);
-      transform: translateY(-2px);
-    }
-
-    .submit-btn:active {
-      transform: translateY(0);
     }
   </style>
 </head>
 <body>
 
 <div class="container">
-  
-  <header>
+
+  <div class="header">
     <div class="logo">MUSTAFA <span>SMM</span></div>
-    <div class="menu-icon">☰</div>
-  </header>
+    <div>☰</div>
+  </div>
 
   <div class="stat-card">
     <div class="stat-info">
@@ -272,13 +179,13 @@
   </div>
 
   <div class="quick-actions">
-    <a href="https://wa.me/9647815955995?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%A3%D8%AD%D8%AA%D8%A7%D8%AC%20%D8%AF%D8%B9%D9%85%20%D9%81%D9%86%D9%8A" class="action-btn" target="_blank">
+    <a href="https://wa.me/9647815955995" class="action-btn" target="_blank">
       <span>🎧</span> الدعم الفني
     </a>
-    <a href="javascript:void(0)" class="action-btn" onclick="alert('تواصل معنا عبر الواتساب لمعرفة طرق الدفع المتاحة (زين كاش / آسيا حوالة)')">
+    <a href="javascript:void(0)" class="action-btn" onclick="alert('طرق الدفع المتاحة: زين كاش / آسيا حوالة (تواصل عبر الواتساب)')">
       <span>💳</span> طرق الدفع
     </a>
-    <a href="https://wa.me/9647815955995?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B7%D9%84%D8%A7%D8%B9%20%D8%B9%D9%84%D9%89%20%D8%B3%D8%AC%D9%84%20%D8%B7%D9%84%D8%A8%D8%A7%D8%AA%D9%8A" class="action-btn" target="_blank">
+    <a href="https://wa.me/9647815955995" class="action-btn" target="_blank">
       <span>📜</span> سجل الطلبات
     </a>
   </div>
@@ -289,10 +196,10 @@
     <!-- العروض والخصومات -->
     <div class="form-group">
       <label>🔥 العروض الخاصة والخصومات:</label>
-      <select id="select-offers" class="service-box" onchange="handleSelectChange(this)">
+      <select id="select-offers" class="service-box" onchange="updatePrice(this)">
         <option value="" data-price="0">-- اختر عرض خاص --</option>
         <option value="ترويج متابعين إنستغرام 1k" data-price="15,000 د.ع">ترويج متابعين إنستغرام - 1k (15,000 د.ع)</option>
-         <option value="ترويج متابعين إنستغرام 3k" data-price="40,000 د.ع">ترويج متابعين إنستغرام - 3k (40,000 د.ع)</option>
+        <option value="ترويج متابعين إنستغرام 3k" data-price="40,000 د.ع">ترويج متابعين إنستغرام - 3k (40,000 د.ع)</option>
         <option value="ترويج صفحة فيسبوك 3 أيام" data-price="30,000 د.ع">ترويج صفحة فيسبوك - 3 أيام (30,000 د.ع)</option>
       </select>
     </div>
@@ -300,19 +207,19 @@
     <!-- خدمات إنستغرام -->
     <div class="form-group">
       <label>📸 خدمات إنستغرام:</label>
-      <select id="select-insta" class="service-box" onchange="handleSelectChange(this)">
+      <select id="select-insta" class="service-box" onchange="updatePrice(this)">
         <option value="" data-price="0">-- اختر خدمة إنستغرام --</option>
-        <option value="ترويج إنستغرام ممول - فيديوهات حقيقي" data-price="10,000 د.ع">ترويج إنستغرام ممول - فيديوهات حقيقي (10,000 د.ع)</option>
-        <option value="متابعين إنستغرام (ضمان) - 1,000 متابع حقيقي" data-price="15,000 د.ع">متابعين إنستغرام (ضمان) - 1,000 متابع حقيقي (15,000 د.ع)</option>
-        <option value="لايكات إنستغرام - 1,000 لايك" data-price="8,000 د.ع">لايكات إنستغرام حقيقي - 1,000 لايك (8,000 د.ع)</option>
-        <option value="مشاهدات ريلز - 10,000 مشاهدة وهمي" data-price="5,000 د.ع">مشاهدات ريلز - 10,000 مشاهدة وهمي (5,000 د.ع)</option>
+        <option value="ترويج إنستغرام ممول - فيديوهات حقيقي (10,000 د.ع)" data-price="10,000 د.ع">ترويج إنستغرام ممول - فيديوهات حقيقي (10,000 د.ع)</option>
+        <option value="متابعين إنستغرام (ضمان) - 1,000 متابع حقيقي (15,000 د.ع)" data-price="15,000 د.ع">متابعين إنستغرام (ضمان) - 1,000 متابع حقيقي (15,000 د.ع)</option>
+        <option value="لايكات إنستغرام حقيقي - 1,000 لايك (8,000 د.ع)" data-price="8,000 د.ع">لايكات إنستغرام حقيقي - 1,000 لايك (8,000 د.ع)</option>
+        <option value="مشاهدات ريلز - 10,000 مشاهدة وهمي (5,000 د.ع)" data-price="5,000 د.ع">مشاهدات ريلز - 10,000 مشاهدة وهمي (5,000 د.ع)</option>
       </select>
     </div>
 
     <!-- خدمات فيسبوك -->
     <div class="form-group">
       <label>📘 خدمات فيسبوك:</label>
-      <select id="select-facebook" class="service-box" onchange="handleSelectChange(this)">
+      <select id="select-facebook" class="service-box" onchange="updatePrice(this)">
         <option value="" data-price="0">-- اختر خدمة فيسبوك --</option>
         <option value="ترويج فيسبوك - يوم واحد" data-price="15,000 د.ع">ترويج فيسبوك - يوم واحد (15,000 د.ع)</option>
         <option value="ترويج فيسبوك - أسبوع كامل" data-price="70,000 د.ع">ترويج فيسبوك - أسبوع كامل (70,000 د.ع)</option>
@@ -323,7 +230,7 @@
     <!-- خدمات تيك توك -->
     <div class="form-group">
       <label>🎵 خدمات تيك توك:</label>
-      <select id="select-tiktok" class="service-box" onchange="handleSelectChange(this)">
+      <select id="select-tiktok" class="service-box" onchange="updatePrice(this)">
         <option value="" data-price="0">-- اختر خدمة تيك توك --</option>
         <option value="متابعين تيك توك - 1,000" data-price="15,000 د.ع">متابعين تيك توك - 1,000 متابع (15,000 د.ع)</option>
         <option value="مشاهدات تيك توك - 10,000" data-price="8,000 د.ع">مشاهدات تيك توك - 10,000 مشاهدة (8,000 د.ع)</option>
@@ -333,7 +240,7 @@
     <!-- خدمات تليجرام -->
     <div class="form-group">
       <label>✈️ خدمات تليجرام:</label>
-      <select id="select-telegram" class="service-box" onchange="handleSelectChange(this)">
+      <select id="select-telegram" class="service-box" onchange="updatePrice(this)">
         <option value="" data-price="0">-- اختر خدمة تليجرام --</option>
         <option value="أعضاء قنوات تليجرام - 1,000" data-price="10,000 د.ع">أعضاء قنوات تليجرام - 1,000 عضو (10,000 د.ع)</option>
       </select>
@@ -341,7 +248,7 @@
 
     <div class="form-group">
       <label>رابط الحساب / المنشور المطلوب:</label>
-      <input type="url" id="link-input" placeholder="https://...">
+      <input type="text" id="link-input" placeholder="https://...">
     </div>
 
     <div class="price-display" id="price-box">
@@ -356,49 +263,45 @@
 </div>
 
 <script>
-  const whatsappNumber = "9647815955995";
-  let activeService = "";
-  let activePrice = "";
+  var activeService = "";
+  var activePrice = "";
 
-  function handleSelectChange(currentSelect) {
-    if (currentSelect.value !== "") {
-      const allSelects = document.querySelectorAll('.service-box');
-      allSelects.forEach(select => {
-        if (select !== currentSelect) {
-          select.selectedIndex = 0;
-        }
-      });
+  function updatePrice(element) {
+    var boxes = document.getElementsByClassName('service-box');
+    for (var i = 0; i < boxes.length; i++) {
+      if (boxes[i] !== element) {
+        boxes[i].selectedIndex = 0;
+      }
+    }
 
-      const selectedOption = currentSelect.options[currentSelect.selectedIndex];
-      activeService = selectedOption.value;
-      activePrice = selectedOption.getAttribute('data-price');
-
-      document.getElementById('price-box').textContent = "السعر الكلي: " + activePrice;
+    if (element.value !== "") {
+      var selected = element.options[element.selectedIndex];
+      activeService = selected.value;
+      activePrice = selected.getAttribute('data-price');
+      document.getElementById('price-box').innerHTML = "السعر الكلي: " + activePrice;
     } else {
       activeService = "";
       activePrice = "";
-      document.getElementById('price-box').textContent = "السعر الكلي: اختر خدمة أولاً";
+      document.getElementById('price-box').innerHTML = "السعر الكلي: اختر خدمة أولاً";
     }
   }
 
   function sendToWhatsApp() {
     if (!activeService) {
-      alert('يرجى اختيار خدمة أولاً من القوائم أعلاه');
-      return;
-    }
-  : const link = document.getElementById('link-input').value.trim();
-    if (!link) {
-      alert('يرجى كتابة رابط الحساب أو المنشور أولاً');
+      alert('يرجى اختيار خدمة أولاً');
       return;
     }
 
-    const message = "طلب جديد من التطبيق 🚀\n\n" +
-                    "*الخدمة المطلوبة:* " + activeService + "\n" +
-                    "*السعر:* " + activePrice + "\n" +
-                    "*الرابط:* " + link;
+    var link = document.getElementById('link-input').value;
+    if (!link || link.trim() === "") {
+      alert('يرجى كتابة الرابط أولاً');
+      return;
+    }
 
-    const url = "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(message);
-    window.open(url, '_blank');
+    var text = "طلب جديد 🚀\nالخدمة: " + activeService + "\nالسعر: " + activePrice + "\nالرابط: " + link;
+    var url = "https://wa.me/9647815955995?text=" + encodeURIComponent(text);
+    
+    window.location.href = url;
   }
 </script>
 
