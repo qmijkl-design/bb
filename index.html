@@ -1,180 +1,337 @@
- 
+[9/16/2026 9:16 AM] مصطفى خضير: <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>مصطفى خضير للخدمات الرقمية</title>
-<style>
-:root{
-  --bg:#070a12;
-  --card:#101522;
-  --card2:#151b2a;
-  --text:#f7f8fc;
-  --muted:#9aa5bb;
-  --gold:#e7bd67;
-  --gold2:#fff0b8;
-  --border:rgba(255,255,255,.09);
-}
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-  font-family:"Segoe UI",Tahoma,Arial,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  min-height:100vh;
-  padding-bottom:30px;
-}
-.container{width:min(1120px,92%);margin:auto}
-header{
-  padding:20px 0;
-  position:sticky;top:0;z-index:20;
-  background:rgba(7,10,18,.9);
-  border-bottom:1px solid var(--border);
-}
-.brand{display:flex;align-items:center;gap:12px}
-.logo{
-  width:45px;height:45px;border-radius:12px;
-  display:grid;place-items:center;font-weight:900;font-size:20px;
-  color:#111;background:linear-gradient(135deg,var(--gold2),var(--gold));
-}
-.hero{padding:40px 0 20px;text-align:center}
-.hero h2{font-size:32px;margin-bottom:10px;color:var(--gold2)}
-.hero p{color:var(--muted);font-size:15px}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mustafa SMM Store</title>
+  <style>
+    :root {
+      --bg-gradient: linear-gradient(180deg, #18093d 0%, #0d0422 100%);
+      --card-bg: #ffffff;
+      --card-text: #1e1e1e;
+      --primary-purple: #4c1d95;
+      --accent-gold: #f59e0b;
+      --whatsapp-color: #25d366;
+    }
 
-.services{
-  display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:15px;
-  margin-top:20px;
-}
-.service-card{
-  background:linear-gradient(145deg,var(--card2),var(--card));
-  border:1px solid var(--border);border-radius:18px;padding:20px;
-  cursor:pointer;
-}
-.service-card:hover, .service-card.active{
-  border-color:var(--gold);
-  background:rgba(231,189,103,.08);
-}
-.service-card h4{font-size:20px;color:var(--gold2);margin-bottom:8px}
-.service-card p{font-size:13px;color:var(--muted);line-height:1.6}
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: var(--bg-gradient);
+      color: #ffffff;
+      margin: 0;
+      padding: 15px;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
 
-.order-box{
-  margin-top:30px;
-  background:var(--card);
-  border:1px solid var(--border);border-radius:20px;padding:22px;
-}
-.status{
-  padding:12px;background:rgba(231,189,103,.1);
-  border:1px solid var(--gold);border-radius:10px;
-  color:var(--gold2);font-weight:bold;margin-bottom:15px;text-align:center;
-}
-label{
-  display:block;font-size:14px;color:#dfe4ef;margin-bottom:8px;
-}
-textarea{
-  width:100%;background:#090d17;border:1px solid var(--border);
-  color:#fff;border-radius:12px;padding:14px;font-size:15px;
-  min-height:90px;outline:none;
-}
-textarea:focus{border-color:var(--gold)}
-.btn{
-  width:100%;padding:15px;border:0;border-radius:12px;
-  background:linear-gradient(135deg,var(--gold2),var(--gold));
-  color:#000;font-weight:bold;font-size:16px;margin-top:15px;cursor:pointer;
-}
-footer{
-  text-align:center;margin-top:30px;font-size:12px;color:var(--muted);
-}
-</style>
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 5px 20px 5px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      color: #ffffff;
+    }
+
+    .logo span {
+      color: var(--accent-gold);
+    }
+
+    .stat-card {
+      background: var(--card-bg);
+      color: var(--card-text);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    .stat-info h3 {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .stat-info p {
+      margin: 5px 0 0 0;
+      color: #666;
+      font-size: 14px;
+    }
+
+    .stat-icon {
+      font-size: 30px;
+      color: var(--primary-purple);
+    }
+
+    .quick-actions {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 25px;
+    }
+
+    .action-btn {
+      flex: 1;
+      background: var(--card-bg);
+      color: var(--card-text);
+      border-radius: 14px;
+      padding: 12px 5px;
+      text-align: center;
+      font-size: 12px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .action-btn span {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+
+    .order-card {
+      background: var(--card-bg);
+      color: var(--card-text);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    }
+
+    .order-card h2 {
+      margin-top: 0;
+      font-size: 18px;
+      border-bottom: 2px solid #f1f5f9;
+      padding-bottom: 10px;
+      color: var(--primary-purple);
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 6px;
+      color: #444;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #cbd5e1;
+      background: #f8fafc;
+      font-size: 14px;
+      box-sizing: border-box;
+      outline: none;
+    }
+
+    .price-display {
+      background: #f3e8ff;
+      color: var(--primary-purple);
+      padding: 12px;
+      border-radius: 10px;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 15px;
+      font-size: 16px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      background: var(--whatsapp-color);
+      color: white;
+      padding: 15px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      margin-top: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+      text-decoration: none;
+      box-sizing: border-box;
+    }
+  </style>
 </head>
 <body>
 
-<header>
-  <div class="container brand">
-    <div class="logo">م</div>
-    <div>
-      <h3>مصطفى خضير للخدمات الرقمية</h3>
-      <small style="color:var(--muted)">خدمات وترويج وشحن بسهولة</small>
+<div class="container">
+  
+  <header>
+    <div class="logo">MUSTAFA <span>SMM</span></div>
+    <div style="font-size: 20px;">☰</div>
+  </header>
+
+  <div class="stat-card">
+    <div class="stat-info">
+      <h3>13773533</h3>
+      <p>طلبات مكتملة</p>
     </div>
+    <div class="stat-icon">📊</div>
   </div>
-</header>
+[9/16/2026 9:16 AM] مصطفى خضير: <div class="stat-card">
+    <div class="stat-info">
+      <h3>طلب مباشر</h3>
+      <p>الدفع والتنفيذ فوراً عبر الواتساب</p>
+    </div>
+    <div class="stat-icon">💬</div>
+  </div>
 
-<main class="container">
-  <section class="hero">
-    <h2>اختر الخدمة المطلوبة</h2>
-    <p>اضغط على إحدى الخدمات بالأسفل للتحديد مباشرة</p>
-  </section>
+  <div class="quick-actions">
+    <a href="https://wa.me/9647815955995?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%8A%20%D8%A3%D8%AD%D8%AA%D8%A7%D8%AC%20%D8%AF%D8%B9%D9%85%20%D9%81%D9%86%D9%8A" class="action-btn" target="_blank">
+      <span>🎧</span> الدعم الفني
+    </a>
+    <a href="#" class="action-btn" onclick="alert('تواصل معنا عبر الواتساب لمعرفة طرق الدفع المتاحة (زين كاش / آسيا حوالة)')">
+      <span>💳</span> طرق الدفع
+    </a>
+    <a href="https://wa.me/9647815955995?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%B3%D8%A4%D8%A7%D9%84%20%D8%B9%D9%8BD%20%D8%B3%D8%AC%D9%84%20%D8%B7%D9%84%D8%A8%D8%A7%D8%AA%D9%8A" class="action-btn" target="_blank">
+      <span>📜</span> سجل الطلبات
+    </a>
+  </div>
 
-  <section class="services">
-    <div class="service-card" onclick="selectService('ترويج فيسبوك', this)">
-      <h4>ترويج فيسبوك</h4>
-      <p>• يوم: 15 ألف<br>• 7 أيام: 70 ألف<br>• 10 أيام: 100 ألف<br>• تحديد السعر حسب رغبتك</p>
+  <div class="order-card">
+    <h2>طلب جديد 🚀</h2>
+
+    <div class="form-group">
+      <label>الفئة المنصة:</label>
+      <select id="category-select" onchange="updateServices()">
+        <option value="facebook">خدمات وترويج فيسبوك 📘</option>
+        <option value="insta">خدمات وترويج إنستغرام 📸</option>
+        <option value="tiktok">خدمات تيك توك 🎵</option>
+        <option value="telegram">خدمات تليجرام ✈️</option>
+      </select>
     </div>
 
-    <div class="service-card" onclick="selectService('ترويج تيكتوك', this)">
-      <h4>ترويج تيكتوك</h4>
-      <p>• 1k متابعين حقيقي بـ 15 ألف<br>• دعم منشورات وحسابات</p>
+    <div class="form-group">
+      <label>اختر الخدمة / العرض المطلوب:</label>
+      <select id="service-select" onchange="calculatePrice()">
+      </select>
     </div>
 
-    <div class="service-card" onclick="selectService('ترويج انستغرام', this)">
-      <h4>ترويج انستغرام</h4>
-      <p>• 1k متابعين حقيقي بـ 15 ألف<br>• زيادة تفاعل وإعلانات</p>
+    <div class="form-group">
+      <label>رابط الحساب / المنشور المطلوب:</label>
+      <input type="url" id="link-input" placeholder="https://..." oninput="updateWhatsAppLink()">
     </div>
 
-    <div class="service-card" onclick="selectService('شحن عمل', this)">
-      <h4>شحن عمل</h4>
-      <p>• شحن كافة الأرصدة والخدمات المتاحة</p>
+    <div class="price-display" id="price-box">
+      السعر الكلي: $5.00
     </div>
 
-    <div class="service-card" onclick="selectService('شحن جميع الألعاب', this)">
-      <h4>شحن جميع الألعاب</h4>
-      <p>• بيس، لودو، ببجي وغيرها من الألعاب</p>
-    </div>
-  </section>
+    <a id="whatsapp-link" href="https://wa.me/9647815955995" class="submit-btn" onclick="return validateLink(event)" target="_blank">
+      تأكيد الطلب عبر الواتساب 💬
+    </a>
+  </div>
 
-  <section class="order-box" id="orderSection">
-    <div class="status" id="statusText">الخدمة المختارة: لم يتم اختيار خدمة بعد</div>
- <label for="details">رابط أو اسم الحساب / ID اللعبة:</label>
-    <textarea id="details" placeholder="اكتب رابط أو اسم الحساب أو التفاصيل هنا..."></textarea>
-
-    <button class="btn" onclick="sendOrder()">إرسال الطلب عبر واتساب ↗</button>
-  </section>
-</main>
-
-<footer>
-  © 2026 مصطفى خضير للخدمات الرقمية — جميع الحقوق محفوظة
-</footer>
+</div>
 
 <script>
-let chosenService = "";
+  // قائمة الخدمات والترويج بأسعار محددة جاهزة للاختيار Direct
+  const servicesData = {
+    facebook: [
+      { name: 'ترويج فيسبوك - يوم واحد (1 يوم)', price: 5.00 },
+      { name: 'ترويج فيسبوك - 3 أيام', price: 12.00 },
+      { name: 'ترويج فيسبوك - 5 أيام', price: 18.00 },
+      { name: 'ترويج فيسبوك - أسبوع كامل (7 أيام)', price: 25.00 },
+      { name: 'ترويج فيسبوك - شهر كامل (30 يوم)', price: 90.00 },
+      { name: 'متابعين صفحة فيسبوك - 1,000 متابع', price: 3.00 },
+      { name: 'متابعين صفحة فيسبوك - 5,000 متابع', price: 14.00 },
+      { name: 'لايكات وتفاعلات منشورات - 1,000 لايك', price: 1.50 }
+    ],
+    insta: [
+      { name: 'ترويج إنستغرام - يوم واحد (1 يوم)', price: 5.00 },
+      { name: 'ترويج إنستغرام - 3 أيام', price: 12.00 },
+      { name: 'ترويج إنستغرام - 5 أيام', price: 18.00 },
+      { name: 'ترويج إنستغرام - أسبوع كامل (7 أيام)', price: 25.00 },
+      { name: 'متابعين إنستغرام (مع ضمان) - 1,000 متابع', price: 1.50 },
+      { name: 'متابعين إنستغرام (مع ضمان) - 5,000 متابع', price: 7.00 },
+      { name: 'متابعين إنستغرام (مع ضمان) - 10,000 متابع', price: 13.00 },
+      { name: 'لايكات إنستغرام - 1,000 لايك', price: 0.50 },
+      { name: 'مشاهدات ريلز إنستغرام - 10,000 مشاهدة', price: 1.00 }
+    ],
+    tiktok: [
+      { name: 'متابعين تيك توك - 1,000 متابع', price: 2.50 },
+      { name: 'متابعين تيك توك - 5,000 متابع', price: 11.00 },
+      { name: 'مشاهدات تيك توك - 10,000 مشاهدة', price: 1.00 },
+      { name: 'لايكات تيك توك - 1,000 لايك', price: 0.80 }
+    ],
+    telegram: [
+      { name: 'أعضاء قنوات تليجرام - 1,000 عضو', price: 1.80 },
+      { name: 'أعضاء قنوات تليجرام - 5,000 عضو', price: 8.50 },
+      { name: 'مشاهدات منشورات تليجرام - 5,000 مشاهدة', price: 0.80 }
+    ]
+  };
 
-function selectService(name, element) {
-  chosenService = name;
-  document.getElementById('statusText').innerText = "الخدمة المختارة: " + chosenService;
-  
-  let cards = document.querySelectorAll('.service-card');
-  cards.forEach(c => c.classList.remove('active'));
-  element.classList.add('active');
+  const whatsappNumber = "9647815955995";
 
-  document.getElementById('orderSection').scrollIntoView({ behavior: 'smooth' });
-}
+  function updateServices() {
+    const category = document.getElementById('category-select').value;
+    const serviceSelect = document.getElementById('service-select');
+    serviceSelect.innerHTML = '';
+[9/16/2026 9:16 AM] مصطفى خضير: servicesData[category].forEach(service => {
+      const option = document.createElement('option');
+      option.dataset.price = service.price;
+      option.textContent = ${service.name} — السعر: $${service.price.toFixed(2)};
+      serviceSelect.appendChild(option);
+    });
 
-function sendOrder() {
-  let detailsText = document.getElementById('details').value.trim();
-
-  if (!chosenService) {
-    alert("يرجى اختيار خدمة من الأعلى أولاً!");
-    return;
+    calculatePrice();
   }
 
-  if (!detailsText) {
-    alert("يرجى كتابة اسم الحساب أو الرابط!");
-    return;
+  function calculatePrice() {
+    const serviceSelect = document.getElementById('service-select');
+    const selectedOption = serviceSelect.options[serviceSelect.selectedIndex];
+    const price = parseFloat(selectedOption ? selectedOption.dataset.price : 0);
+
+    document.getElementById('price-box').textContent = السعر الكلي: $${price.toFixed(2)};
+    updateWhatsAppLink();
   }
 
-  let msg = "السلام عليكم مصطفى خضير 👋\n\nأريد طلب خدمة:\nالخدمة: " + chosenService + "\n\nرابط/اسم الحساب أو التفاصيل:\n" + detailsText;
-  let url = "https://wa.me/9647815955995?text=" + encodeURIComponent(msg);
-  
-  window.open(url, '_blank');
-}
+  function updateWhatsAppLink() {
+    const categoryName = document.getElementById('category-select').selectedOptions[0].text;
+    const serviceName = document.getElementById('service-select').selectedOptions[0] ? document.getElementById('service-select').selectedOptions[0].text : '';
+    const link = document.getElementById('link-input').value.trim();
+    const priceText = document.getElementById('price-box').textContent;
+
+    const message = طلب جديد من التطبيق 🚀\n\n +
+                    *المنصة:* ${categoryName}\n +
+                    *الخدمة المختارة:* ${serviceName}\n +
+                    *الرابط:* ${link}\n +
+                    *${priceText}*;
+
+    const btn = document.getElementById('whatsapp-link');
+    btn.href = https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)};
+  }
+
+  function validateLink(event) {
+    const link = document.getElementById('link-input').value.trim();
+    if (!link) {
+      alert('يرجى كتابة رابط الحساب أو المنشور أولاً');
+      event.preventDefault();
+      return false;
+    }
+    return true;
+  }
+
+  updateServices();
 </script>
+
 </body>
 </html>
