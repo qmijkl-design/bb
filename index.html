@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+[9/16/2026 10:45 AM] مصطفى خضير: <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
@@ -187,7 +187,7 @@
     </div>
     <div class="stat-icon">📊</div>
   </div>
-[9/16/2026 10:36 AM] مصطفى خضير: <div class="stat-card">
+[9/16/2026 10:45 AM] مصطفى خضير: <div class="stat-card">
     <div class="stat-info">
       <h3>طلب مباشر</h3>
       <p>الدفع والتنفيذ فوراً عبر الواتساب</p>
@@ -210,42 +210,65 @@
   <div class="order-card">
     <h2>طلب جديد 🚀</h2>
 
+    <!-- العروض والخصومات -->
     <div class="form-group">
-      <label>اختر الخدمة / العرض المطلوب:</label>
-      <select id="service-select" onchange="updatePriceAndLink()">
-        <optgroup label="🔥 العروض والخصومات">
-          <option value="15000">🔥 ترويج متابعين إنستغرام - 1k (بسعر 15,000 د.ع)</option>
-          <option value="40000">🔥 ترويج متابعين إنستغرام - 7k (بسعر 60,000 د.ع)</option>
-          <option value="18000">🔥 ترويج صفحة فيسبوك 3 أيام (بسعر 40,000 د.ع)</option>
-        </optgroup>
-        <optgroup label="📸 خدمات إنستغرام">
-          <option value="7500">ترويج إنستغرام ممول - يوم واحد (بسعر 15,000 د.ع)</option>
-          <option value="2250">متابعين إنستغرام (ضمان) - 1,000 متابع (بسعر 8,000 د.ع)</option>
-          <option value="750">لايكات إنستغرام - 1,000 لايك (بسعر 5000 د.ع)</option>
-          <option value="1500">مشاهدات ريلز - 10,000 مشاهدة (بسعر 5,000 د.ع)</option>
-        </optgroup>
-        <optgroup label="📘 خدمات فيسبوك">
-          <option value="7500">ترويج فيسبوك - يوم واحد (بسعر 15,000 د.ع)</option>
-          <option value="37500">ترويج فيسبوك - أسبوع كامل (بسعر 60,500 د.ع)</option>
-          <option value="4500">متابعين صفحة فيسبوك - 1,000 متابع (بسعر 6,000 د.ع)</option>
-        </optgroup>
-        <optgroup label="🎵 خدمات تيك توك">
-          <option value="3750">متابعين تيك توك - 1,000 متابع (بسعر 15,000 د.ع)</option>
-          <option value="1500">مشاهدات تيك توك - 10,000 مشاهدة (بسعر 5,000 د.ع)</option>
-        </optgroup>
-        <optgroup label="✈️ خدمات تليجرام">
-          <option value="2700">أعضاء قنوات تليجرام - 1,000 عضو (بسعر 10,000 د.ع)</option>
-        </optgroup>
+      <label>🔥 العروض الخاصة والخصومات:</label>
+      <select id="select-offers" class="service-box" onchange="handleSelectChange(this)">
+        <option value="" data-price="0">-- اختر عرض خاص --</option>
+        <option value="ترويج متابعين إنستغرام 1k" data-price="15,000 د.ع">ترويج متابعين إنستغرام - 1k (15,000 د.ع)</option>
+        <option value="ترويج متابعين إنستغرام 3k" data-price="40,000 د.ع">ترويج متابعين إنستغرام - 3k (40,000 د.ع)</option>
+        <option value="ترويج صفحة فيسبوك 3 أيام" data-price="18,000 د.ع">ترويج صفحة فيسبوك - 3 أيام (18,000 د.ع)</option>
       </select>
     </div>
 
+    <!-- خدمات إنستغرام -->
     <div class="form-group">
+      <label>📸 خدمات إنستغرام:</label>
+      <select id="select-insta" class="service-box" onchange="handleSelectChange(this)">
+        <option value="" data-price="0">-- اختر خدمة إنستغرام --</option>
+        <option value="ترويج إنستغرام ممول - يوم واحد" data-price="7,500 د.ع">ترويج إنستغرام ممول - يوم واحد (7,500 د.ع)</option>
+        <option value="متابعين إنستغرام (ضمان) - 1,000" data-price="2,250 د.ع">متابعين إنستغرام (ضمان) - 1,000 متابع (2,250 د.ع)</option>
+        <option value="لايكات إنستغرام - 1,000" data-price="750 د.ع">لايكات إنستغرام - 1,000 لايك (750 د.ع)</option>
+        <option value="مشاهدات ريلز - 10,000" data-price="1,500 د.ع">مشاهدات ريلز - 10,000 مشاهدة (1,500 د.ع)</option>
+      </select>
+    </div>
+
+    <!-- خدمات فيسبوك -->
+    <div class="form-group">
+      <label>📘 خدمات فيسبوك:</label>
+      <select id="select-facebook" class="service-box" onchange="handleSelectChange(this)">
+        <option value="" data-price="0">-- اختر خدمة فيسبوك --</option>
+        <option value="ترويج فيسبوك - يوم واحد" data-price="7,500 د.ع">ترويج فيسبوك - يوم واحد (7,500 د.ع)</option>
+        <option value="ترويج فيسبوك - أسبوع كامل" data-price="37,500 د.ع">ترويج فيسبوك - أسبوع كامل (37,500 د.ع)</option>
+        <option value="متابعين صفحة فيسبوك - 1,000" data-price="4,500 د.ع">متابعين صفحة فيسبوك - 1,000 متابع (4,500 د.ع)</option>
+      </select>
+    </div>
+
+    <!-- خدمات تيك توك -->
+    <div class="form-group">
+      <label>🎵 خدمات تيك توك:</label>
+      <select id="select-tiktok" class="service-box" onchange="handleSelectChange(this)">
+        <option value="" data-price="0">-- اختر خدمة تيك توك --</option>
+        <option value="متابعين تيك توك - 1,000" data-price="3,750 د.ع">متابعين تيك توك - 1,000 متابع (3,750 د.ع)</option>
+        <option value="مشاهدات تيك توك - 10,000" data-price="1,500 د.ع">مشاهدات تيك توك - 10,000 مشاهدة (1,500 د.ع)</option>
+      </select>
+    </div>
+
+    <!-- خدمات تليجرام -->
+    <div class="form-group">
+      <label>✈️ خدمات تليجرام:</label>
+      <select id="select-telegram" class="service-box" onchange="handleSelectChange(this)">
+        <option value="" data-price="0">-- اختر خدمة تليجرام --</option>
+        <option value="أعضاء قنوات تليجرام - 1,000" data-price="2,700 د.ع">أعضاء قنوات تليجرام - 1,000 عضو (2,700 د.ع)</option>
+      </select>
+    </div>
+[9/16/2026 10:45 AM] مصطفى خضير: <div class="form-group">
       <label>رابط الحساب / المنشور المطلوب:</label>
-      <input type="url" id="link-input" placeholder="https://..." oninput="updatePriceAndLink()">
+      <input type="url" id="link-input" placeholder="https://..." oninput="updateWhatsAppLink()">
     </div>
 
     <div class="price-display" id="price-box">
-      السعر الكلي: 15,000 د.ع
+      السعر الكلي: اختر خدمة أولاً
     </div>
 
     <a id="whatsapp-link" href="#" class="submit-btn" onclick="return validateLink(event)" target="_blank">
@@ -257,29 +280,51 @@
 
 <script>
   const whatsappNumber = "9647815955995";
+  let activeService = "";
+  let activePrice = "";
 
-  function updatePriceAndLink() {
-    const serviceSelect = document.getElementById('service-select');
-    const selectedOption = serviceSelect.options[serviceSelect.selectedIndex];
-    const serviceText = selectedOption ? selectedOption.text : '';
-    
-    // استخراج السعر المكتوب من النص المختار
-    const priceMatch = serviceText.match(/\((.*?)\)/);
-    const priceText = priceMatch ? priceMatch[1] : '';
+  function handleSelectChange(currentSelect) {
+    // عند اختيار خدمة في أحد المربعات يتم تصفير المربعات الأخرى
+    if (currentSelect.value !== "") {
+      const allSelects = document.querySelectorAll('.service-box');
+      allSelects.forEach(select => {
+        if (select !== currentSelect) {
+          select.selectedIndex = 0;
+        }
+      });
 
-    document.getElementById('price-box').textContent = السعر الكلي: ${priceText.replace('بسعر ', '')};
+      const selectedOption = currentSelect.options[currentSelect.selectedIndex];
+      activeService = selectedOption.value;
+      activePrice = selectedOption.dataset.price;
 
+      document.getElementById('price-box').textContent = السعر الكلي: ${activePrice};
+    } else {
+      activeService = "";
+      activePrice = "";
+      document.getElementById('price-box').textContent = "السعر الكلي: اختر خدمة أولاً";
+    }
+
+    updateWhatsAppLink();
+  }
+
+  function updateWhatsAppLink() {
     const link = document.getElementById('link-input').value.trim();
 
     const message = طلب جديد من التطبيق 🚀\n\n +
-                    *الخدمة المطلوبة:* ${serviceText}\n +
-                    *الرابط:* ${link || 'لم يدخل رابط'}\n +
-                    *المبلغ:* ${priceText};
- : const btn = document.getElementById('whatsapp-link');
+                    *الخدمة المطلوبة:* ${activeService || 'لم يتم تحديد خدمة'}\n +
+                    *السعر:* ${activePrice || '0'}\n +
+                    *الرابط:* ${link || 'لم يدخل رابط'};
+
+    const btn = document.getElementById('whatsapp-link');
     btn.href = https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)};
   }
 
   function validateLink(event) {
+    if (!activeService) {
+      alert('يرجى اختيار خدمة أولاً من القوائم الأعلاه');
+      event.preventDefault();
+      return false;
+    }
     const link = document.getElementById('link-input').value.trim();
     if (!link) {
       alert('يرجى كتابة رابط الحساب أو المنشور أولاً');
@@ -288,10 +333,6 @@
     }
     return true;
   }
-
-  window.onload = function() {
-    updatePriceAndLink();
-  };
 </script>
 
 </body>
