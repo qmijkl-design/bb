@@ -4,27 +4,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mustafa SMM Store</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap');
+
     :root {
-      --bg-gradient: linear-gradient(180deg, #18093d 0%, #0d0422 100%);
-      --card-bg: #ffffff;
-      --card-text: #1e1e1e;
-      --primary-purple: #4c1d95;
-      --accent-gold: #f59e0b;
+      --bg-gradient: radial-gradient(circle at top, #1e0b36 0%, #0d041a 100%);
+      --card-bg: rgba(255, 255, 255, 0.95);
+      --card-text: #111827;
+      --primary-purple: #6d28d9;
+      --primary-purple-hover: #5b21b6;
+      --accent-gold: #fbbf24;
       --whatsapp-color: #25d366;
+      --whatsapp-hover: #22c55e;
     }
 
     body {
-      font-family: system-ui, -apple-system, sans-serif;
-      background: var(--bg-gradient);
+      font-family: 'Cairo', system-ui, -apple-system, sans-serif;
+      background: #090214;
+      background-image: var(--bg-gradient);
       color: #ffffff;
       margin: 0;
-      padding: 15px;
+      padding: 20px 15px;
       min-height: 100vh;
       box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .container {
-      max-width: 500px;
+      max-width: 480px;
       margin: 0 auto;
     }
 
@@ -32,143 +38,210 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 5px 20px 5px;
+      padding: 10px 5px 25px 5px;
     }
 
     .logo {
-      font-size: 24px;
+      font-size: 26px;
       font-weight: 900;
       letter-spacing: 1px;
       color: #ffffff;
+      text-shadow: 0 2px 10px rgba(251, 191, 36, 0.3);
     }
 
     .logo span {
       color: var(--accent-gold);
     }
 
+    .menu-icon {
+      font-size: 22px;
+      background: rgba(255, 255, 255, 0.1);
+      width: 42px;
+      height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
     .stat-card {
-      background: var(--card-bg);
-      color: var(--card-text);
-      border-radius: 16px;
-      padding: 20px;
+      background: rgba(255, 255, 255, 0.07);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      border-radius: 20px;
+      padding: 18px 22px;
       margin-bottom: 15px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s ease;
+    }
+
+    .stat-card:active {
+      transform: scale(0.98);
     }
 
     .stat-info h3 {
       margin: 0;
       font-size: 22px;
       font-weight: 800;
+      letter-spacing: 0.5px;
+      background: linear-gradient(90deg, #ffffff, #e9d5ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .stat-info p {
-      margin: 5px 0 0 0;
-      color: #666;
-      font-size: 14px;
+      margin: 4px 0 0 0;
+      color: #c084fc;
+      font-size: 13px;
+      font-weight: 600;
     }
 
     .stat-icon {
-      font-size: 30px;
-      color: var(--primary-purple);
+      font-size: 28px;
+      background: linear-gradient(135deg, rgba(109, 40, 217, 0.4), rgba(251, 191, 36, 0.2));
+      width: 52px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
     }
 
     .quick-actions {
       display: flex;
       justify-content: space-between;
-      gap: 10px;
+      gap: 12px;
       margin-bottom: 25px;
     }
 
     .action-btn {
       flex: 1;
-      background: var(--card-bg);
-      color: var(--card-text);
-      border-radius: 14px;
-      padding: 12px 5px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      border-radius: 16px;
+      padding: 14px 8px;
       text-align: center;
       font-size: 12px;
-      font-weight: bold;
+      font-weight: 700;
       text-decoration: none;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .action-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: var(--accent-gold);
     }
 
     .action-btn span {
       display: block;
-      font-size: 18px;
-      margin-bottom: 4px;
+      font-size: 22px;
+      margin-bottom: 6px;
     }
 
     .order-card {
       background: var(--card-bg);
       color: var(--card-text);
-      border-radius: 20px;
-      padding: 20px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+      border-radius: 28px;
+      padding: 24px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.1);
     }
-
-    .order-card h2 {
       margin-top: 0;
-      font-size: 18px;
+      font-size: 20px;
+      font-weight: 800;
       border-bottom: 2px solid #f1f5f9;
-      padding-bottom: 10px;
+      padding-bottom: 12px;
       color: var(--primary-purple);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
     .form-group {
-      margin-bottom: 15px;
+      margin-bottom: 18px;
     }
 
     label {
       display: block;
       font-size: 13px;
-      font-weight: bold;
-      margin-bottom: 6px;
-      color: #444;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #374151;
     }
 
     input, select {
       width: 100%;
-      padding: 12px;
-      border-radius: 10px;
-      border: 1px solid #cbd5e1;
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1.5px solid #e2e8f0;
       background: #f8fafc;
       font-size: 14px;
+      font-family: inherit;
+      color: #0f172a;
       box-sizing: border-box;
       outline: none;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    input:focus, select:focus {
+      border-color: var(--primary-purple);
+      background: #ffffff;
+      box-shadow: 0 0 0 4px rgba(109, 40, 217, 0.15);
     }
 
     .price-display {
-      background: #f3e8ff;
+      background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
       color: var(--primary-purple);
-      padding: 12px;
-      border-radius: 10px;
-      font-weight: bold;
+      padding: 16px;
+      border-radius: 16px;
+      font-weight: 800;
       text-align: center;
-      margin-top: 15px;
-      font-size: 16px;
+      margin-top: 20px;
+      font-size: 17px;
+      border: 1px solid rgba(109, 40, 217, 0.2);
+      box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.6);
     }
 
     .submit-btn {
       width: 100%;
-      background: var(--whatsapp-color);
+      background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
       color: white;
-      padding: 15px;
-      border-radius: 12px;
+      padding: 16px;
+      border-radius: 16px;
       font-size: 16px;
-      font-weight: bold;
-      margin-top: 15px;
+      font-weight: 800;
+      font-family: inherit;
+      margin-top: 18px;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
-      text-decoration: none;
-      box-sizing: border-box;
+      gap: 10px;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
       border: none;
       cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      box-shadow: 0 10px 28px rgba(37, 211, 102, 0.5);
+      transform: translateY(-2px);
+    }
+
+    .submit-btn:active {
+      transform: translateY(0);
     }
   </style>
 </head>
@@ -178,16 +251,18 @@
   
   <header>
     <div class="logo">MUSTAFA <span>SMM</span></div>
-    <div style="font-size: 20px;">☰</div>
+    <div class="menu-icon">☰</div>
   </header>
 
   <div class="stat-card">
     <div class="stat-info">
-      <h3>13773533</h3>
+      <h3>13,773,533</h3>
       <p>طلبات مكتملة</p>
     </div>
     <div class="stat-icon">📊</div>
   </div>
+
+  <div class="stat-card">
     <div class="stat-info">
       <h3>طلب مباشر</h3>
       <p>الدفع والتنفيذ فوراً عبر الواتساب</p>
@@ -196,7 +271,7 @@
   </div>
 
   <div class="quick-actions">
-    <a href="https://wa.me/9647815955995?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%A3%D8%AD%D8%AA%D8%A7%D8%AC%20%D8%AF%D8%B9%D9%85%20%D9%81%D9%86%D9%8A" class="action-btn" target="_blank">
+    <a href="https://wa.me/9647815955995?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%A3%D8%AD%D8%AA%D8%A7%D8%AC%20%D8%AF%D8%B9%D9%85%20%D9%81%D9%86%D9%8I" class="action-btn" target="_blank">
       <span>🎧</span> الدعم الفني
     </a>
     <a href="#" class="action-btn" onclick="alert('تواصل معنا عبر الواتساب لمعرفة طرق الدفع المتاحة (زين كاش / آسيا حوالة)')">
@@ -216,12 +291,12 @@
       <select id="select-offers" class="service-box" onchange="handleSelectChange(this)">
         <option value="" data-price="0">-- اختر عرض خاص --</option>
         <option value="ترويج متابعين إنستغرام 1k" data-price="15,000 د.ع">ترويج متابعين إنستغرام - 1k (15,000 د.ع)</option>
-        <option value="ترويج متابعين إنستغرام 3k" data-price="40,000 د.ع">ترويج متابعين إنستغرام - 3k (40,000 د.ع)</option>
+  : <option value="ترويج متابعين إنستغرام 3k" data-price="40,000 د.ع">ترويج متابعين إنستغرام - 3k (40,000 د.ع)</option>
         <option value="ترويج صفحة فيسبوك 3 أيام" data-price="30,000 د.ع">ترويج صفحة فيسبوك - 3 أيام (30,000 د.ع)</option>
       </select>
     </div>
 
-    <!-- خدمات إنستغرام (مطابقة للصورة تماماً) -->
+    <!-- خدمات إنستغرام -->
     <div class="form-group">
       <label>📸 خدمات إنستغرام:</label>
       <select id="select-insta" class="service-box" onchange="handleSelectChange(this)">
@@ -253,7 +328,8 @@
         <option value="مشاهدات تيك توك - 10,000" data-price="8,000 د.ع">مشاهدات تيك توك - 10,000 مشاهدة (8,000 د.ع)</option>
       </select>
     </div>
- مصطفى خضير: <!-- خدمات تليجرام -->
+
+    <!-- خدمات تليجرام -->
     <div class="form-group">
       <label>✈️ خدمات تليجرام:</label>
       <select id="select-telegram" class="service-box" onchange="handleSelectChange(this)">
@@ -303,8 +379,6 @@
       document.getElementById('price-box').textContent = "السعر الكلي: اختر خدمة أولاً";
     }
   }
-
-  function sendToWhatsApp() {
     if (!activeService) {
       alert('يرجى اختيار خدمة أولاً من القوائم الأعلاه');
       return;
