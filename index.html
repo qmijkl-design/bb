@@ -6,40 +6,44 @@
   <title>Mustafa SMM Store</title>
   <style>
     :root {
-      --bg-color: #0f071b;
+      --bg-color: #09040e;
       --text-color: #ffffff;
-      --card-bg: #1a0f2e;
-      --card-border: #2d1a4d;
-      --subtext-color: #a78bfa;
+      --card-bg: rgba(26, 15, 46, 0.7);
+      --card-border: rgba(167, 139, 250, 0.2);
+      --subtext-color: #c084fc;
       --order-bg: #ffffff;
-      --order-text: #111111;
-      --input-bg: #f9f9f9;
-      --input-border: #cccccc;
-      --label-color: #333333;
+      --order-text: #0f172a;
+      --input-bg: #f8fafc;
+      --input-border: #cbd5e1;
+      --label-color: #1e293b;
+      --accent-color: #f59e0b;
+      --primary-purple: #7c3aed;
     }
 
     /* الوضع الفاتح */
     body.light-theme {
-      --bg-color: #f3f4f6;
-      --text-color: #1f2937;
+      --bg-color: #f1f5f9;
+      --text-color: #0f172a;
       --card-bg: #ffffff;
-      --card-border: #e5e7eb;
-      --subtext-color: #6b7280;
+      --card-border: #e2e8f0;
+      --subtext-color: #64748b;
       --order-bg: #ffffff;
-      --order-text: #111111;
-      --input-bg: #f9f9f9;
-      --input-border: #cccccc;
-      --label-color: #333333;
+      --order-text: #0f172a;
+      --input-bg: #f8fafc;
+      --input-border: #cbd5e1;
+      --label-color: #334155;
     }
 
     body {
-      font-family: Arial, sans-serif;
-      background-color: var(--bg-color);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg-color);
+      background-image: radial-gradient(circle at 50% 0%, rgba(124, 58, 237, 0.25), transparent 70%);
       color: var(--text-color);
       margin: 0;
       padding: 15px;
       direction: rtl;
-      transition: background-color 0.3s, color 0.3s;
+      transition: all 0.3s ease;
+      min-height: 100vh;
     }
 
     .container {
@@ -51,59 +55,79 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-bottom: 15px;
+      padding-bottom: 20px;
     }
 
     .logo {
-      font-size: 22px;
-      font-weight: bold;
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: 1px;
       color: var(--text-color);
+      text-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
     }
 
     .logo span {
-      color: #f59e0b;
+      background: linear-gradient(45deg, #f59e0b, #fbbf24);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .theme-toggle-btn {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       color: var(--text-color);
-      padding: 6px 12px;
-      border-radius: 8px;
+      padding: 8px 14px;
+      border-radius: 20px;
       cursor: pointer;
       font-size: 13px;
+      font-weight: bold;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s, background-color 0.3s;
+    }
+
+    .theme-toggle-btn:active {
+      transform: scale(0.95);
     }
 
     .stat-card {
       background-color: var(--card-bg);
       border: 1px solid var(--card-border);
-      border-radius: 14px;
-      padding: 15px;
+      border-radius: 18px;
+      padding: 16px 20px;
       margin-bottom: 12px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      transition: transform 0.2s;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-2px);
     }
 
     .stat-info h3 {
       margin: 0;
-      font-size: 20px;
+      font-size: 22px;
+      font-weight: 800;
       color: var(--text-color);
     }
 
     .stat-info p {
-      margin: 5px 0 0 0;
+      margin: 4px 0 0 0;
       color: var(--subtext-color);
       font-size: 13px;
     }
 
     .stat-icon {
-      font-size: 26px;
+      font-size: 28px;
     }
 
     .quick-actions {
       display: flex;
-      gap: 8px;
+      gap: 10px;
       margin-bottom: 20px;
     }
 
@@ -112,38 +136,52 @@
       background-color: var(--card-bg);
       border: 1px solid var(--card-border);
       color: var(--text-color);
-      border-radius: 12px;
-      padding: 10px 5px;
+      border-radius: 14px;
+      padding: 12px 5px;
       text-align: center;
       font-size: 12px;
+      font-weight: bold;
       text-decoration: none;
       display: block;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s, border-color 0.3s;
+    }
+
+    .action-btn:hover {
+      border-color: var(--primary-purple);
+      transform: translateY(-2px);
     }
 
     .action-btn span {
       display: block;
-      font-size: 18px;
-      margin-bottom: 3px;
+      font-size: 20px;
+      margin-bottom: 4px;
     }
 
     .order-card {
       background-color: var(--order-bg);
       color: var(--order-text);
-      border-radius: 20px;
-      padding: 20px;
+      border-radius: 24px;
+      padding: 24px;
       box-sizing: border-box;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     }
 
     .order-card h2 {
       margin-top: 0;
-      font-size: 18px;
-      color: #6d28d9;
-      border-bottom: 1px solid #eee;
-      padding-bottom: 10px;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--primary-purple);
+      border-bottom: 2px solid #f1f5f9;
+      padding-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .form-group {
-      margin-bottom: 15px;
+      margin-bottom: 18px;
     }
 
     label {
@@ -151,51 +189,70 @@
       align-items: center;
       gap: 8px;
       font-size: 13px;
-      font-weight: bold;
-      margin-bottom: 6px;
+      font-weight: 700;
+      margin-bottom: 8px;
       color: var(--label-color);
     }
 
     select, input {
       width: 100%;
-      padding: 12px;
-      border-radius: 10px;
-      border: 1px solid var(--input-border);
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1.5px solid var(--input-border);
       background-color: var(--input-bg);
       font-size: 14px;
-      color: #000000;
+      font-weight: 600;
+      color: #0f172a;
       box-sizing: border-box;
       outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    select:focus, input:focus {
+      border-color: var(--primary-purple);
+      box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.15);
     }
 
     .price-display {
-      background-color: #f3e8ff;
+      background: linear-gradient(135deg, #f3e8ff, #fae8ff);
+      border: 1px solid #e9d5ff;
       color: #6d28d9;
-      padding: 14px;
-      border-radius: 10px;
-      font-weight: bold;
+      padding: 16px;
+      border-radius: 14px;
+      font-weight: 800;
       text-align: center;
-      margin-top: 15px;
-      font-size: 16px;
+      margin-top: 20px;
+      font-size: 17px;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
     }
 
     .submit-btn {
       width: 100%;
-      background-color: #25d366;
+      background: linear-gradient(135deg, #25d366, #16a34a);
       color: #ffffff;
-      padding: 14px;
-      border-radius: 12px;
+      padding: 16px;
+      border-radius: 14px;
       font-size: 16px;
-      font-weight: bold;
-      margin-top: 15px;
+      font-weight: 800;
+      margin-top: 18px;
       border: none;
       cursor: pointer;
+      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+      transition: transform 0.2s, box-shadow 0.2s;
     }
 
-    /* تنسيق أبعاد أيقونات SVG */
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 25px rgba(37, 211, 102, 0.4);
+    }
+
+    .submit-btn:active {
+      transform: scale(0.98);
+    }
+
     .app-icon {
-      width: 18px;
-      height: 18px;
+      width: 20px;
+      height: 20px;
       flex-shrink: 0;
     }
   </style>
@@ -330,7 +387,7 @@
         <option value="" data-price="0">-- اختر شحن لعبة --</option>
         <!-- ببجي وفري فاير -->
         <option value="شدات ببجي - 60 شدة" data-price="2,000 د.ع">شدات ببجي - 60 شدة (2,000 د.ع)</option>
-        <option value="شدات ببجي - 325 شدة" data-price="7,500 د.ع">شدات ببجي - 325 شدة (8,000 د.ع)</option>
+        <option value="شدات ببجي - 325 شدة" data-price="7,500 د.ع">شدات ببجي - 325 شدة (7,500 د.ع)</option>
         <option value="مجوهرات فري فاير - 100 مجوهرة" data-price="3,000 د.ع">مجوهرات فري فاير - 100 مجوهرة (3,000 د.ع)</option>
         <!-- لودو -->
         <option value="لودو ستار - 10 مليون كوينز" data-price="5,000 د.ع">لودو ستار - 10 مليون كوينز (5,000 د.ع)</option>
