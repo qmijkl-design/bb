@@ -6,21 +6,20 @@
   <title>Mustafa SMM Store</title>
   <style>
     :root {
-      --bg-color: #09040e;
+      --bg-color: #070510;
       --text-color: #ffffff;
-      --card-bg: rgba(26, 15, 46, 0.7);
-      --card-border: rgba(167, 139, 250, 0.2);
-      --subtext-color: #c084fc;
+      --card-bg: rgba(22, 13, 41, 0.75);
+      --card-border: rgba(167, 139, 250, 0.25);
+      --subtext-color: #a78bfa;
       --order-bg: #ffffff;
       --order-text: #0f172a;
       --input-bg: #f8fafc;
       --input-border: #cbd5e1;
       --label-color: #1e293b;
-      --accent-color: #f59e0b;
       --primary-purple: #7c3aed;
+      --gold-accent: #f59e0b;
     }
 
-    /* الوضع الفاتح */
     body.light-theme {
       --bg-color: #f1f5f9;
       --text-color: #0f172a;
@@ -37,17 +36,21 @@
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: var(--bg-color);
-      background-image: radial-gradient(circle at 50% 0%, rgba(124, 58, 237, 0.25), transparent 70%);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(124, 58, 237, 0.3) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(245, 158, 11, 0.15) 0px, transparent 50%);
+      background-attachment: fixed;
       color: var(--text-color);
       margin: 0;
-      padding: 15px;
+      padding: 20px 15px;
       direction: rtl;
       transition: all 0.3s ease;
       min-height: 100vh;
+      box-sizing: border-box;
     }
 
     .container {
-      max-width: 450px;
+      max-width: 440px;
       margin: 0 auto;
     }
 
@@ -63,11 +66,11 @@
       font-weight: 900;
       letter-spacing: 1px;
       color: var(--text-color);
-      text-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+      text-shadow: 0 0 20px rgba(124, 58, 237, 0.5);
     }
 
     .logo span {
-      background: linear-gradient(45deg, #f59e0b, #fbbf24);
+      background: linear-gradient(135deg, #f59e0b, #fbbf24);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -76,14 +79,14 @@
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       color: var(--text-color);
-      padding: 8px 14px;
+      padding: 8px 16px;
       border-radius: 20px;
       cursor: pointer;
       font-size: 13px;
-      font-weight: bold;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      transition: transform 0.2s, background-color 0.3s;
+      font-weight: 700;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.2s ease;
     }
 
     .theme-toggle-btn:active {
@@ -91,16 +94,16 @@
     }
 
     .stat-card {
-      background-color: var(--card-bg);
+      background: var(--card-bg);
       border: 1px solid var(--card-border);
-      border-radius: 18px;
+      border-radius: 20px;
       padding: 16px 20px;
       margin-bottom: 12px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
       transition: transform 0.2s;
     }
 
@@ -111,8 +114,9 @@
     .stat-info h3 {
       margin: 0;
       font-size: 22px;
-      font-weight: 800;
+      font-weight: 900;
       color: var(--text-color);
+      letter-spacing: 0.5px;
     }
 
     .stat-info p {
@@ -128,44 +132,45 @@
     .quick-actions {
       display: flex;
       gap: 10px;
-      margin-bottom: 20px;
+      margin-bottom: 22px;
     }
 
     .action-btn {
       flex: 1;
-      background-color: var(--card-bg);
+      background: var(--card-bg);
       border: 1px solid var(--card-border);
       color: var(--text-color);
-      border-radius: 14px;
-      padding: 12px 5px;
+      border-radius: 16px;
+      padding: 12px 6px;
       text-align: center;
       font-size: 12px;
-      font-weight: bold;
+      font-weight: 700;
       text-decoration: none;
       display: block;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      transition: transform 0.2s, border-color 0.3s;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      transition: all 0.2s ease;
     }
 
     .action-btn:hover {
       border-color: var(--primary-purple);
       transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(124, 58, 237, 0.25);
     }
 
     .action-btn span {
       display: block;
-      font-size: 20px;
+      font-size: 22px;
       margin-bottom: 4px;
     }
 
     .order-card {
       background-color: var(--order-bg);
       color: var(--order-text);
-      border-radius: 24px;
+      border-radius: 28px;
       padding: 24px;
       box-sizing: border-box;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
     }
 
     .order-card h2 {
@@ -174,7 +179,8 @@
       font-weight: 800;
       color: var(--primary-purple);
       border-bottom: 2px solid #f1f5f9;
-      padding-bottom: 12px;
+      padding-bottom: 14px;
+      margin-bottom: 20px;
       display: flex;
       align-items: center;
       gap: 8px;
@@ -197,7 +203,7 @@
     select, input {
       width: 100%;
       padding: 14px 16px;
-      border-radius: 12px;
+      border-radius: 14px;
       border: 1.5px solid var(--input-border);
       background-color: var(--input-bg);
       font-size: 14px;
@@ -205,45 +211,46 @@
       color: #0f172a;
       box-sizing: border-box;
       outline: none;
-      transition: border-color 0.2s, box-shadow 0.2s;
+      transition: all 0.2s ease;
     }
 
     select:focus, input:focus {
       border-color: var(--primary-purple);
       box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.15);
+      background-color: #ffffff;
     }
 
     .price-display {
-      background: linear-gradient(135deg, #f3e8ff, #fae8ff);
+      background: linear-gradient(135deg, #f3e8ff 0%, #fae8ff 100%);
       border: 1px solid #e9d5ff;
       color: #6d28d9;
       padding: 16px;
-      border-radius: 14px;
+      border-radius: 16px;
       font-weight: 800;
       text-align: center;
-      margin-top: 20px;
+      margin-top: 22px;
       font-size: 17px;
-      box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
     }
 
     .submit-btn {
       width: 100%;
-      background: linear-gradient(135deg, #25d366, #16a34a);
+      background: linear-gradient(135deg, #25d366, #15803d);
       color: #ffffff;
       padding: 16px;
-      border-radius: 14px;
+      border-radius: 16px;
       font-size: 16px;
       font-weight: 800;
       margin-top: 18px;
       border: none;
       cursor: pointer;
-      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
-      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.35);
+      transition: all 0.2s ease;
     }
 
     .submit-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 12px 25px rgba(37, 211, 102, 0.4);
+      box-shadow: 0 12px 30px rgba(37, 211, 102, 0.45);
     }
 
     .submit-btn:active {
@@ -385,19 +392,15 @@
       </label>
       <select id="select-games" class="service-box" onchange="updatePrice(this)">
         <option value="" data-price="0">-- اختر شحن لعبة --</option>
-        <!-- ببجي وفري فاير -->
         <option value="شدات ببجي - 60 شدة" data-price="2,000 د.ع">شدات ببجي - 60 شدة (2,000 د.ع)</option>
         <option value="شدات ببجي - 325 شدة" data-price="7,500 د.ع">شدات ببجي - 325 شدة (7,500 د.ع)</option>
         <option value="مجوهرات فري فاير - 100 مجوهرة" data-price="3,000 د.ع">مجوهرات فري فاير - 100 مجوهرة (3,000 د.ع)</option>
-        <!-- لودو -->
         <option value="لودو ستار - 10 مليون كوينز" data-price="5,000 د.ع">لودو ستار - 10 مليون كوينز (5,000 د.ع)</option>
         <option value="لودو ستار - 50 مليون كوينز" data-price="20,000 د.ع">لودو ستار - 50 مليون كوينز (20,000 د.ع)</option>
         <option value="لودو - 100 مجوهرة (Gems)" data-price="4,000 د.ع">لودو - 100 مجوهرة Gems (4,000 د.ع)</option>
-        <!-- بيس eFootball -->
         <option value="بيس - 130 كوينز eFootball" data-price="3,500 د.ع">بيس eFootball - 130 كوينز (3,500 د.ع)</option>
         <option value="بيس - 550 كوينز eFootball" data-price="13,000 د.ع">بيس eFootball - 550 كوينز (13,000 د.ع)</option>
         <option value="بيس - 1,040 كوينز eFootball" data-price="24,000 د.ع">بيس eFootball - 1,040 كوينز (24,000 د.ع)</option>
-        <!-- روبلوكس -->
         <option value="روبلوكس - 400 روبوكس (Robux)" data-price="8,000 د.ع">روبلوكس - 400 Robux (8,000 د.ع)</option>
         <option value="روبلوكس - 800 روبوكس (Robux)" data-price="15,000 د.ع">روبلوكس - 800 Robux (15,000 د.ع)</option>
         <option value="روبلوكس - 1,700 روبوكس (Robux)" data-price="30,000 د.ع">روبلوكس - 1,700 Robux (30,000 د.ع)</option>
