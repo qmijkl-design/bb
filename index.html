@@ -6,16 +6,17 @@
   <title>MSS STORE - مصطفى خضير</title>
   <style>
     :root {
-      --bg-gradient: linear-gradient(135deg, #0f051d 0%, #2a085c 50%, #0d0118 100%);
-      --card-bg: rgba(255, 255, 255, 0.07);
-      --card-border: rgba(255, 255, 255, 0.12);
-      --input-bg: rgba(255, 255, 255, 0.05);
-      --input-border: rgba(255, 255, 255, 0.2);
+      --bg-gradient: radial-gradient(circle at top, #1e1035 0%, #090410 100%);
+      --card-bg: rgba(20, 10, 35, 0.75);
+      --card-border: rgba(255, 179, 0, 0.25);
+      --input-bg: rgba(255, 255, 255, 0.04);
+      --input-border: rgba(255, 255, 255, 0.12);
       --text-main: #ffffff;
-      --text-sub: #b3a2ce;
-      --primary-orange: #ff9f43;
-      --accent-purple: #9b51e0;
-      --error-red: #ff5252;
+      --text-sub: #b2a8c3;
+      --gold-primary: #ffb703;
+      --gold-glow: rgba(255, 183, 3, 0.35);
+      --accent-purple: #8a2be2;
+      --error-red: #ff4d4d;
     }
 
     body {
@@ -23,7 +24,7 @@
       background: var(--bg-gradient);
       color: var(--text-main);
       margin: 0;
-      padding: 20px 10px;
+      padding: 25px 12px;
       direction: rtl;
       display: flex;
       justify-content: center;
@@ -34,54 +35,63 @@
 
     .app-card {
       background: var(--card-bg);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       border: 1px solid var(--card-border);
       width: 100%;
-      max-width: 440px;
-      border-radius: 24px;
-      padding: 25px 20px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+      max-width: 450px;
+      border-radius: 28px;
+      padding: 30px 22px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 30px var(--gold-glow);
       box-sizing: border-box;
     }
 
     .header-title {
       text-align: center;
-      font-size: 22px;
-      font-weight: 800;
-      color: var(--text-main);
-      margin-bottom: 4px;
+      font-size: 24px;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: 1px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
     }
 
     .store-brand {
       text-align: center;
       font-size: 13px;
-      color: var(--primary-orange);
-      font-weight: 700;
-      margin-bottom: 20px;
+      color: var(--gold-primary);
+      font-weight: 800;
+      margin-top: 5px;
+      margin-bottom: 22px;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
     }
 
     .search-box {
       position: relative;
-      margin-bottom: 15px;
+      margin-bottom: 18px;
     }
 
     .search-box input {
       width: 100%;
-      padding: 12px 15px 12px 40px;
+      padding: 13px 15px 13px 42px;
       background: var(--input-bg);
       border: 1px solid var(--input-border);
-      border-radius: 12px;
+      border-radius: 14px;
       font-size: 13px;
       color: #fff;
       outline: none;
       box-sizing: border-box;
+      transition: all 0.3s;
+    }
+
+    .search-box input:focus {
+      border-color: var(--gold-primary);
+      box-shadow: 0 0 12px var(--gold-glow);
     }
 
     .search-box span {
       position: absolute;
-      left: 12px;
+      left: 14px;
       top: 50%;
       transform: translateY(-50%);
       color: var(--text-sub);
@@ -89,9 +99,9 @@
 
     .platforms-bar {
       display: flex;
-      gap: 10px;
+      gap: 12px;
       overflow-x: auto;
-      padding-bottom: 10px;
+      padding: 5px 2px 12px 2px;
       margin-bottom: 18px;
       scrollbar-width: none;
     }
@@ -101,117 +111,132 @@
     }
 
     .platform-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       flex-shrink: 0;
-      border: 2px solid transparent;
+      border: 1px solid var(--input-border);
       transition: all 0.3s ease;
-      font-size: 16px;
+      font-size: 18px;
       background: var(--input-bg);
       color: #fff;
     }
 
     .platform-icon.active {
-      border-color: var(--primary-orange);
-      transform: scale(1.1);
-      box-shadow: 0 0 12px rgba(255, 159, 67, 0.4);
+      border-color: var(--gold-primary);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 20px var(--gold-glow);
+      background: rgba(255, 183, 3, 0.15);
     }
 
-    .p-all { background: rgba(255,255,255,0.15); }
-    .p-insta { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+    .p-insta { background: linear-gradient(45deg, #f09433, #dc2743, #bc1888); }
+    .p-tiktok { background: #000000; border: 1px solid #333; }
+    .p-tg { background: #2AABEE; }
     .p-fb { background: #1877f2; }
     .p-yt { background: #ff0000; }
     .p-wa { background: #25d366; }
-    .p-snap { background: #fffc00; color: #000; }
 
     .field-group {
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
 
     .field-label {
       font-size: 13px;
       font-weight: 700;
       color: var(--text-sub);
-      margin-bottom: 6px;
+      margin-bottom: 8px;
       display: block;
     }
 
     select, input[type="text"], input[type="number"] {
       width: 100%;
-      padding: 12px;
+      padding: 13px;
       background: var(--input-bg);
       border: 1px solid var(--input-border);
-      border-radius: 12px;
+      border-radius: 14px;
       font-size: 13px;
       color: #ffffff;
       box-sizing: border-box;
       outline: none;
+      transition: all 0.3s;
     }
 
     select option {
-      background-color: #1a0933;
+      background-color: #120824;
       color: #ffffff;
+    }
+
+    select:focus, input[type="text"]:focus, input[type="number"]:focus {
+      border-color: var(--gold-primary);
+      box-shadow: 0 0 10px var(--gold-glow);
     }
 
     input.input-error {
       border-color: var(--error-red) !important;
-      background: rgba(255, 82, 82, 0.1) !important;
+      background: rgba(255, 77, 77, 0.1) !important;
     }
 
     .error-text {
       color: var(--error-red);
       font-size: 11px;
-      margin-top: 5px;
+      margin-top: 6px;
       display: none;
       font-weight: 600;
     }
 
     .description-box {
-      background: rgba(0, 0, 0, 0.25);
+      background: rgba(0, 0, 0, 0.4);
       border: 1px solid var(--input-border);
-      border-radius: 12px;
-      padding: 12px;
+      border-radius: 14px;
+      padding: 14px;
       font-size: 12px;
-      color: #d1c4e9;
+      color: #d8ceeb;
       line-height: 1.6;
       white-space: pre-line;
-      max-height: 140px;
+      max-height: 130px;
       overflow-y: auto;
     }
 
     .limit-text {
       font-size: 11px;
-      color: var(--text-sub);
-      margin-top: 5px;
+      color: var(--gold-primary);
+      margin-top: 6px;
+      font-weight: 600;
     }
 
     .readonly-box {
-      background: rgba(255, 255, 255, 0.03);
+      background: rgba(255, 255, 255, 0.02);
       border: 1px solid var(--input-border);
-      border-radius: 12px;
-      padding: 12px;
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--primary-orange);
+      border-radius: 14px;
+      padding: 13px;
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--gold-primary);
+      letter-spacing: 0.5px;
     }
 
     .submit-btn {
       width: 100%;
-      background: linear-gradient(135deg, #ff9f43 0%, #ff5252 100%);
-      color: white;
+      background: linear-gradient(135deg, #ffb703 0%, #fb8500 100%);
+      color: #000;
       border: none;
-      padding: 15px;
-      border-radius: 14px;
+      padding: 16px;
+      border-radius: 16px;
       font-size: 16px;
-      font-weight: 800;
+      font-weight: 900;
       cursor: pointer;
       margin-top: 10px;
-      box-shadow: 0 8px 20px rgba(255, 159, 67, 0.3);
+      box-shadow: 0 10px 25px var(--gold-glow);
+      transition: all 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 30px rgba(255, 183, 3, 0.5);
     }
   </style>
 </head>
@@ -219,21 +244,21 @@
 
 <div class="app-card">
   <div class="header-title">طلب جديد</div>
-  <div class="store-brand">مصطفى خضير | MSS STORE</div>
+  <div class="store-brand">👑 MSS STORE | مصطفى خضير</div>
 
   <!-- البحث -->
   <div class="search-box">
-    <input type="text" id="search-input" placeholder="بحث باسم أو رقم الخدمة..." oninput="filterServices()">
+    <input type="text" id="search-input" placeholder="ابحث عن الخدمة المطلوبة..." oninput="filterServices()">
     <span>🔍</span>
   </div>
 
   <!-- شريط المنصات -->
   <div class="platforms-bar">
-    <div class="platform-icon p-all active" onclick="selectPlatform('all', this)">☰</div>
-    <div class="platform-icon p-insta" onclick="selectPlatform('insta', this)">📷</div>
+    <div class="platform-icon p-insta active" onclick="selectPlatform('insta', this)">📷</div>
+    <div class="platform-icon p-tiktok" onclick="selectPlatform('tiktok', this)">🎵</div>
+    <div class="platform-icon p-tg" onclick="selectPlatform('tg', this)">✈</div>
     <div class="platform-icon p-yt" onclick="selectPlatform('yt', this)">▶</div>
     <div class="platform-icon p-wa" onclick="selectPlatform('wa', this)">💬</div>
-    <div class="platform-icon p-snap" onclick="selectPlatform('snap', this)">👻</div>
     <div class="platform-icon p-fb" onclick="selectPlatform('fb', this)">f</div>
   </div>
 
@@ -241,41 +266,38 @@
   <div class="field-group">
     <label class="field-label">الفئة (التطبيق)</label>
     <select id="category-select" onchange="onCategoryChange()">
-      <option value="insta_update">📷 انستقرام | متابعين التحديث الجديد</option>
-      <option value="yt_ads">▶ يوتيوب | مشتركين وإعلانات</option>
-      <option value="wa_main">💬 واتساب | أعضاء وقنوات</option>
-      <option value="snap_main">👻 سناب شات | متابعين ولايكات</option>
-      <option value="fb_cheap">📘 فيسبوك | خدمات جديدة ورخيصة</option>
+      <option value="insta_update">📷 انستقرام | خدمات التحديث الجديد</option>
+      <option value="tiktok_main">🎵 تيك توك | متابعين ومشاهدات ولايكات</option>
+      <option value="tg_main">✈ تليجرام | أعضاء قنوات ومجموعات</option>
+      <option value="yt_ads">▶ يوتيوب | مشتركين ومشاهدات إعلان</option>
+      <option value="wa_main">💬 واتساب | أعضاء قنوات</option>
+      <option value="fb_cheap">📘 فيسبوك | متابعين وعجابات</option>
     </select>
   </div>
 
-  <!-- اختيار الخدمة الخاص بالتطبيق المحدد -->
+  <!-- اختيار الخدمة -->
   <div class="field-group">
-    <label class="field-label">الخدمة الخاصه بهذا التطبيق</label>
-    <select id="service-select" onchange="onServiceChange()">
-      <!-- تحميل الخدمات الخاصة بالفئة فقط -->
-    </select>
+    <label class="field-label">الخدمة الخاصة بالتطبيق</label>
+    <select id="service-select" onchange="onServiceChange()"></select>
   </div>
 
   <!-- مربع الوصف -->
   <div class="field-group">
-    <label class="field-label">الوصف</label>
-    <div class="description-box" id="service-desc">
-      اختر الخدمة لعرض تفاصيلها.
-    </div>
+    <label class="field-label">تفاصيل الخدمة</label>
+    <div class="description-box" id="service-desc">اختر الخدمة لعرض تفاصيلها.</div>
   </div>
 
   <!-- الرابط -->
   <div class="field-group">
     <label class="field-label">الرابط أو اسم الحساب</label>
-    <input type="text" id="link-input" placeholder="https://instagram.com/username أو @username" oninput="validateLink()">
-    <div class="error-text" id="link-error">⚠️ خطأ: يرجى كتابة رابط صحيح (https://) أو يوزر (@)</div>
+    <input type="text" id="link-input" placeholder="https://... أو @username" oninput="validateLink()">
+    <div class="error-text" id="link-error">⚠️ خطأ: يرجى كتابة رابط صحيح بـ (https://) أو يوزر يبدأ بـ (@)</div>
   </div>
 
   <!-- الكمية -->
   <div class="field-group">
     <label class="field-label">الكمية</label>
-    <input type="number" id="quantity-input" placeholder="أدخل الكمية المطلوب إضافتها" oninput="calculateCost()">
+    <input type="number" id="quantity-input" placeholder="أدخل الكمية المطلوبة" oninput="calculateCost()">
     <div class="limit-text" id="limit-text">الحد الأدنى: - | الحد الأقصى: -</div>
   </div>
 
@@ -287,27 +309,77 @@
 
   <!-- التكلفة -->
   <div class="field-group">
-    <label class="field-label">التكلفة (بالدينار العراقي)</label>
-    <div class="readonly-box" id="cost-box">0 د.ع</div>
+    <label class="field-label">التكلفة (الحد الأدنى 5,000 د.ع)</label>
+    <div class="readonly-box" id="cost-box">5,000 د.ع</div>
   </div>
 
   <!-- زر الطلب -->
-  <button class="submit-btn" onclick="submitOrder()">إرسال الطلب الآن</button>
+  <button class="submit-btn" onclick="submitOrder()">تأكيد وإرسال الطلب</button>
 </div>
 
 <script>
+  const MIN_ORDER_PRICE = 5000; // أدنى تكلفة للطلب بالدينار العراقي
+
   const servicesData = [
     // --- انستغرام ---
     {
       id: "15670",
       cat: "insta_update",
       platform: "insta",
-      name: "انستقرام | متابعين تعويض تلقائي | ضمان 365 يوم",
+      name: "انستقرام | متابعين تعويض تلقائي (ضمان 365 يوم)",
       ratePer1000: 18000,
-      min: 50,
+      min: 100,
       max: 1000000,
       time: "1-24 ساعة",
-      desc: "متابعين انستقرام ثبات عالي مع ضمان تعويض سنة كاملة."
+      desc: "متابعين ثبات ممتاز مع تعويض سنة كاملة تلقائياً."
+    },
+
+    // --- تيك توك ---
+    {
+      id: "20101",
+      cat: "tiktok_main",
+      platform: "tiktok",
+      name: "تيك توك | متابعين حقيقيين وسريعين 🎵",
+      ratePer1000: 12000,
+      min: 100,
+      max: 500000,
+      time: "فوري - 12 ساعة",
+      desc: "متابعين تيك توك جودة فائقة وسرعة البدء فورية."
+    },
+    {
+      id: "20102",
+      cat: "tiktok_main",
+      platform: "tiktok",
+      name: "تيك توك | مشاهدات فيديو سريعة جداً 🚀",
+      ratePer1000: 1000,
+      min: 1000,
+      max: 10000000,
+      time: "فوري",
+      desc: "مشاهدات سريعة جداً للفيديوهات والقصص."
+    },
+
+    // --- تليجرام ---
+    {
+      id: "30101",
+      cat: "tg_main",
+      platform: "tg",
+      name: "تليجرام | أعضاء قنوات ومجموعات ثبات عالي ✈",
+      ratePer1000: 8000,
+      min: 100,
+      max: 200000,
+      time: "فوري - 6 ساعات",
+      desc: "زيادة أعضاء قنوات وقروبات تليجرام بدون نقص."
+    },
+    {
+      id: "30102",
+      cat: "tg_main",
+      platform: "tg",
+      name: "تليجرام | مشاهدات آخر 5 منشورات 👁️",
+      ratePer1000: 2000,
+      min: 500,
+      max: 500000,
+      time: "فوري",
+      desc: "مشاهدات فائقة السرعة للمنشورات القناة."
     },
 
     // --- يوتيوب ---
@@ -315,23 +387,12 @@
       id: "12838",
       cat: "yt_ads",
       platform: "yt",
-      name: "يوتيوب | مشاهدات عبر إعلانات رسمية | جميع الدول",
+      name: "يوتيوب | مشاهدات عبر إعلانات رسمية (ضمان دائم)",
       ratePer1000: 5500,
       min: 1000,
       max: 5000000,
       time: "سريع جداً",
-      desc: "مشاهدات إعلانية رسمية أمنة على القناة مع ضمان مدى الحياة."
-    },
-    {
-      id: "18077",
-      cat: "yt_ads",
-      platform: "yt",
-      name: "يوتيوب | مشتركين قناة بدون تعويض",
-      ratePer1000: 3050,
-      min: 100,
-      max: 5000,
-      time: "1-24 ساعة",
-      desc: "زيادة مشتركين يوتيوب سريعة بدون ضمان."
+      desc: "مشاهدات إعلانية آمنة ومضمونة 100%."
     },
 
     // --- واتساب ---
@@ -339,36 +400,12 @@
       id: "18372",
       cat: "wa_main",
       platform: "wa",
-      name: "واتساب | أعضاء قناة واتساب رخيصة",
-      ratePer1000: 3720,
-      min: 10,
-      max: 10000,
-      time: "1-2 ساعة",
-      desc: "أعضاء قنوات واتساب سريعة ورخيصة."
-    },
-    {
-      id: "14317",
-      cat: "wa_main",
-      platform: "wa",
-      name: "واتساب | أعضاء قناة عرب 🇦🇪 جودة عالية",
-      ratePer1000: 13350,
+      name: "واتساب | أعضاء قنوات عالية الجودة 💬",
+      ratePer1000: 6000,
       min: 100,
       max: 50000,
       time: "1-4 ساعات",
-      desc: "أعضاء قنوات واتساب عرب حقيقيين."
-    },
-
-    // --- سناب شات ---
-    {
-      id: "13888",
-      cat: "snap_main",
-      platform: "snap",
-      name: "سناب شات | لايكات وإعجابات عربية 👻",
-      ratePer1000: 23535,
-      min: 5,
-      max: 10000,
-      time: "فوري",
-      desc: "إعجابات ولايكات سناب شات من حسابات عربية متفاعلة."
+      desc: "أعضاء قنوات واتساب نشطين."
     },
 
     // --- فيسبوك ---
@@ -376,23 +413,12 @@
       id: "17007",
       cat: "fb_cheap",
       platform: "fb",
-      name: "فيسبوك | متابعين بيج وبروفايل أرخص سعر",
-      ratePer1000: 4080,
+      name: "فيسبوك | متابعين بيج وبروفايل",
+      ratePer1000: 5000,
       min: 100,
-      max: 10000,
+      max: 100000,
       time: "1-12 ساعة",
-      desc: "متابعين فيسبوك بأرخص سعر متوفر."
-    },
-    {
-      id: "11484",
-      cat: "fb_cheap",
-      platform: "fb",
-      name: "فيسبوك | متابعات صفحات - تعويض 30 يوم ✨",
-      ratePer1000: 5385,
-      min: 100,
-      max: 50000,
-      time: "12 ساعة",
-      desc: "متابعين ميكس لصفحات الفيسبوك مع ضمان تعويض تلقائي."
+      desc: "زيادة متابعين صفحات وحسابات الفيسبوك."
     }
   ];
 
@@ -406,9 +432,10 @@
     
     const catSelect = document.getElementById('category-select');
     if (platform === 'insta') catSelect.value = 'insta_update';
+    else if (platform === 'tiktok') catSelect.value = 'tiktok_main';
+    else if (platform === 'tg') catSelect.value = 'tg_main';
     else if (platform === 'yt') catSelect.value = 'yt_ads';
     else if (platform === 'wa') catSelect.value = 'wa_main';
-    else if (platform === 'snap') catSelect.value = 'snap_main';
     else if (platform === 'fb') catSelect.value = 'fb_cheap';
 
     loadServices();
@@ -425,7 +452,6 @@
 
     serviceSelect.innerHTML = '';
 
-    // تصفية الخدمات بحسب الفئة المختارة فقط (لكل تطبيق خدماته الخاصة)
     const filtered = servicesData.filter(s => {
       const matchCat = (s.cat === selectedCat);
       const matchSearch = s.name.toLowerCase().includes(searchValue) || s.id.includes(searchValue);
@@ -434,14 +460,14 @@
 
     if (filtered.length === 0) {
       const opt = document.createElement('option');
-      opt.text = "لا توجد خدمات متاحة لهذا التطبيق حالياً";
+      opt.text = "لا توجد خدمات لهذا التطبيق حالياً";
       opt.value = "";
       serviceSelect.appendChild(opt);
     } else {
       filtered.forEach(s => {
         const opt = document.createElement('option');
         opt.value = s.id;
-        opt.text = `[${s.id}] ${s.name} - ${s.ratePer1000.toLocaleString()} د.ع / 1000`;
+        opt.text = `[${s.id}] ${s.name}`;
         serviceSelect.appendChild(opt);
       });
     }
@@ -482,10 +508,12 @@
     const costBox = document.getElementById('cost-box');
 
     if (service && qty > 0) {
-      const total = (qty / 1000) * service.ratePer1000;
-      costBox.innerText = Math.round(total).toLocaleString() + " د.ع";
+      let calculatedCost = (qty / 1000) * service.ratePer1000;
+      // تطبيق شرط أن أقل مبلغ هو 5000 دينار
+      let finalCost = Math.max(calculatedCost, MIN_ORDER_PRICE);
+      costBox.innerText = Math.round(finalCost).toLocaleString() + " د.ع";
     } else {
-      costBox.innerText = "0 د.ع";
+      costBox.innerText = "5,000 د.ع";
     }
   }
 
@@ -536,7 +564,7 @@
       return;
     }
 
-    const message = `طلب جديد 🚀\nالمتجر: MSS STORE (مصطفى خضير)\nالخدمة: [${service.id}] ${service.name}\nالرابط: ${link}\nالكمية: ${qty}\nالتكلفة: ${cost}`;
+    const message = `طلب جديد 👑\nالمتجر: MSS STORE (مصطفى خضير)\nالخدمة: [${service.id}] ${service.name}\nالرابط: ${link}\nالكمية: ${qty}\nالتكلفة الإجمالية: ${cost}`;
     window.location.href = `https://wa.me/9647815955995?text=${encodeURIComponent(message)}`;
   }
 
