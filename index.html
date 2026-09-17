@@ -5,13 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mustafa SMM Store</title>
   <style>
+    :root {
+      --bg-color: #0f071b;
+      --text-color: #ffffff;
+      --card-bg: #1a0f2e;
+      --card-border: #2d1a4d;
+      --subtext-color: #a78bfa;
+      --order-bg: #ffffff;
+      --order-text: #111111;
+      --input-bg: #f9f9f9;
+      --input-border: #cccccc;
+      --label-color: #333333;
+    }
+
+    /* الوضع الفاتح */
+    body.light-theme {
+      --bg-color: #f3f4f6;
+      --text-color: #1f2937;
+      --card-bg: #ffffff;
+      --card-border: #e5e7eb;
+      --subtext-color: #6b7280;
+      --order-bg: #ffffff;
+      --order-text: #111111;
+      --input-bg: #f9f9f9;
+      --input-border: #cccccc;
+      --label-color: #333333;
+    }
+
     body {
       font-family: Arial, sans-serif;
-      background-color: #0f071b;
-      color: #ffffff;
+      background-color: var(--bg-color);
+      color: var(--text-color);
       margin: 0;
       padding: 15px;
       direction: rtl;
+      transition: background-color 0.3s, color 0.3s;
     }
 
     .container {
@@ -29,16 +57,26 @@
     .logo {
       font-size: 22px;
       font-weight: bold;
-      color: #ffffff;
+      color: var(--text-color);
     }
 
     .logo span {
       color: #f59e0b;
     }
 
+    .theme-toggle-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-color);
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
     .stat-card {
-      background-color: #1a0f2e;
-      border: 1px solid #2d1a4d;
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
       border-radius: 14px;
       padding: 15px;
       margin-bottom: 12px;
@@ -50,12 +88,12 @@
     .stat-info h3 {
       margin: 0;
       font-size: 20px;
-      color: #ffffff;
+      color: var(--text-color);
     }
 
     .stat-info p {
       margin: 5px 0 0 0;
-      color: #a78bfa;
+      color: var(--subtext-color);
       font-size: 13px;
     }
 
@@ -71,9 +109,9 @@
 
     .action-btn {
       flex: 1;
-      background-color: #1a0f2e;
-      border: 1px solid #2d1a4d;
-      color: #ffffff;
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-color);
       border-radius: 12px;
       padding: 10px 5px;
       text-align: center;
@@ -89,8 +127,8 @@
     }
 
     .order-card {
-      background-color: #ffffff;
-      color: #111111;
+      background-color: var(--order-bg);
+      color: var(--order-text);
       border-radius: 20px;
       padding: 20px;
       box-sizing: border-box;
@@ -109,19 +147,21 @@
     }
 
     label {
-      display: block;
+      display: flex;
+      align-items: center;
+      gap: 6px;
       font-size: 13px;
       font-weight: bold;
       margin-bottom: 6px;
-      color: #333333;
+      color: var(--label-color);
     }
 
     select, input {
       width: 100%;
       padding: 12px;
       border-radius: 10px;
-      border: 1px solid #cccccc;
-      background-color: #f9f9f9;
+      border: 1px solid var(--input-border);
+      background-color: var(--input-bg);
       font-size: 14px;
       color: #000000;
       box-sizing: border-box;
@@ -151,6 +191,14 @@
       border: none;
       cursor: pointer;
     }
+
+    /* تنسيق الأيقونات الملفتة */
+    .icon-insta { color: #e1306c; }
+    .icon-fb { color: #1877f2; }
+    .icon-tiktok { color: #000000; }
+    .icon-tg { color: #0088cc; }
+    .icon-game { color: #10b981; }
+    .icon-fire { color: #f59e0b; }
   </style>
 </head>
 <body>
@@ -159,7 +207,7 @@
 
   <div class="header">
     <div class="logo">MUSTAFA <span>SMM</span></div>
-    <div>☰</div>
+    <button class="theme-toggle-btn" onclick="toggleTheme()">🌙 / ☀️ المظهر</button>
   </div>
 
   <div class="stat-card">
@@ -182,7 +230,7 @@
     <a href="https://wa.me/9647815955995" class="action-btn" target="_blank">
       <span>🎧</span> الدعم الفني
     </a>
-    <a href="javascript:void(0)" class="action-btn" onclick="alert('طرق الدفع المتاحة: زين كاش / آسيا حوالة (تواصل عبر الواتساب)')">
+    <a href="javascript:void(0)" class="action-btn" onclick="alert('طرق الدفع المتاحة: زين كاش / آسيا حوالة / ماستر كارد (تواصل عبر الواتساب)')">
       <span>💳</span> طرق الدفع
     </a>
     <a href="https://wa.me/9647815955995" class="action-btn" target="_blank">
@@ -195,7 +243,7 @@
 
     <!-- العروض والخصومات -->
     <div class="form-group">
-      <label>🔥 العروض الخاصة والخصومات:</label>
+      <label><span class="icon-fire">🔥</span> العروض الخاصة والخصومات:</label>
       <select id="select-offers" class="service-box" onchange="updatePrice(this)">
         <option value="" data-price="0">-- اختر عرض خاص --</option>
         <option value="ترويج متابعين إنستغرام 1k" data-price="15,000 د.ع">ترويج متابعين إنستغرام - 1k (15,000 د.ع)</option>
@@ -204,21 +252,30 @@
       </select>
     </div>
 
-    <!-- خدمات إنستغرام -->
+    <!-- خدمات إنستغرام حقيقي -->
     <div class="form-group">
-      <label>📸 خدمات إنستغرام:</label>
-      <select id="select-insta" class="service-box" onchange="updatePrice(this)">
-        <option value="" data-price="0">-- اختر خدمة إنستغرام --</option>
+      <label><span class="icon-insta">📸</span> خدمات إنستغرام (حقيقي):</label>
+      <select id="select-insta-real" class="service-box" onchange="updatePrice(this)">
+        <option value="" data-price="0">-- اختر خدمة إنستغرام حقيقي --</option>
         <option value="ترويج إنستغرام ممول - فيديوهات حقيقي (10,000 د.ع)" data-price="10,000 د.ع">ترويج إنستغرام ممول - فيديوهات حقيقي (10,000 د.ع)</option>
         <option value="متابعين إنستغرام (ضمان) - 1,000 متابع حقيقي (15,000 د.ع)" data-price="15,000 د.ع">متابعين إنستغرام (ضمان) - 1,000 متابع حقيقي (15,000 د.ع)</option>
         <option value="لايكات إنستغرام حقيقي - 1,000 لايك (8,000 د.ع)" data-price="8,000 د.ع">لايكات إنستغرام حقيقي - 1,000 لايك (8,000 د.ع)</option>
+      </select>
+    </div>
+
+    <!-- خدمات إنستغرام وهمي -->
+    <div class="form-group">
+      <label><span class="icon-insta">⚡</span> خدمات إنستغرام (وهمي):</label>
+      <select id="select-insta-fake" class="service-box" onchange="updatePrice(this)">
+        <option value="" data-price="0">-- اختر خدمة إنستغرام وهمي --</option>
         <option value="مشاهدات ريلز - 10,000 مشاهدة وهمي (5,000 د.ع)" data-price="5,000 د.ع">مشاهدات ريلز - 10,000 مشاهدة وهمي (5,000 د.ع)</option>
+        <option value="متابعين إنستغرام وهمي - 1,000 متابع (5,000 د.ع)" data-price="5,000 د.ع">متابعين إنستغرام وهمي - 1,000 متابع (5,000 د.ع)</option>
       </select>
     </div>
 
     <!-- خدمات فيسبوك -->
     <div class="form-group">
-      <label>📘 خدمات فيسبوك:</label>
+      <label><span class="icon-fb">📘</span> خدمات فيسبوك:</label>
       <select id="select-facebook" class="service-box" onchange="updatePrice(this)">
         <option value="" data-price="0">-- اختر خدمة فيسبوك --</option>
         <option value="ترويج فيسبوك - يوم واحد" data-price="15,000 د.ع">ترويج فيسبوك - يوم واحد (15,000 د.ع)</option>
@@ -229,7 +286,7 @@
 
     <!-- خدمات تيك توك -->
     <div class="form-group">
-      <label>🎵 خدمات تيك توك:</label>
+      <label><span class="icon-tiktok">🎵</span> خدمات تيك توك:</label>
       <select id="select-tiktok" class="service-box" onchange="updatePrice(this)">
         <option value="" data-price="0">-- اختر خدمة تيك توك --</option>
         <option value="متابعين تيك توك - 1,000" data-price="15,000 د.ع">متابعين تيك توك - 1,000 متابع (15,000 د.ع)</option>
@@ -239,16 +296,27 @@
 
     <!-- خدمات تليجرام -->
     <div class="form-group">
-      <label>✈️ خدمات تليجرام:</label>
+      <label><span class="icon-tg">✈️</span> خدمات تليجرام:</label>
       <select id="select-telegram" class="service-box" onchange="updatePrice(this)">
         <option value="" data-price="0">-- اختر خدمة تليجرام --</option>
         <option value="أعضاء قنوات تليجرام - 1,000" data-price="10,000 د.ع">أعضاء قنوات تليجرام - 1,000 عضو (10,000 د.ع)</option>
       </select>
     </div>
 
+    <!-- خدمات شحن الألعاب -->
     <div class="form-group">
-      <label>رابط الحساب / المنشور المطلوب:</label>
-      <input type="text" id="link-input" placeholder="https://...">
+      <label><span class="icon-game">🎮</span> خدمات شحن الألعاب:</label>
+      <select id="select-games" class="service-box" onchange="updatePrice(this)">
+        <option value="" data-price="0">-- اختر شحن لعبة --</option>
+        <option value="شدات ببجي - 60 شدة" data-price="2,000 د.ع">شدات ببجي - 60 شدة (2,000 د.ع)</option>
+        <option value="شدات ببجي - 325 شدة" data-price="7,500 د.ع">شدات ببجي - 325 شدة (7,500 د.ع)</option>
+        <option value="مجوهرات فري فاير - 100 مجوهرة" data-price="3,000 د.ع">مجوهرات فري فاير - 100 مجوهرة (3,000 د.ع)</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>رابط الحساب / ID / المنشور المطلوب:</label>
+      <input type="text" id="link-input" placeholder="https://... أو ID اللعبة">
     </div>
 
     <div class="price-display" id="price-box">
@@ -294,14 +362,18 @@
 
     var link = document.getElementById('link-input').value;
     if (!link || link.trim() === "") {
-      alert('يرجى كتابة الرابط أولاً');
+      alert('يرجى كتابة الرابط أو الـ ID أولاً');
       return;
     }
 
-    var text = "طلب جديد 🚀\nالخدمة: " + activeService + "\nالسعر: " + activePrice + "\nالرابط: " + link;
+    var text = "طلب جديد 🚀\nالخدمة: " + activeService + "\nالسعر: " + activePrice + "\nالرابط/الـ ID: " + link;
     var url = "https://wa.me/9647815955995?text=" + encodeURIComponent(text);
     
     window.location.href = url;
+  }
+
+  function toggleTheme() {
+    document.body.classList.toggle('light-theme');
   }
 </script>
 
