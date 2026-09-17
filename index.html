@@ -6,25 +6,25 @@
   <title>MSS STORE - مصطفى خضير</title>
   <style>
     :root {
-      --bg-gradient: radial-gradient(circle at top, #1e1035 0%, #090410 100%);
-      --card-bg: rgba(20, 10, 35, 0.75);
-      --card-border: rgba(255, 179, 0, 0.25);
-      --input-bg: rgba(255, 255, 255, 0.04);
-      --input-border: rgba(255, 255, 255, 0.12);
-      --text-main: #ffffff;
-      --text-sub: #b2a8c3;
-      --gold-primary: #ffb703;
-      --gold-glow: rgba(255, 183, 3, 0.35);
-      --accent-purple: #8a2be2;
-      --error-red: #ff4d4d;
+      --bg-color: #f4f6f9;
+      --card-bg: #ffffff;
+      --card-border: #e2e8f0;
+      --input-bg: #f8fafc;
+      --input-border: #cbd5e1;
+      --text-main: #0f172a;
+      --text-sub: #64748b;
+      --primary-blue: #2563eb;
+      --primary-hover: #1d4ed8;
+      --error-red: #ef4444;
+      --success-green: #10b981;
     }
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: var(--bg-gradient);
+      background-color: var(--bg-color);
       color: var(--text-main);
       margin: 0;
-      padding: 25px 12px;
+      padding: 20px 10px;
       direction: rtl;
       display: flex;
       justify-content: center;
@@ -35,63 +35,58 @@
 
     .app-card {
       background: var(--card-bg);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
       border: 1px solid var(--card-border);
       width: 100%;
       max-width: 450px;
-      border-radius: 28px;
-      padding: 30px 22px;
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 30px var(--gold-glow);
+      border-radius: 20px;
+      padding: 25px 20px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
       box-sizing: border-box;
     }
 
     .header-title {
       text-align: center;
-      font-size: 24px;
-      font-weight: 900;
-      color: #fff;
-      letter-spacing: 1px;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text-main);
     }
 
     .store-brand {
       text-align: center;
       font-size: 13px;
-      color: var(--gold-primary);
-      font-weight: 800;
-      margin-top: 5px;
-      margin-bottom: 22px;
-      letter-spacing: 1.5px;
+      color: var(--primary-blue);
+      font-weight: 700;
+      margin-top: 4px;
+      margin-bottom: 20px;
       text-transform: uppercase;
     }
 
     .search-box {
       position: relative;
-      margin-bottom: 18px;
+      margin-bottom: 15px;
     }
 
     .search-box input {
       width: 100%;
-      padding: 13px 15px 13px 42px;
+      padding: 12px 15px 12px 40px;
       background: var(--input-bg);
       border: 1px solid var(--input-border);
-      border-radius: 14px;
+      border-radius: 12px;
       font-size: 13px;
-      color: #fff;
+      color: var(--text-main);
       outline: none;
       box-sizing: border-box;
-      transition: all 0.3s;
+      transition: all 0.2s;
     }
 
     .search-box input:focus {
-      border-color: var(--gold-primary);
-      box-shadow: 0 0 12px var(--gold-glow);
+      border-color: var(--primary-blue);
+      background: #ffffff;
     }
 
     .search-box span {
       position: absolute;
-      left: 14px;
+      left: 12px;
       top: 50%;
       transform: translateY(-50%);
       color: var(--text-sub);
@@ -99,10 +94,10 @@
 
     .platforms-bar {
       display: flex;
-      gap: 12px;
+      gap: 10px;
       overflow-x: auto;
-      padding: 5px 2px 12px 2px;
-      margin-bottom: 18px;
+      padding-bottom: 10px;
+      margin-bottom: 15px;
       scrollbar-width: none;
     }
 
@@ -111,132 +106,117 @@
     }
 
     .platform-icon {
-      width: 46px;
-      height: 46px;
-      border-radius: 16px;
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       flex-shrink: 0;
       border: 1px solid var(--input-border);
-      transition: all 0.3s ease;
+      transition: all 0.2s ease;
       font-size: 18px;
-      background: var(--input-bg);
-      color: #fff;
+      background: #ffffff;
+      color: var(--text-main);
     }
 
     .platform-icon.active {
-      border-color: var(--gold-primary);
-      transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 8px 20px var(--gold-glow);
-      background: rgba(255, 183, 3, 0.15);
+      border-color: var(--primary-blue);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+      background: rgba(37, 99, 235, 0.05);
     }
 
-    .p-insta { background: linear-gradient(45deg, #f09433, #dc2743, #bc1888); }
-    .p-tiktok { background: #000000; border: 1px solid #333; }
-    .p-tg { background: #2AABEE; }
-    .p-fb { background: #1877f2; }
-    .p-yt { background: #ff0000; }
-    .p-wa { background: #25d366; }
-
     .field-group {
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .field-label {
       font-size: 13px;
       font-weight: 700;
       color: var(--text-sub);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       display: block;
     }
 
     select, input[type="text"], input[type="number"] {
       width: 100%;
-      padding: 13px;
+      padding: 12px;
       background: var(--input-bg);
       border: 1px solid var(--input-border);
-      border-radius: 14px;
+      border-radius: 12px;
       font-size: 13px;
-      color: #ffffff;
+      color: var(--text-main);
       box-sizing: border-box;
       outline: none;
-      transition: all 0.3s;
-    }
-
-    select option {
-      background-color: #120824;
-      color: #ffffff;
+      transition: all 0.2s;
     }
 
     select:focus, input[type="text"]:focus, input[type="number"]:focus {
-      border-color: var(--gold-primary);
-      box-shadow: 0 0 10px var(--gold-glow);
+      border-color: var(--primary-blue);
+      background: #ffffff;
     }
 
     input.input-error {
       border-color: var(--error-red) !important;
-      background: rgba(255, 77, 77, 0.1) !important;
+      background: #fef2f2 !important;
     }
 
     .error-text {
       color: var(--error-red);
       font-size: 11px;
-      margin-top: 6px;
+      margin-top: 5px;
       display: none;
       font-weight: 600;
     }
 
     .description-box {
-      background: rgba(0, 0, 0, 0.4);
+      background: #f1f5f9;
       border: 1px solid var(--input-border);
-      border-radius: 14px;
-      padding: 14px;
+      border-radius: 12px;
+      padding: 12px;
       font-size: 12px;
-      color: #d8ceeb;
+      color: #334155;
       line-height: 1.6;
       white-space: pre-line;
-      max-height: 130px;
+      max-height: 120px;
       overflow-y: auto;
     }
 
     .limit-text {
       font-size: 11px;
-      color: var(--gold-primary);
-      margin-top: 6px;
+      color: var(--primary-blue);
+      margin-top: 5px;
       font-weight: 600;
     }
 
     .readonly-box {
-      background: rgba(255, 255, 255, 0.02);
+      background: #f8fafc;
       border: 1px solid var(--input-border);
-      border-radius: 14px;
-      padding: 13px;
+      border-radius: 12px;
+      padding: 12px;
       font-size: 15px;
       font-weight: 800;
-      color: var(--gold-primary);
-      letter-spacing: 0.5px;
+      color: var(--primary-blue);
     }
 
     .submit-btn {
       width: 100%;
-      background: linear-gradient(135deg, #ffb703 0%, #fb8500 100%);
-      color: #000;
+      background: var(--primary-blue);
+      color: #ffffff;
       border: none;
-      padding: 16px;
-      border-radius: 16px;
+      padding: 15px;
+      border-radius: 14px;
       font-size: 16px;
-      font-weight: 900;
+      font-weight: 800;
       cursor: pointer;
       margin-top: 10px;
-      box-shadow: 0 10px 25px var(--gold-glow);
-      transition: all 0.3s ease;
+      transition: background 0.2s ease;
     }
 
     .submit-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 15px 30px rgba(255, 183, 3, 0.5);
+      background: var(--primary-hover);
     }
   </style>
 </head>
@@ -244,181 +224,248 @@
 
 <div class="app-card">
   <div class="header-title">طلب جديد</div>
-  <div class="store-brand">👑 MSS STORE | مصطفى خضير</div>
+  <div class="store-brand">MSS STORE | مصطفى خضير</div>
 
   <!-- البحث -->
   <div class="search-box">
-    <input type="text" id="search-input" placeholder="ابحث عن الخدمة المطلوبة..." oninput="filterServices()">
+    <input type="text" id="search-input" placeholder="ابحث عن الخدمة..." oninput="safeExecute(filterServices)">
     <span>🔍</span>
   </div>
 
   <!-- شريط المنصات -->
   <div class="platforms-bar">
-    <div class="platform-icon p-insta active" onclick="selectPlatform('insta', this)">📷</div>
-    <div class="platform-icon p-tiktok" onclick="selectPlatform('tiktok', this)">🎵</div>
-    <div class="platform-icon p-tg" onclick="selectPlatform('tg', this)">✈</div>
-    <div class="platform-icon p-yt" onclick="selectPlatform('yt', this)">▶</div>
-    <div class="platform-icon p-wa" onclick="selectPlatform('wa', this)">💬</div>
-    <div class="platform-icon p-fb" onclick="selectPlatform('fb', this)">f</div>
+    <div class="platform-icon p-insta active" onclick="safeExecute(() => selectPlatform('insta', this))">📷</div>
+    <div class="platform-icon p-tiktok" onclick="safeExecute(() => selectPlatform('tiktok', this))">🎵</div>
+    <div class="platform-icon p-fb" onclick="safeExecute(() => selectPlatform('fb', this))">f</div>
+    <div class="platform-icon p-tg" onclick="safeExecute(() => selectPlatform('tg', this))">✈</div>
+    <div class="platform-icon p-yt" onclick="safeExecute(() => selectPlatform('yt', this))">▶</div>
+    <div class="platform-icon p-wa" onclick="safeExecute(() => selectPlatform('wa', this))">💬</div>
   </div>
 
   <!-- اختيار الفئة -->
   <div class="field-group">
     <label class="field-label">الفئة (التطبيق)</label>
-    <select id="category-select" onchange="onCategoryChange()">
-      <option value="insta_update">📷 انستقرام | خدمات التحديث الجديد</option>
-      <option value="tiktok_main">🎵 تيك توك | متابعين ومشاهدات ولايكات</option>
-      <option value="tg_main">✈ تليجرام | أعضاء قنوات ومجموعات</option>
-      <option value="yt_ads">▶ يوتيوب | مشتركين ومشاهدات إعلان</option>
-      <option value="wa_main">💬 واتساب | أعضاء قنوات</option>
-      <option value="fb_cheap">📘 فيسبوك | متابعين وعجابات</option>
+    <select id="category-select" onchange="safeExecute(onCategoryChange)">
+      <option value="insta_main">📷 انستقرام | خدمات وتدعم الممول</option>
+      <option value="tiktok_main">🎵 تيك توك | المتابعين والترويج</option>
+      <option value="fb_main">📘 فيسبوك | الإعلانات والمتابعين</option>
+      <option value="tg_main">✈ تليجرام | أعضاء ومشاهدات</option>
+      <option value="yt_main">▶ يوتيوب | المشتركين والمشاهدات</option>
+      <option value="wa_main">💬 واتساب | القنوات والأعضاء</option>
     </select>
   </div>
 
   <!-- اختيار الخدمة -->
   <div class="field-group">
-    <label class="field-label">الخدمة الخاصة بالتطبيق</label>
-    <select id="service-select" onchange="onServiceChange()"></select>
+    <label class="field-label">الخدمة المطلوبة</label>
+    <select id="service-select" onchange="safeExecute(onServiceChange)"></select>
   </div>
 
   <!-- مربع الوصف -->
   <div class="field-group">
     <label class="field-label">تفاصيل الخدمة</label>
-    <div class="description-box" id="service-desc">اختر الخدمة لعرض تفاصيلها.</div>
+    <div class="description-box" id="service-desc">اختر الخدمة لعرض التفاصيل.</div>
   </div>
 
   <!-- الرابط -->
   <div class="field-group">
     <label class="field-label">الرابط أو اسم الحساب</label>
-    <input type="text" id="link-input" placeholder="https://... أو @username" oninput="validateLink()">
-    <div class="error-text" id="link-error">⚠️ خطأ: يرجى كتابة رابط صحيح بـ (https://) أو يوزر يبدأ بـ (@)</div>
+    <input type="text" id="link-input" placeholder="https://... أو @username" oninput="safeExecute(validateLink)">
+    <div class="error-text" id="link-error">⚠️ يرجى أدخال رابط صحيح يبدأ بـ (https://) أو يوزر يبدأ بـ (@)</div>
   </div>
 
   <!-- الكمية -->
   <div class="field-group">
     <label class="field-label">الكمية</label>
-    <input type="number" id="quantity-input" placeholder="أدخل الكمية المطلوبة" oninput="calculateCost()">
+    <input type="number" id="quantity-input" placeholder="أدخل الكمية المطلوبة" oninput="safeExecute(calculateCost)">
     <div class="limit-text" id="limit-text">الحد الأدنى: - | الحد الأقصى: -</div>
   </div>
 
   <!-- متوسط الوقت -->
   <div class="field-group">
-    <label class="field-label">متوسط الوقت 🕒</label>
+    <label class="field-label">الوقت المتوقع 🕒</label>
     <div class="readonly-box" id="time-box">-</div>
   </div>
 
-  <!-- التكلفة -->
+  <!-- التكلفة بالدولار -->
   <div class="field-group">
-    <label class="field-label">التكلفة (الحد الأدنى 5,000 د.ع)</label>
-    <div class="readonly-box" id="cost-box">5,000 د.ع</div>
+    <label class="field-label">التكلفة (الحد الأدنى $1.00)</label>
+    <div class="readonly-box" id="cost-box">$1.00</div>
   </div>
 
   <!-- زر الطلب -->
-  <button class="submit-btn" onclick="submitOrder()">تأكيد وإرسال الطلب</button>
+  <button class="submit-btn" onclick="safeExecute(submitOrder)">إرسال الطلب</button>
 </div>
 
 <script>
-  const MIN_ORDER_PRICE = 5000; // أدنى تكلفة للطلب بالدينار العراقي
+  // نظام تصفية ومعالجة الأخطاء الذكي لمنع أي تعليق أو توقف
+  function safeExecute(func) {
+    try {
+      func();
+    } catch (error) {
+      console.warn("تم اعتراض خطأ ومنع توقف التطبيق:", error);
+    }
+  }
+
+  const MIN_ORDER_PRICE_USD = 1.00; // الحد الأدنى المسموح للطلب هو 1 دولار
 
   const servicesData = [
-    // --- انستغرام ---
+    // --- إنستغرام ---
     {
-      id: "15670",
-      cat: "insta_update",
+      id: "101",
+      cat: "insta_main",
       platform: "insta",
-      name: "انستقرام | متابعين تعويض تلقائي (ضمان 365 يوم)",
-      ratePer1000: 18000,
+      name: "🔥 ترويج ممول حقيقي 100% انستغرام ($10 ثابت)",
+      ratePer1000: 10,
+      isFlatRate: true, // سعر ثابت
+      min: 1,
+      max: 1,
+      time: "خلال 24 ساعة",
+      desc: "حملة إعلانية ممولة حقيقية ورسمية عبر إدارة إعلانات ميتا لاستهداف جمهور حقيقي بالكامل."
+    },
+    {
+      id: "102",
+      cat: "insta_main",
+      platform: "insta",
+      name: "انستقرام | متابعين ضمان 365 يوم",
+      ratePer1000: 2.5,
       min: 100,
-      max: 1000000,
-      time: "1-24 ساعة",
-      desc: "متابعين ثبات ممتاز مع تعويض سنة كاملة تلقائياً."
+      max: 500000,
+      time: "1-12 ساعة",
+      desc: "متابعين ثابتين مع ضمان تعويض تلقائي لمدة سنة."
+    },
+    {
+      id: "103",
+      cat: "insta_main",
+      platform: "insta",
+      name: "انستقرام | لايكات حقيقية وسريعة",
+      ratePer1000: 0.8,
+      min: 100,
+      max: 100000,
+      time: "فوري",
+      desc: "إعجابات سريعة فورية للمنشورات والريلز."
     },
 
     // --- تيك توك ---
     {
-      id: "20101",
+      id: "201",
       cat: "tiktok_main",
       platform: "tiktok",
-      name: "تيك توك | متابعين حقيقيين وسريعين 🎵",
-      ratePer1000: 12000,
-      min: 100,
-      max: 500000,
-      time: "فوري - 12 ساعة",
-      desc: "متابعين تيك توك جودة فائقة وسرعة البدء فورية."
+      name: "🔥 ترويج ممول حقيقي 100% تيك توك ($10 ثابت)",
+      ratePer1000: 10,
+      isFlatRate: true,
+      min: 1,
+      max: 1,
+      time: "خلال 24 ساعة",
+      desc: "إعلان ممول حقيقي عبر منصة TikTok Ads لجلب تفاعل ومتابعين حقيقيين لملفك."
     },
     {
-      id: "20102",
+      id: "202",
       cat: "tiktok_main",
       platform: "tiktok",
-      name: "تيك توك | مشاهدات فيديو سريعة جداً 🚀",
-      ratePer1000: 1000,
-      min: 1000,
-      max: 10000000,
-      time: "فوري",
-      desc: "مشاهدات سريعة جداً للفيديوهات والقصص."
-    },
-
-    // --- تليجرام ---
-    {
-      id: "30101",
-      cat: "tg_main",
-      platform: "tg",
-      name: "تليجرام | أعضاء قنوات ومجموعات ثبات عالي ✈",
-      ratePer1000: 8000,
+      name: "تيك توك | متابعين جودة عالية",
+      ratePer1000: 3.0,
       min: 100,
       max: 200000,
       time: "فوري - 6 ساعات",
-      desc: "زيادة أعضاء قنوات وقروبات تليجرام بدون نقص."
+      desc: "متابعين حسابات نشطة وسريعة الإرسال."
     },
     {
-      id: "30102",
-      cat: "tg_main",
-      platform: "tg",
-      name: "تليجرام | مشاهدات آخر 5 منشورات 👁️",
-      ratePer1000: 2000,
-      min: 500,
-      max: 500000,
-      time: "فوري",
-      desc: "مشاهدات فائقة السرعة للمنشورات القناة."
-    },
-
-    // --- يوتيوب ---
-    {
-      id: "12838",
-      cat: "yt_ads",
-      platform: "yt",
-      name: "يوتيوب | مشاهدات عبر إعلانات رسمية (ضمان دائم)",
-      ratePer1000: 5500,
+      id: "203",
+      cat: "tiktok_main",
+      platform: "tiktok",
+      name: "تيك توك | مشاهدات فائقة السرعة",
+      ratePer1000: 0.1,
       min: 1000,
-      max: 5000000,
-      time: "سريع جداً",
-      desc: "مشاهدات إعلانية آمنة ومضمونة 100%."
-    },
-
-    // --- واتساب ---
-    {
-      id: "18372",
-      cat: "wa_main",
-      platform: "wa",
-      name: "واتساب | أعضاء قنوات عالية الجودة 💬",
-      ratePer1000: 6000,
-      min: 100,
-      max: 50000,
-      time: "1-4 ساعات",
-      desc: "أعضاء قنوات واتساب نشطين."
+      max: 10000000,
+      time: "فوري",
+      desc: "إرسال مشاهدات سريعة جداً للمقاطع."
     },
 
     // --- فيسبوك ---
     {
-      id: "17007",
-      cat: "fb_cheap",
+      id: "301",
+      cat: "fb_main",
       platform: "fb",
-      name: "فيسبوك | متابعين بيج وبروفايل",
-      ratePer1000: 5000,
+      name: "🔥 ترويج ممول حقيقي 100% فيسبوك ($10 ثابت)",
+      ratePer1000: 10,
+      isFlatRate: true,
+      min: 1,
+      max: 1,
+      time: "خلال 24 ساعة",
+      desc: "ترويج إعلاني رسمي وممول لصفحتك أو منشورك لضمان وصول حقيقي مستهدف."
+    },
+    {
+      id: "302",
+      cat: "fb_main",
+      platform: "fb",
+      name: "فيسبوك | متابعين بيج وجروبات",
+      ratePer1000: 1.5,
+      min: 200,
+      max: 100000,
+      time: "1-24 ساعة",
+      desc: "زيادة متابعين الصفحات والحسابات الشخصية."
+    },
+
+    // --- تليجرام ---
+    {
+      id: "401",
+      cat: "tg_main",
+      platform: "tg",
+      name: "تليجرام | أعضاء قنوات ثبات ممتازة",
+      ratePer1000: 2.0,
       min: 100,
       max: 100000,
-      time: "1-12 ساعة",
-      desc: "زيادة متابعين صفحات وحسابات الفيسبوك."
+      time: "1-3 ساعات",
+      desc: "أعضاء قنوات ومجموعات تليجرام جودة عالية."
+    },
+    {
+      id: "402",
+      cat: "tg_main",
+      platform: "tg",
+      name: "تليجرام | مشاهدات أخر 5 منشورات",
+      ratePer1000: 0.3,
+      min: 500,
+      max: 200000,
+      time: "فوري",
+      desc: "مشاهدات سريعة تلقائية للمنشورات."
+    },
+
+    // --- يوتيوب ---
+    {
+      id: "501",
+      cat: "yt_main",
+      platform: "yt",
+      name: "يوتيوب | مشتركين ضمان دائم",
+      ratePer1000: 12.0,
+      min: 50,
+      max: 10000,
+      time: "1-3 أيام",
+      desc: "مشتركين حقيقيين وآمنين تماماً على القناة."
+    },
+    {
+      id: "502",
+      cat: "yt_main",
+      platform: "yt",
+      name: "يوتيوب | مشاهدات إعلانية رسمية",
+      ratePer1000: 1.8,
+      min: 1000,
+      max: 1000000,
+      time: "سريع",
+      desc: "مشاهدات إعلان آمنة مع نسبة مشاهدة عالية."
+    },
+
+    // --- واتساب ---
+    {
+      id: "601",
+      cat: "wa_main",
+      platform: "wa",
+      name: "واتساب | أعضاء قنوات واتساب",
+      ratePer1000: 2.8,
+      min: 100,
+      max: 20000,
+      time: "1-6 ساعات",
+      desc: "أعضاء قنوات واتساب سريعين."
     }
   ];
 
@@ -431,12 +478,12 @@
     element.classList.add('active');
     
     const catSelect = document.getElementById('category-select');
-    if (platform === 'insta') catSelect.value = 'insta_update';
+    if (platform === 'insta') catSelect.value = 'insta_main';
     else if (platform === 'tiktok') catSelect.value = 'tiktok_main';
+    else if (platform === 'fb') catSelect.value = 'fb_main';
     else if (platform === 'tg') catSelect.value = 'tg_main';
-    else if (platform === 'yt') catSelect.value = 'yt_ads';
+    else if (platform === 'yt') catSelect.value = 'yt_main';
     else if (platform === 'wa') catSelect.value = 'wa_main';
-    else if (platform === 'fb') catSelect.value = 'fb_cheap';
 
     loadServices();
   }
@@ -460,7 +507,7 @@
 
     if (filtered.length === 0) {
       const opt = document.createElement('option');
-      opt.text = "لا توجد خدمات لهذا التطبيق حالياً";
+      opt.text = "لا توجد خدمات متاحة حالياً";
       opt.value = "";
       serviceSelect.appendChild(opt);
     } else {
@@ -489,11 +536,18 @@
     const descBox = document.getElementById('service-desc');
     const limitText = document.getElementById('limit-text');
     const timeBox = document.getElementById('time-box');
+    const qtyInput = document.getElementById('quantity-input');
 
     if (service) {
       descBox.innerText = service.desc;
-      limitText.innerText = `الحد الأدنى: ${service.min.toLocaleString()} | الحد الأقصى: ${service.max.toLocaleString()}`;
       timeBox.innerText = service.time;
+      
+      if (service.isFlatRate) {
+        limitText.innerText = `الخدمة سعر ثابت (حملة واحدة = 10$)`;
+        qtyInput.value = 1;
+      } else {
+        limitText.innerText = `الحد الأدنى: ${service.min.toLocaleString()} | الحد الأقصى: ${service.max.toLocaleString()}`;
+      }
     } else {
       descBox.innerText = "اختر الخدمة لعرض تفاصيلها.";
       limitText.innerText = "الحد الأدنى: - | الحد الأقصى: -";
@@ -507,13 +561,21 @@
     const qty = parseFloat(document.getElementById('quantity-input').value) || 0;
     const costBox = document.getElementById('cost-box');
 
-    if (service && qty > 0) {
-      let calculatedCost = (qty / 1000) * service.ratePer1000;
-      // تطبيق شرط أن أقل مبلغ هو 5000 دينار
-      let finalCost = Math.max(calculatedCost, MIN_ORDER_PRICE);
-      costBox.innerText = Math.round(finalCost).toLocaleString() + " د.ع";
+    if (service) {
+      if (service.isFlatRate) {
+        costBox.innerText = "$10.00";
+        return;
+      }
+
+      if (qty > 0) {
+        let calculated = (qty / 1000) * service.ratePer1000;
+        let finalCost = Math.max(calculated, MIN_ORDER_PRICE_USD);
+        costBox.innerText = "$" + finalCost.toFixed(2);
+      } else {
+        costBox.innerText = "$1.00";
+      }
     } else {
-      costBox.innerText = "5,000 د.ع";
+      costBox.innerText = "$1.00";
     }
   }
 
@@ -549,7 +611,7 @@
     const cost = document.getElementById('cost-box').innerText;
 
     if (!validateLink() || link === "") {
-      alert("⚠️ يرجى أدخال رابط أو يوزر صحيح للمتابعة!");
+      alert("⚠️ يرجى أدخال رابط أو يوزر صحيح قبل الإرسال!");
       linkInput.focus();
       return;
     }
@@ -559,16 +621,16 @@
       return;
     }
 
-    if (!qty || qty < service.min || qty > service.max) {
-      alert(`يرجى كتابة كمية بين ${service.min} و ${service.max}`);
+    if (!service.isFlatRate && (!qty || qty < service.min || qty > service.max)) {
+      alert(`الكمية المسموحة لهذه الخدمة بين ${service.min} و ${service.max}`);
       return;
     }
 
-    const message = `طلب جديد 👑\nالمتجر: MSS STORE (مصطفى خضير)\nالخدمة: [${service.id}] ${service.name}\nالرابط: ${link}\nالكمية: ${qty}\nالتكلفة الإجمالية: ${cost}`;
+    const message = `طلب جديد 🟢\nالمتجر: MSS STORE (مصطفى خضير)\nالخدمة: [${service.id}] ${service.name}\nالرابط: ${link}\nالكمية: ${service.isFlatRate ? 'حملة واحدة' : qty}\nالتكلفة: ${cost}`;
     window.location.href = `https://wa.me/9647815955995?text=${encodeURIComponent(message)}`;
   }
 
-  window.onload = init;
+  window.onload = () => safeExecute(init);
 </script>
 
 </body>
