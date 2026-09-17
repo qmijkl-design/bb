@@ -3,54 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mustafa SMM Store</title>
+  <title>Mustafa Khudhair - Mss Store</title>
   <style>
     :root {
-      --bg-color: #070510;
+      --bg-color: #050508;
       --text-color: #ffffff;
-      --card-bg: rgba(22, 13, 41, 0.75);
-      --card-border: rgba(167, 139, 250, 0.25);
-      --subtext-color: #a78bfa;
-      --order-bg: #ffffff;
+      --card-bg: rgba(18, 18, 26, 0.85);
+      --card-border: rgba(212, 175, 55, 0.3);
+      --subtext-color: #d1d5db;
+      --order-bg: rgba(255, 255, 255, 0.96);
       --order-text: #0f172a;
       --input-bg: #f8fafc;
       --input-border: #cbd5e1;
-      --label-color: #1e293b;
-      --primary-purple: #7c3aed;
-      --gold-accent: #f59e0b;
+      --label-color: #0f172a;
+      --primary-accent: #d4af37;
+      --secondary-accent: #8b5cf6;
     }
 
     body.light-theme {
       --bg-color: #f1f5f9;
       --text-color: #0f172a;
       --card-bg: #ffffff;
-      --card-border: #e2e8f0;
-      --subtext-color: #64748b;
+      --card-border: #cbd5e1;
+      --subtext-color: #475569;
       --order-bg: #ffffff;
       --order-text: #0f172a;
       --input-bg: #f8fafc;
       --input-border: #cbd5e1;
-      --label-color: #334155;
+      --label-color: #1e293b;
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
       background: var(--bg-color);
       background-image: 
-        radial-gradient(at 0% 0%, rgba(124, 58, 237, 0.3) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(245, 158, 11, 0.15) 0px, transparent 50%);
+        radial-gradient(circle at 15% 15%, rgba(212, 175, 55, 0.15) 0%, transparent 45%),
+        radial-gradient(circle at 85% 85%, rgba(139, 92, 246, 0.15) 0%, transparent 45%);
       background-attachment: fixed;
       color: var(--text-color);
       margin: 0;
-      padding: 20px 15px;
+      padding: 24px 16px;
       direction: rtl;
-      transition: all 0.3s ease;
+      transition: background 0.4s ease, color 0.4s ease;
       min-height: 100vh;
       box-sizing: border-box;
     }
 
     .container {
-      max-width: 440px;
+      max-width: 450px;
       margin: 0 auto;
     }
 
@@ -58,35 +58,39 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-bottom: 20px;
+      padding-bottom: 24px;
     }
 
     .logo {
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 900;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
       color: var(--text-color);
-      text-shadow: 0 0 20px rgba(124, 58, 237, 0.5);
+      line-height: 1.2;
     }
 
     .logo span {
-      background: linear-gradient(135deg, #f59e0b, #fbbf24);
+      background: linear-gradient(135deg, #f59e0b, #d4af37);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      display: block;
+      font-size: 14px;
+      letter-spacing: 2px;
+      font-weight: 700;
     }
 
     .theme-toggle-btn {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       color: var(--text-color);
-      padding: 8px 16px;
-      border-radius: 20px;
+      padding: 10px 18px;
+      border-radius: 30px;
       cursor: pointer;
       font-size: 13px;
       font-weight: 700;
-      backdrop-filter: blur(12px);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      transition: all 0.2s ease;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
     }
 
     .theme-toggle-btn:active {
@@ -96,43 +100,45 @@
     .stat-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
-      border-radius: 20px;
-      padding: 16px 20px;
-      margin-bottom: 12px;
+      border-radius: 22px;
+      padding: 18px 22px;
+      margin-bottom: 14px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      backdrop-filter: blur(12px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-      transition: transform 0.2s;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      transition: all 0.3s ease;
     }
 
     .stat-card:hover {
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+      border-color: rgba(212, 175, 55, 0.6);
     }
 
     .stat-info h3 {
       margin: 0;
-      font-size: 22px;
+      font-size: 24px;
       font-weight: 900;
       color: var(--text-color);
-      letter-spacing: 0.5px;
+      letter-spacing: 1px;
     }
 
     .stat-info p {
       margin: 4px 0 0 0;
       color: var(--subtext-color);
       font-size: 13px;
+      font-weight: 600;
     }
 
     .stat-icon {
-      font-size: 28px;
+      font-size: 30px;
     }
 
     .quick-actions {
       display: flex;
-      gap: 10px;
-      margin-bottom: 22px;
+      gap: 12px;
+      margin-bottom: 24px;
     }
 
     .action-btn {
@@ -140,54 +146,55 @@
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       color: var(--text-color);
-      border-radius: 16px;
-      padding: 12px 6px;
+      border-radius: 18px;
+      padding: 14px 8px;
       text-align: center;
       font-size: 12px;
       font-weight: 700;
       text-decoration: none;
       display: block;
-      backdrop-filter: blur(12px);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-      transition: all 0.2s ease;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
     }
 
     .action-btn:hover {
-      border-color: var(--primary-purple);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(124, 58, 237, 0.25);
+      border-color: var(--primary-accent);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.25);
     }
 
     .action-btn span {
       display: block;
-      font-size: 22px;
-      margin-bottom: 4px;
+      font-size: 24px;
+      margin-bottom: 6px;
     }
 
     .order-card {
       background-color: var(--order-bg);
       color: var(--order-text);
       border-radius: 28px;
-      padding: 24px;
+      padding: 26px;
       box-sizing: border-box;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .order-card h2 {
       margin-top: 0;
-      font-size: 20px;
-      font-weight: 800;
-      color: var(--primary-purple);
-      border-bottom: 2px solid #f1f5f9;
-      padding-bottom: 14px;
-      margin-bottom: 20px;
+      font-size: 22px;
+      font-weight: 900;
+      color: #1e1b4b;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 16px;
+      margin-bottom: 22px;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
     }
 
     .form-group {
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
 
     label {
@@ -195,62 +202,62 @@
       align-items: center;
       gap: 8px;
       font-size: 13px;
-      font-weight: 700;
+      font-weight: 800;
       margin-bottom: 8px;
       color: var(--label-color);
     }
 
     select, input {
       width: 100%;
-      padding: 14px 16px;
-      border-radius: 14px;
+      padding: 15px 18px;
+      border-radius: 16px;
       border: 1.5px solid var(--input-border);
       background-color: var(--input-bg);
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 700;
       color: #0f172a;
       box-sizing: border-box;
       outline: none;
-      transition: all 0.2s ease;
+      transition: all 0.25s ease;
     }
 
     select:focus, input:focus {
-      border-color: var(--primary-purple);
+      border-color: #7c3aed;
       box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.15);
       background-color: #ffffff;
     }
 
     .price-display {
-      background: linear-gradient(135deg, #f3e8ff 0%, #fae8ff 100%);
-      border: 1px solid #e9d5ff;
-      color: #6d28d9;
-      padding: 16px;
-      border-radius: 16px;
-      font-weight: 800;
+      background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      color: #fef08a;
+      padding: 18px;
+      border-radius: 18px;
+      font-weight: 900;
       text-align: center;
-      margin-top: 22px;
-      font-size: 17px;
-      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
+      margin-top: 24px;
+      font-size: 18px;
+      box-shadow: 0 8px 20px rgba(30, 27, 75, 0.25);
     }
 
     .submit-btn {
       width: 100%;
-      background: linear-gradient(135deg, #25d366, #15803d);
+      background: linear-gradient(135deg, #25d366, #16a34a);
       color: #ffffff;
-      padding: 16px;
-      border-radius: 16px;
-      font-size: 16px;
-      font-weight: 800;
-      margin-top: 18px;
+      padding: 18px;
+      border-radius: 18px;
+      font-size: 17px;
+      font-weight: 900;
+      margin-top: 20px;
       border: none;
       cursor: pointer;
-      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.35);
-      transition: all 0.2s ease;
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.35);
+      transition: all 0.3s ease;
     }
 
     .submit-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 30px rgba(37, 211, 102, 0.45);
+      transform: translateY(-3px);
+      box-shadow: 0 14px 35px rgba(37, 211, 102, 0.45);
     }
 
     .submit-btn:active {
@@ -269,7 +276,10 @@
 <div class="container">
 
   <div class="header">
-    <div class="logo">MUSTAFA <span>SMM</span></div>
+    <div class="logo">
+      مصطفى خضير
+      <span>MSS STORE</span>
+    </div>
     <button class="theme-toggle-btn" onclick="toggleTheme()">🌙 / ☀️ المظهر</button>
   </div>
 
