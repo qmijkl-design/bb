@@ -6,56 +6,62 @@
   <title>MSS STORE - مصطفى خضير</title>
   <style>
     :root {
-      --bg-color: #1a0933;
-      --card-bg: #ffffff;
-      --text-main: #1f2937;
-      --text-sub: #6b7280;
-      --border-color: #e5e7eb;
-      --primary-orange: #f59e0b;
-      --purple-header: #2d1254;
-      --error-color: #ef4444;
+      --bg-gradient: linear-gradient(135deg, #0f051d 0%, #2a085c 50%, #0d0118 100%);
+      --card-bg: rgba(255, 255, 255, 0.07);
+      --card-border: rgba(255, 255, 255, 0.12);
+      --input-bg: rgba(255, 255, 255, 0.05);
+      --input-border: rgba(255, 255, 255, 0.2);
+      --text-main: #ffffff;
+      --text-sub: #b3a2ce;
+      --primary-orange: #ff9f43;
+      --accent-purple: #9b51e0;
+      --error-red: #ff5252;
+      --success-green: #2ed573;
     }
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--bg-color);
+      background: var(--bg-gradient);
+      color: var(--text-main);
       margin: 0;
-      padding: 15px 10px;
+      padding: 20px 10px;
       direction: rtl;
       display: flex;
       justify-content: center;
+      align-items: center;
       min-height: 100vh;
       box-sizing: border-box;
     }
 
     .app-card {
-      background-color: var(--card-bg);
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--card-border);
       width: 100%;
       max-width: 440px;
-      border-radius: 20px;
-      padding: 20px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      border-radius: 24px;
+      padding: 25px 20px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
       box-sizing: border-box;
     }
 
     .header-title {
       text-align: center;
-      font-size: 20px;
+      font-size: 22px;
       font-weight: 800;
-      color: var(--purple-header);
-      margin-bottom: 5px;
-      border-bottom: 2px solid var(--primary-orange);
-      padding-bottom: 8px;
-      display: block;
-      width: 100%;
+      color: var(--text-main);
+      margin-bottom: 4px;
+      letter-spacing: 0.5px;
     }
 
     .store-brand {
       text-align: center;
       font-size: 13px;
       color: var(--primary-orange);
-      font-weight: bold;
-      margin-bottom: 15px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-transform: uppercase;
     }
 
     .search-box {
@@ -66,12 +72,19 @@
     .search-box input {
       width: 100%;
       padding: 12px 15px 12px 40px;
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
-      font-size: 14px;
+      background: var(--input-bg);
+      border: 1px solid var(--input-border);
+      border-radius: 12px;
+      font-size: 13px;
+      color: #fff;
       outline: none;
       box-sizing: border-box;
-      background-color: #fafafa;
+      transition: all 0.3s ease;
+    }
+
+    .search-box input:focus {
+      border-color: var(--primary-orange);
+      box-shadow: 0 0 10px rgba(255, 159, 67, 0.3);
     }
 
     .search-box span {
@@ -80,6 +93,7 @@
       top: 50%;
       transform: translateY(-50%);
       color: var(--text-sub);
+      pointer-events: none;
     }
 
     .platforms-bar {
@@ -87,7 +101,7 @@
       gap: 10px;
       overflow-x: auto;
       padding-bottom: 10px;
-      margin-bottom: 15px;
+      margin-bottom: 18px;
       scrollbar-width: none;
     }
 
@@ -96,8 +110,8 @@
     }
 
     .platform-icon {
-      width: 40px;
-      height: 40px;
+      width: 42px;
+      height: 42px;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -105,32 +119,35 @@
       cursor: pointer;
       flex-shrink: 0;
       border: 2px solid transparent;
-      transition: all 0.2s;
+      transition: all 0.3s ease;
       font-size: 16px;
+      background: var(--input-bg);
+      color: #fff;
     }
 
     .platform-icon.active {
-      border-color: #10b981;
-      transform: scale(1.08);
+      border-color: var(--primary-orange);
+      transform: scale(1.1);
+      box-shadow: 0 0 12px rgba(255, 159, 67, 0.4);
     }
 
-    .p-all { background: #e5e7eb; color: #374151; font-weight: bold; }
-    .p-insta { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: white; }
-    .p-tiktok { background: #000000; color: white; }
-    .p-fb { background: #1877f2; color: white; }
-    .p-tg { background: #0088cc; color: white; }
-    .p-yt { background: #ff0000; color: white; }
-    .p-wa { background: #25d366; color: white; }
-    .p-snap { background: #fffc00; color: black; }
+    .p-all { background: rgba(255,255,255,0.15); }
+    .p-insta { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+    .p-tiktok { background: #000000; border: 1px solid rgba(255,255,255,0.2); }
+    .p-fb { background: #1877f2; }
+    .p-tg { background: #0088cc; }
+    .p-yt { background: #ff0000; }
+    .p-wa { background: #25d366; }
+    .p-snap { background: #fffc00; color: #000; }
 
     .field-group {
-      margin-bottom: 15px;
+      margin-bottom: 16px;
     }
 
     .field-label {
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
-      color: var(--text-main);
+      color: var(--text-sub);
       margin-bottom: 6px;
       display: block;
     }
@@ -138,74 +155,86 @@
     select, input[type="text"], input[type="number"] {
       width: 100%;
       padding: 12px;
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
+      background: var(--input-bg);
+      border: 1px solid var(--input-border);
+      border-radius: 12px;
       font-size: 13px;
-      color: var(--text-main);
+      color: #ffffff;
       box-sizing: border-box;
       outline: none;
-      background-color: #ffffff;
-      transition: border-color 0.2s;
+      transition: all 0.3s ease;
+    }
+
+    select option {
+      background-color: #1a0933;
+      color: #ffffff;
+    }
+
+    select:focus, input[type="text"]:focus, input[type="number"]:focus {
+      border-color: var(--accent-purple);
+      box-shadow: 0 0 10px rgba(155, 81, 224, 0.3);
     }
 
     input.input-error {
-      border-color: var(--error-color) !important;
-      background-color: #fef2f2 !important;
+      border-color: var(--error-red) !important;
+      background: rgba(255, 82, 82, 0.1) !important;
     }
 
     .error-text {
-      color: var(--error-color);
+      color: var(--error-red);
       font-size: 11px;
-      margin-top: 4px;
+      margin-top: 5px;
       display: none;
-      font-weight: bold;
+      font-weight: 600;
     }
 
     .description-box {
-      background-color: #f9fafb;
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid var(--input-border);
+      border-radius: 12px;
       padding: 12px;
       font-size: 12px;
-      color: #374151;
+      color: #d1c4e9;
       line-height: 1.6;
       white-space: pre-line;
-      max-height: 150px;
+      max-height: 140px;
       overflow-y: auto;
     }
 
     .limit-text {
       font-size: 11px;
       color: var(--text-sub);
-      margin-top: 4px;
+      margin-top: 5px;
     }
 
     .readonly-box {
-      background-color: #f3f4f6;
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--input-border);
+      border-radius: 12px;
       padding: 12px;
       font-size: 14px;
       font-weight: 700;
-      color: var(--text-main);
+      color: var(--primary-orange);
     }
 
     .submit-btn {
       width: 100%;
-      background-color: var(--primary-orange);
+      background: linear-gradient(135deg, #ff9f43 0%, #ff5252 100%);
       color: white;
       border: none;
-      padding: 14px;
-      border-radius: 10px;
+      padding: 15px;
+      border-radius: 14px;
       font-size: 16px;
       font-weight: 800;
       cursor: pointer;
       margin-top: 10px;
-      transition: background 0.2s;
+      box-shadow: 0 8px 20px rgba(255, 159, 67, 0.3);
+      transition: all 0.3s ease;
     }
 
     .submit-btn:hover {
-      background-color: #d97706;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 25px rgba(255, 159, 67, 0.5);
     }
   </style>
 </head>
@@ -217,7 +246,7 @@
 
   <!-- البحث -->
   <div class="search-box">
-    <input type="text" id="search-input" placeholder="اسم أو رقم الخدمة" oninput="filterServices()">
+    <input type="text" id="search-input" placeholder="بحث باسم أو رقم الخدمة..." oninput="filterServices()">
     <span>🔍</span>
   </div>
 
@@ -312,18 +341,18 @@
     </div>
   </div>
 
-  <!-- الرابط مع التحقق الصارم -->
+  <!-- الرابط -->
   <div class="field-group">
     <label class="field-label">الرابط أو اسم الحساب</label>
     <input type="text" id="link-input" placeholder="https://instagram.com/username أو @username" oninput="validateLink()">
-    <div class="error-text" id="link-error">⚠️ خطأ: يرجى كتابة رابط حساب صحيح أو يبتدئ بـ @</div>
+    <div class="error-text" id="link-error">⚠️ خطأ: يرجى وضع رابط صحيح (https://...) أو يوزر بـ (@)</div>
   </div>
 
   <!-- الكمية -->
   <div class="field-group">
     <label class="field-label">الكمية</label>
     <input type="number" id="quantity-input" placeholder="أدخل الكمية المطلوبة" oninput="calculateCost()">
-    <div class="limit-text" id="limit-text">الحد الادنى: - - الحد الاقصى: -</div>
+    <div class="limit-text" id="limit-text">الحد الأدنى: - | الحد الأقصى: -</div>
   </div>
 
   <!-- متوسط الوقت -->
@@ -339,7 +368,7 @@
   </div>
 
   <!-- زر الطلب -->
-  <button class="submit-btn" onclick="submitOrder()">طلب</button>
+  <button class="submit-btn" onclick="submitOrder()">إرسال الطلب الآن</button>
 </div>
 
 <script>
@@ -349,7 +378,7 @@
       id: "12838",
       cat: "yt_ads",
       platform: "yt",
-      name: "مشاهدات فيديو يوتيوب عن طريق اعلان على يوتيوب | جميع دول العالم الحد الادنى 50 ألف | ضمان مدى الحياة ❤️🎥",
+      name: "مشاهدات فيديو يوتيوب عن طريق اعلان على يوتيوب | جميع دول العالم | ضمان مدى الحياة ❤️🎥",
       ratePer1000: 5500,
       min: 300000,
       max: 217545811,
@@ -384,7 +413,7 @@
       id: "14314",
       cat: "wa_main",
       platform: "wa",
-      name: "أعضاء قناة واتساب [عالمياً 🌍] [بحد أقصى 50 ألفًا] | ملفات تعريف عالية الجودة | اليوم 10 آلاف",
+      name: "أعضاء قناة واتساب [عالمياً 🌍] | ملفات تعريف عالية الجودة | 10k",
       ratePer1000: 4725,
       min: 100,
       max: 50000,
@@ -395,7 +424,7 @@
       id: "14315",
       cat: "wa_main",
       platform: "wa",
-      name: "أعضاء قناة واتساب [عالمياً 🌍] [بحد أقصى 50 ألفًا] | ملفات تعريف عالية الجودة | اليوم 20 ألفًا",
+      name: "أعضاء قناة واتساب [عالمياً 🌍] | ملفات تعريف عالية الجودة | 20k",
       ratePer1000: 9900,
       min: 100,
       max: 50000,
@@ -406,7 +435,7 @@
       id: "14316",
       cat: "wa_main",
       platform: "wa",
-      name: "أعضاء قناة واتساب [الهند 🇮🇳] [بحد أقصى 50 ألفًا] | ملفات تعريف عالية الجودة | 20 ألفًا في اليوم",
+      name: "أعضاء قناة واتساب [الهند 🇮🇳] | ملفات تعريف عالية الجودة | 20k",
       ratePer1000: 13350,
       min: 100,
       max: 50000,
@@ -417,7 +446,7 @@
       id: "14317",
       cat: "wa_main",
       platform: "wa",
-      name: "أعضاء قناة واتساب [عرب 🇦🇪] [بحد أقصى 50 ألفًا] | ملفات تعريف عالية الجودة | 20 ألفًا في اليوم",
+      name: "أعضاء قناة واتساب [عرب 🇦🇪] | ملفات تعريف عالية الجودة | 20k",
       ratePer1000: 13350,
       min: 100,
       max: 50000,
@@ -498,7 +527,7 @@
       id: "11484",
       cat: "fb_cheap",
       platform: "fb",
-      name: "متابعات صفحات فيسبوك عامه بيجات و برفايل شخصي - ميكس تعويض تلقائي 30 يوم ✨",
+      name: "متابعات صفحات فيسبوك عامه - ميكس تعويض تلقائي 30 يوم ✨",
       ratePer1000: 5385,
       min: 100,
       max: 50000,
@@ -509,7 +538,7 @@
       id: "11483",
       cat: "fb_cheap",
       platform: "fb",
-      name: "اعجابات صفحات فيسبوك بيج - حقيقية ميكس تعويض تلقائي 30 يوم ✨",
+      name: "اعجابات صفحات فيسبوك بيج - حقيقية تعويض 30 يوم ✨",
       ratePer1000: 4995,
       min: 100,
       max: 50000,
@@ -559,7 +588,7 @@
   function loadServices() {
     const catSelect = document.getElementById('category-select').value;
     const serviceSelect = document.getElementById('service-select');
-    const searchValue = document.getElementById('search-input').value.toLowerCase();
+    const searchValue = document.getElementById('search-input').value.toLowerCase().trim();
 
     serviceSelect.innerHTML = '';
 
@@ -572,7 +601,7 @@
 
     if (filtered.length === 0) {
       const opt = document.createElement('option');
-      opt.text = "لا توجد خدمات لهذا القسم حالياً";
+      opt.text = "لا توجد خدمات متاحة لهذه الفئة";
       opt.value = "";
       serviceSelect.appendChild(opt);
     } else {
@@ -604,11 +633,11 @@
 
     if (service) {
       descBox.innerText = service.desc;
-      limitText.innerText = `الحد الادنى: ${service.min.toLocaleString()} - الحد الاقصى: ${service.max.toLocaleString()}`;
+      limitText.innerText = `الحد الأدنى: ${service.min.toLocaleString()} | الحد الأقصى: ${service.max.toLocaleString()}`;
       timeBox.innerText = service.time;
     } else {
-      descBox.innerText = "لا توجد معلومات للخدمة.";
-      limitText.innerText = "الحد الادنى: - - الحد الاقصى: -";
+      descBox.innerText = "لا توجد تفاصيل متاحة للخدمة.";
+      limitText.innerText = "الحد الأدنى: - | الحد الأقصى: -";
       timeBox.innerText = "-";
     }
     calculateCost();
@@ -627,33 +656,5 @@
     }
   }
 
-  // دالة فحص الرابط أو اليوزر بدقة
-  function validateLink() {
-    const linkInput = document.getElementById('link-input');
-    const errorText = document.getElementById('link-error');
-    const val = linkInput.value.trim();
-
-    // يجب أن يبدأ بـ http:// أو https:// أو @ وبدون مسافات
-    const linkRegex = /^(https?:\/\/[^\s]+|@[a-zA-Z0-9_.-]+)$/;
-
-    if (val === "") {
-      linkInput.classList.remove('input-error');
-      errorText.style.display = 'none';
-      return false;
-    }
-
-    if (!linkRegex.test(val)) {
-      linkInput.classList.add('input-error');
-      errorText.style.display = 'block';
-      return false;
-    } else {
-      linkInput.classList.remove('input-error');
-      errorText.style.display = 'none';
-      return true;
-    }
-  }
-
-  function submitOrder() {
-    const service = getSelectedService();
-    const linkInput = document.getElementById('link-input');
-    const link = lin
+  // فحص حقيقي ودقيق للرابط لمنع أي إدخال خاطئ
+  function vali
