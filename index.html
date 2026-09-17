@@ -3,481 +3,485 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mustafa Khudhair - Mss Store</title>
+  <title>Mustafa Khudhair - MSS STORE</title>
   <style>
     :root {
-      --bg-color: #050508;
-      --text-color: #ffffff;
-      --card-bg: rgba(18, 18, 26, 0.85);
-      --card-border: rgba(212, 175, 55, 0.3);
-      --subtext-color: #d1d5db;
-      --order-bg: rgba(255, 255, 255, 0.96);
-      --order-text: #0f172a;
-      --input-bg: #f8fafc;
-      --input-border: #cbd5e1;
-      --label-color: #0f172a;
-      --primary-accent: #d4af37;
-      --secondary-accent: #8b5cf6;
-    }
-
-    body.light-theme {
-      --bg-color: #f1f5f9;
-      --text-color: #0f172a;
+      --bg-color: #1a0933;
       --card-bg: #ffffff;
-      --card-border: #cbd5e1;
-      --subtext-color: #475569;
-      --order-bg: #ffffff;
-      --order-text: #0f172a;
-      --input-bg: #f8fafc;
-      --input-border: #cbd5e1;
-      --label-color: #1e293b;
+      --text-main: #1f2937;
+      --text-sub: #6b7280;
+      --border-color: #e5e7eb;
+      --primary-orange: #f59e0b;
+      --purple-header: #2d1254;
     }
 
     body {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      background: var(--bg-color);
-      background-image: 
-        radial-gradient(circle at 15% 15%, rgba(212, 175, 55, 0.15) 0%, transparent 45%),
-        radial-gradient(circle at 85% 85%, rgba(139, 92, 246, 0.15) 0%, transparent 45%);
-      background-attachment: fixed;
-      color: var(--text-color);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-color);
       margin: 0;
-      padding: 24px 16px;
+      padding: 15px 10px;
       direction: rtl;
-      transition: background 0.4s ease, color 0.4s ease;
+      display: flex;
+      justify-content: center;
       min-height: 100vh;
       box-sizing: border-box;
     }
 
-    .container {
-      max-width: 450px;
-      margin: 0 auto;
-    }
-
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-bottom: 24px;
-    }
-
-    .logo {
-      font-size: 22px;
-      font-weight: 900;
-      letter-spacing: 0.5px;
-      color: var(--text-color);
-      line-height: 1.2;
-    }
-
-    .logo span {
-      background: linear-gradient(135deg, #f59e0b, #d4af37);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      display: block;
-      font-size: 14px;
-      letter-spacing: 2px;
-      font-weight: 700;
-    }
-
-    .theme-toggle-btn {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      color: var(--text-color);
-      padding: 10px 18px;
-      border-radius: 30px;
-      cursor: pointer;
-      font-size: 13px;
-      font-weight: 700;
-      backdrop-filter: blur(16px);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-      transition: all 0.3s ease;
-    }
-
-    .theme-toggle-btn:active {
-      transform: scale(0.95);
-    }
-
-    .stat-card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 22px;
-      padding: 18px 22px;
-      margin-bottom: 14px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      backdrop-filter: blur(16px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-      transition: all 0.3s ease;
-    }
-
-    .stat-card:hover {
-      transform: translateY(-3px);
-      border-color: rgba(212, 175, 55, 0.6);
-    }
-
-    .stat-info h3 {
-      margin: 0;
-      font-size: 24px;
-      font-weight: 900;
-      color: var(--text-color);
-      letter-spacing: 1px;
-    }
-
-    .stat-info p {
-      margin: 4px 0 0 0;
-      color: var(--subtext-color);
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    .stat-icon {
-      font-size: 30px;
-    }
-
-    .quick-actions {
-      display: flex;
-      gap: 12px;
-      margin-bottom: 24px;
-    }
-
-    .action-btn {
-      flex: 1;
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      color: var(--text-color);
-      border-radius: 18px;
-      padding: 14px 8px;
-      text-align: center;
-      font-size: 12px;
-      font-weight: 700;
-      text-decoration: none;
-      display: block;
-      backdrop-filter: blur(16px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s ease;
-    }
-
-    .action-btn:hover {
-      border-color: var(--primary-accent);
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.25);
-    }
-
-    .action-btn span {
-      display: block;
-      font-size: 24px;
-      margin-bottom: 6px;
-    }
-
-    .order-card {
-      background-color: var(--order-bg);
-      color: var(--order-text);
-      border-radius: 28px;
-      padding: 26px;
-      box-sizing: border-box;
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .order-card h2 {
-      margin-top: 0;
-      font-size: 22px;
-      font-weight: 900;
-      color: #1e1b4b;
-      border-bottom: 2px solid #e2e8f0;
-      padding-bottom: 16px;
-      margin-bottom: 22px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    label {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 13px;
-      font-weight: 800;
-      margin-bottom: 8px;
-      color: var(--label-color);
-    }
-
-    select, input {
+    .app-card {
+      background-color: var(--card-bg);
       width: 100%;
-      padding: 15px 18px;
-      border-radius: 16px;
-      border: 1.5px solid var(--input-border);
-      background-color: var(--input-bg);
+      max-width: 440px;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      box-sizing: border-box;
+    }
+
+    .header-title {
+      text-align: center;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--purple-header);
+      margin-bottom: 5px;
+      border-bottom: 2px solid var(--primary-orange);
+      padding-bottom: 8px;
+      display: inline-block;
+      width: 100%;
+    }
+
+    .store-brand {
+      text-align: center;
+      font-size: 13px;
+      color: var(--primary-orange);
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .search-box {
+      position: relative;
+      margin-bottom: 15px;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 12px 15px 12px 40px;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      font-size: 14px;
+      outline: none;
+      box-sizing: border-box;
+      background-color: #fafafa;
+    }
+
+    .search-box span {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-sub);
+    }
+
+    .platforms-bar {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+      margin-bottom: 15px;
+      scrollbar-width: none;
+    }
+
+    .platforms-bar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .platform-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+      border: 2px solid transparent;
+      transition: all 0.2s;
+    }
+
+    .platform-icon.active {
+      border-color: #10b981;
+      transform: scale(1.05);
+    }
+
+    .p-all { background: #e5e7eb; color: #374151; font-weight: bold; font-size: 18px; }
+    .p-insta { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: white; }
+    .p-tiktok { background: #000000; color: white; }
+    .p-fb { background: #1877f2; color: white; }
+    .p-tg { background: #0088cc; color: white; }
+    .p-yt { background: #ff0000; color: white; }
+    .p-wa { background: #25d366; color: white; }
+    .p-snap { background: #fffc00; color: black; }
+
+    .field-group {
+      margin-bottom: 15px;
+    }
+
+    .field-label {
       font-size: 14px;
       font-weight: 700;
-      color: #0f172a;
+      color: var(--text-main);
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    select, input[type="text"], input[type="number"] {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      font-size: 13px;
+      color: var(--text-main);
       box-sizing: border-box;
       outline: none;
-      transition: all 0.25s ease;
-    }
-
-    select:focus, input:focus {
-      border-color: #7c3aed;
-      box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.15);
       background-color: #ffffff;
     }
 
-    .price-display {
-      background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
-      border: 1px solid rgba(212, 175, 55, 0.4);
-      color: #fef08a;
-      padding: 18px;
-      border-radius: 18px;
-      font-weight: 900;
-      text-align: center;
-      margin-top: 24px;
-      font-size: 18px;
-      box-shadow: 0 8px 20px rgba(30, 27, 75, 0.25);
+    .service-select-wrapper {
+      position: relative;
+    }
+
+    .service-badge {
+      position: absolute;
+      left: 30px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #6b7280;
+      color: white;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 12px;
+      pointer-events: none;
+    }
+
+    .description-box {
+      background-color: #f9fafb;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 12px;
+      font-size: 12px;
+      color: #374151;
+      line-height: 1.6;
+      white-space: pre-line;
+      max-height: 160px;
+      overflow-y: auto;
+    }
+
+    .limit-text {
+      font-size: 11px;
+      color: var(--text-sub);
+      margin-top: 4px;
+    }
+
+    .readonly-box {
+      background-color: #f3f4f6;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 12px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-main);
     }
 
     .submit-btn {
       width: 100%;
-      background: linear-gradient(135deg, #25d366, #16a34a);
-      color: #ffffff;
-      padding: 18px;
-      border-radius: 18px;
-      font-size: 17px;
-      font-weight: 900;
-      margin-top: 20px;
+      background-color: var(--primary-orange);
+      color: white;
       border: none;
+      padding: 14px;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 800;
       cursor: pointer;
-      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.35);
-      transition: all 0.3s ease;
+      margin-top: 10px;
+      transition: background 0.2s;
     }
 
     .submit-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 14px 35px rgba(37, 211, 102, 0.45);
-    }
-
-    .submit-btn:active {
-      transform: scale(0.98);
-    }
-
-    .app-icon {
-      width: 20px;
-      height: 20px;
-      flex-shrink: 0;
+      background-color: #d97706;
     }
   </style>
 </head>
 <body>
 
-<div class="container">
+<div class="app-card">
+  <div class="header-title">طلب جديد</div>
+  <div class="store-brand">مصطفى خضير | MSS STORE</div>
 
-  <div class="header">
-    <div class="logo">
-      مصطفى خضير
-      <span>MSS STORE</span>
-    </div>
-    <button class="theme-toggle-btn" onclick="toggleTheme()">🌙 / ☀️ المظهر</button>
+  <!-- البحث -->
+  <div class="search-box">
+    <input type="text" id="search-input" placeholder="اسم أو رقم الخدمة" oninput="filterServices()">
+    <span>🔍</span>
   </div>
 
-  <div class="stat-card">
-    <div class="stat-info">
-      <h3>13,773,533</h3>
-      <p>طلبات مكتملة</p>
-    </div>
-    <div class="stat-icon">📊</div>
+  <!-- المنصات -->
+  <div class="platforms-bar">
+    <div class="platform-icon p-all active" onclick="selectPlatform('all', this)">☰</div>
+    <div class="platform-icon p-insta" onclick="selectPlatform('insta', this)">📷</div>
+    <div class="platform-icon p-tiktok" onclick="selectPlatform('tiktok', this)">🎵</div>
+    <div class="platform-icon p-fb" onclick="selectPlatform('fb', this)">f</div>
+    <div class="platform-icon p-tg" onclick="selectPlatform('tg', this)">✈</div>
+    <div class="platform-icon p-yt" onclick="selectPlatform('yt', this)">▶</div>
+    <div class="platform-icon p-wa" onclick="selectPlatform('wa', this)">💬</div>
+    <div class="platform-icon p-snap" onclick="selectPlatform('snap', this)">👻</div>
   </div>
 
-  <div class="stat-card">
-    <div class="stat-info">
-      <h3>طلب مباشر</h3>
-      <p>الدفع والتنفيذ فوراً عبر الواتساب</p>
-    </div>
-    <div class="stat-icon">💬</div>
+  <!-- الفئة -->
+  <div class="field-group">
+    <label class="field-label">الفئة</label>
+    <select id="category-select" onchange="onCategoryChange()">
+      <option value="offers">💸 الأرخص مبيعاً اليوم</option>
+      <option value="insta">📷 خدمات إنستغرام</option>
+      <option value="tiktok">🎵 خدمات تيك توك</option>
+      <option value="fb">📘 خدمات فيسبوك</option>
+      <option value="tg">✈ خدمات تليجرام</option>
+      <option value="games">🎮 شحن الألعاب</option>
+    </select>
   </div>
 
-  <div class="quick-actions">
-    <a href="https://wa.me/9647815955995" class="action-btn" target="_blank">
-      <span>🎧</span> الدعم الفني
-    </a>
-    <a href="javascript:void(0)" class="action-btn" onclick="alert('طرق الدفع المتاحة: زين كاش / آسيا حوالة / ماستر كارد (تواصل عبر الواتساب)')">
-      <span>💳</span> طرق الدفع
-    </a>
-    <a href="https://wa.me/9647815955995" class="action-btn" target="_blank">
-      <span>📜</span> سجل الطلبات
-    </a>
+  <!-- الخدمة -->
+  <div class="field-group">
+    <label class="field-label">الخدمة</label>
+    <div class="service-select-wrapper">
+      <select id="service-select" onchange="onServiceChange()">
+        <!-- يتم تحميل الخدمات تلقائياً -->
+      </select>
+    </div>
   </div>
 
-  <div class="order-card">
-    <h2>طلب جديد 🚀</h2>
-
-    <!-- العروض والخصومات -->
-    <div class="form-group">
-      <label>
-        <svg class="app-icon" viewBox="0 0 24 24" fill="#f59e0b"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-        العروض الخاصة والخصومات:
-      </label>
-      <select id="select-offers" class="service-box" onchange="updatePrice(this)">
-        <option value="" data-price="0">-- اختر عرض خاص --</option>
-        <option value="ترويج متابعين إنستغرام 1k" data-price="15,000 د.ع">ترويج متابعين إنستغرام - 1k (15,000 د.ع)</option>
-        <option value="ترويج متابعين إنستغرام 3k" data-price="40,000 د.ع">ترويج متابعين إنستغرام - 3k (40,000 د.ع)</option>
-        <option value="ترويج صفحة فيسبوك 3 أيام" data-price="30,000 د.ع">ترويج صفحة فيسبوك - 3 أيام (30,000 د.ع)</option>
-      </select>
+  <!-- الوصف -->
+  <div class="field-group">
+    <label class="field-label">الوصف</label>
+    <div class="description-box" id="service-desc">
+      اختر خدمة لعرض الوصف الخاص بها.
     </div>
-
-    <!-- خدمات إنستغرام حقيقي -->
-    <div class="form-group">
-      <label>
-        <svg class="app-icon" viewBox="0 0 24 24" fill="#e1306c"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-        خدمات إنستغرام (حقيقي):
-      </label>
-      <select id="select-insta-real" class="service-box" onchange="updatePrice(this)">
-        <option value="" data-price="0">-- اختر خدمة إنستغرام حقيقي --</option>
-        <option value="ترويج إنستغرام ممول - فيديوهات حقيقي (10,000 د.ع)" data-price="10,000 د.ع">ترويج إنستغرام ممول - فيديوهات حقيقي (10,000 د.ع)</option>
-        <option value="متابعين إنستغرام (ضمان) - 1,000 متابع حقيقي (15,000 د.ع)" data-price="15,000 د.ع">متابعين إنستغرام (ضمان) - 1,000 متابع حقيقي (15,000 د.ع)</option>
-        <option value="لايكات إنستغرام حقيقي - 1,000 لايك (8,000 د.ع)" data-price="8,000 د.ع">لايكات إنستغرام حقيقي - 1,000 لايك (8,000 د.ع)</option>
-      </select>
-    </div>
-
-    <!-- خدمات إنستغرام وهمي -->
-    <div class="form-group">
-      <label>
-        <svg class="app-icon" viewBox="0 0 24 24" fill="#e1306c"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-        خدمات إنستغرام (وهمي):
-      </label>
-      <select id="select-insta-fake" class="service-box" onchange="updatePrice(this)">
-        <option value="" data-price="0">-- اختر خدمة إنستغرام وهمي --</option>
-        <option value="مشاهدات ريلز - 10,000 مشاهدة وهمي (5,000 د.ع)" data-price="5,000 د.ع">مشاهدات ريلز - 10,000 مشاهدة وهمي (5,000 د.ع)</option>
-        <option value="متابعين إنستغرام وهمي - 1,000 متابع (5,000 د.ع)" data-price="5,000 د.ع">متابعين إنستغرام وهمي - 1,000 متابع (5,000 د.ع)</option>
-      </select>
-    </div>
-
-    <!-- خدمات فيسبوك -->
-    <div class="form-group">
-      <label>
-        <svg class="app-icon" viewBox="0 0 24 24" fill="#1877f2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-        خدمات فيسبوك:
-      </label>
-      <select id="select-facebook" class="service-box" onchange="updatePrice(this)">
-        <option value="" data-price="0">-- اختر خدمة فيسبوك --</option>
-        <option value="ترويج فيسبوك - يوم واحد" data-price="15,000 د.ع">ترويج فيسبوك - يوم واحد (15,000 د.ع)</option>
-        <option value="ترويج فيسبوك - أسبوع كامل" data-price="70,000 د.ع">ترويج فيسبوك - أسبوع كامل (70,000 د.ع)</option>
-        <option value="متابعين صفحة فيسبوك - 1,000" data-price="8,000 د.ع">متابعين صفحة فيسبوك - 1,000 متابع (8,000 د.ع)</option>
-      </select>
-    </div>
-
-    <!-- خدمات تيك توك -->
-    <div class="form-group">
-      <label>
-        <svg class="app-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M19.589 6.686a4.793 4.793 0 01-3.77-4.242V2h-3.445v13.672a2.896 2.896 0 01-5.01 1.953 2.892 2.892 0 011.085-4.673v-3.48a6.342 6.342 0 00-4.562 6.096 6.347 6.347 0 006.516 6.345 6.326 6.326 0 005.544-3.235 6.33 6.33 0 00.971-3.414V8.472a8.215 8.215 0 004.815 1.543V6.634a4.78 4.78 0 01-1.045.052z"/></svg>
-        خدمات تيك توك:
-      </label>
-      <select id="select-tiktok" class="service-box" onchange="updatePrice(this)">
-        <option value="" data-price="0">-- اختر خدمة تيك توك --</option>
-        <option value="متابعين تيك توك - 1,000" data-price="15,000 د.ع">متابعين تيك توك - 1,000 متابع (15,000 د.ع)</option>
-        <option value="مشاهدات تيك توك - 10,000" data-price="8,000 د.ع">مشاهدات تيك توك - 10,000 مشاهدة (8,000 د.ع)</option>
-      </select>
-    </div>
-
-    <!-- خدمات تليجرام -->
-    <div class="form-group">
-      <label>
-        <svg class="app-icon" viewBox="0 0 24 24" fill="#0088cc"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.781-.417-1.21.258-1.911.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.012-1.252-.242-1.865-.442-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.141.119.098.152.228.163.33.012.103.025.337.01.522z"/></svg>
-        خدمات تليجرام:
-      </label>
-      <select id="select-telegram" class="service-box" onchange="updatePrice(this)">
-        <option value="" data-price="0">-- اختر خدمة تليجرام --</option>
-        <option value="أعضاء قنوات تليجرام - 1,000" data-price="10,000 د.ع">أعضاء قنوات تليجرام - 1,000 عضو (10,000 د.ع)</option>
-      </select>
-    </div>
-
-    <!-- خدمات شحن الألعاب -->
-    <div class="form-group">
-      <label>
-        <svg class="app-icon" viewBox="0 0 24 24" fill="#10b981"><path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2zm4.5 2c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm3-3c-.83 0-1.5-.67-1.5-1.5S17.67 9 18.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
-        خدمات شحن الألعاب:
-      </label>
-      <select id="select-games" class="service-box" onchange="updatePrice(this)">
-        <option value="" data-price="0">-- اختر شحن لعبة --</option>
-        <option value="شدات ببجي - 60 شدة" data-price="2,000 د.ع">شدات ببجي - 60 شدة (2,000 د.ع)</option>
-        <option value="شدات ببجي - 325 شدة" data-price="7,500 د.ع">شدات ببجي - 325 شدة (7,500 د.ع)</option>
-        <option value="مجوهرات فري فاير - 100 مجوهرة" data-price="3,000 د.ع">مجوهرات فري فاير - 100 مجوهرة (3,000 د.ع)</option>
-        <option value="لودو ستار - 10 مليون كوينز" data-price="5,000 د.ع">لودو ستار - 10 مليون كوينز (5,000 د.ع)</option>
-        <option value="لودو ستار - 50 مليون كوينز" data-price="20,000 د.ع">لودو ستار - 50 مليون كوينز (20,000 د.ع)</option>
-        <option value="لودو - 100 مجوهرة (Gems)" data-price="4,000 د.ع">لودو - 100 مجوهرة Gems (4,000 د.ع)</option>
-        <option value="بيس - 130 كوينز eFootball" data-price="3,500 د.ع">بيس eFootball - 130 كوينز (3,500 د.ع)</option>
-        <option value="بيس - 550 كوينز eFootball" data-price="13,000 د.ع">بيس eFootball - 550 كوينز (13,000 د.ع)</option>
-        <option value="بيس - 1,040 كوينز eFootball" data-price="24,000 د.ع">بيس eFootball - 1,040 كوينز (24,000 د.ع)</option>
-        <option value="روبلوكس - 400 روبوكس (Robux)" data-price="8,000 د.ع">روبلوكس - 400 Robux (8,000 د.ع)</option>
-        <option value="روبلوكس - 800 روبوكس (Robux)" data-price="15,000 د.ع">روبلوكس - 800 Robux (15,000 د.ع)</option>
-        <option value="روبلوكس - 1,700 روبوكس (Robux)" data-price="30,000 د.ع">روبلوكس - 1,700 Robux (30,000 د.ع)</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label>رابط الحساب / ID / المنشور المطلوب:</label>
-      <input type="text" id="link-input" placeholder="https://... أو ID اللعبة">
-    </div>
-
-    <div class="price-display" id="price-box">
-      السعر الكلي: اختر خدمة أولاً
-    </div>
-
-    <button type="button" class="submit-btn" onclick="sendToWhatsApp()">
-      تأكيد الطلب عبر الواتساب 💬
-    </button>
   </div>
 
+  <!-- الرابط -->
+  <div class="field-group">
+    <label class="field-label">الرابط</label>
+    <input type="text" id="link-input" placeholder="https://... أو ID">
+  </div>
+
+  <!-- الكمية -->
+  <div class="field-group">
+    <label class="field-label">الكمية</label>
+    <input type="number" id="quantity-input" placeholder="أدخل الكمية" oninput="calculateCost()">
+    <div class="limit-text" id="limit-text">الحد الأدنى: - | الحد الأقصى: -</div>
+  </div>
+
+  <!-- متوسط الوقت -->
+  <div class="field-group">
+    <label class="field-label">متوسط وقت إكتمال الطلب 🕒</label>
+    <div class="readonly-box" id="time-box">سريع جداً / فوري</div>
+  </div>
+
+  <!-- التكلفة -->
+  <div class="field-group">
+    <label class="field-label">التكلفة</label>
+    <div class="readonly-box" id="cost-box">0 د.ع</div>
+  </div>
+
+  <!-- زر الطلب -->
+  <button class="submit-btn" onclick="submitOrder()">طلب</button>
 </div>
 
 <script>
-  var activeService = "";
-  var activePrice = "";
+  const servicesData = [
+    {
+      id: "15670",
+      cat: "insta",
+      platform: "insta",
+      name: "متابعين انستقرام تعويض تلقائي | ضمان 365 يوم",
+      min: 50,
+      max: 1000000,
+      ratePer1000: 15000,
+      time: "31 الساعات 19 الدقائق",
+      desc: "متابع انستقرام [الحد الأقصى: مليون 1]\n[ضمان: 365 يوم]\n[معدل النزول: 5-0%]\n[وقت البدء: 0-1 ساعة]\n[السرعة: 100k باليوم]\n\nمهم جداً اذا كنت تريد انشاء طلب جديد:\nتعطيل خيار 'تمييز للمراجعة'\n1. انتقل إلى إعدادات الحساب.\n2. اختر خيار 'متابعة ودعوة الأصدقاء'.\n3. ابحث عن خيار 'تمييز للمراجعة' وقام بتعطيله."
+    },
+    {
+      id: "10201",
+      cat: "offers",
+      platform: "insta",
+      name: "ترويج متابعين إنستغرام 1k - عرض خاص",
+      min: 1000,
+      max: 1000,
+      ratePer1000: 15000,
+      time: "فوري / غضون ساعات",
+      desc: "عرض خاص وسريع جداً لزيادة المتابعين مع الضمان الكامل."
+    },
+    {
+      id: "20541",
+      cat: "tiktok",
+      platform: "tiktok",
+      name: "متابعين تيك توك حقيقيين High Quality",
+      min: 100,
+      max: 500000,
+      ratePer1000: 15000,
+      time: "0-24 ساعة",
+      desc: "متابعين تيك توك بجودة عالية وسرعة ممتازة."
+    },
+    {
+      id: "30812",
+      cat: "fb",
+      platform: "fb",
+      name: "متابعين صفحة فيسبوك - حسابات حقيقية",
+      min: 100,
+      max: 200000,
+      ratePer1000: 8000,
+      time: "1-12 ساعة",
+      desc: "زيادة متابعين البيجات والصفحات الشخصية في فيسبوك."
+    },
+    {
+      id: "40192",
+      cat: "tg",
+      platform: "tg",
+      name: "أعضاء قنوات ومجموعات تليجرام",
+      min: 100,
+      max: 100000,
+      ratePer1000: 10000,
+      time: "فوري",
+      desc: "أعضاء لمجموعات وقنوات التليجرام مع ثبات عالي."
+    },
+    {
+      id: "50221",
+      cat: "games",
+      platform: "all",
+      name: "شدات ببجي Mobile - 325 UC",
+      min: 1,
+      max: 10,
+      ratePer1000: 7500000, // سعر القطعة 7500
+      time: "فوري (1-5 دقائق)",
+      desc: "شحن مباشر عبر الـ Player ID الخاص بك."
+    }
+  ];
 
-  function updatePrice(element) {
-    var boxes = document.getElementsByClassName('service-box');
-    for (var i = 0; i < boxes.length; i++) {
-      if (boxes[i] !== element) {
-        boxes[i].selectedIndex = 0;
-      }
+  let currentPlatform = 'all';
+
+  function init() {
+    loadServices();
+  }
+
+  function selectPlatform(platform, element) {
+    document.querySelectorAll('.platform-icon').forEach(el => el.classList.remove('active'));
+    element.classList.add('active');
+    currentPlatform = platform;
+    loadServices();
+  }
+
+  function onCategoryChange() {
+    loadServices();
+  }
+
+  function loadServices() {
+    const catSelect = document.getElementById('category-select').value;
+    const serviceSelect = document.getElementById('service-select');
+    const searchValue = document.getElementById('search-input').value.toLowerCase();
+
+    serviceSelect.innerHTML = '';
+
+    const filtered = servicesData.filter(s => {
+      const matchCat = (catSelect === 'offers' || s.cat === catSelect);
+      const matchPlatform = (currentPlatform === 'all' || s.platform === currentPlatform);
+      const matchSearch = s.name.toLowerCase().includes(searchValue) || s.id.includes(searchValue);
+      return matchCat && matchPlatform && matchSearch;
+    });
+
+    if (filtered.length === 0) {
+      const opt = document.createElement('option');
+      opt.text = "لا توجد خدمات متاحة";
+      opt.value = "";
+      serviceSelect.appendChild(opt);
+    } else {
+      filtered.forEach(s => {
+        const opt = document.createElement('option');
+        opt.value = s.id;
+        opt.text = `[${s.id}] - ${s.name}`;
+        serviceSelect.appendChild(opt);
+      });
     }
 
-    if (element.value !== "") {
-      var selected = element.options[element.selectedIndex];
-      activeService = selected.value;
-      activePrice = selected.getAttribute('data-price');
-      document.getElementById('price-box').innerHTML = "السعر الكلي: " + activePrice;
+    onServiceChange();
+  }
+
+  function filterServices() {
+    loadServices();
+  }
+
+  function getSelectedService() {
+    const id = document.getElementById('service-select').value;
+    return servicesData.find(s => s.id === id);
+  }
+
+  function onServiceChange() {
+    const service = getSelectedService();
+    const descBox = document.getElementById('service-desc');
+    const limitText = document.getElementById('limit-text');
+    const timeBox = document.getElementById('time-box');
+
+    if (service) {
+      descBox.innerText = service.desc;
+      limitText.innerText = `الحد الادنى: ${service.min} - الحد الاقصى: ${service.max}`;
+      timeBox.innerText = service.time;
     } else {
-      activeService = "";
-      activePrice = "";
-      document.getElementById('price-box').innerHTML = "السعر الكلي: اختر خدمة أولاً";
+      descBox.innerText = "لا توجد معلومات.";
+      limitText.innerText = "الحد الادنى: - | الحد الاقصى: -";
+      timeBox.innerText = "-";
+    }
+    calculateCost();
+  }
+
+  function calculateCost() {
+    const service = getSelectedService();
+    const qty = parseFloat(document.getElementById('quantity-input').value) || 0;
+    const costBox = document.getElementById('cost-box');
+
+    if (service && qty > 0) {
+      let total = 0;
+      if (service.cat === 'games') {
+        total = qty * (service.ratePer1000 / 1000);
+      } else {
+        total = (qty / 1000) * service.ratePer1000;
+      }
+      costBox.innerText = total.toLocaleString() + " د.ع";
+    } else {
+      costBox.innerText = "0 د.ع";
     }
   }
 
-  function sendToWhatsApp() {
-    if (!activeService) {
-      alert('يرجى اختيار خدمة أولاً');
+  function submitOrder() {
+    const service = getSelectedService();
+    const link = document.getElementById('link-input').value;
+    const qty = document.getElementById('quantity-input').value;
+    const cost = document.getElementById('cost-box').innerText;
+
+    if (!service) {
+      alert("يرجى اختيار خدمة أولاً");
+      return;
+    }
+    if (!link) {
+      alert("يرجى أدخال الرابط أو الـ ID");
+      return;
+    }
+    if (!qty || qty < service.min || qty > service.max) {
+      alert(`يرجى إدخال كمية صحيحة بين ${service.min} و ${service.max}`);
       return;
     }
 
-    var link = document.getElementById('link-input').value;
-    if (!link || link.trim() === "") {
-      alert('يرجى كتابة الرابط أو الـ ID أولاً');
-      return;
-    }
-
-    var text = "طلب جديد 🚀\nالخدمة: " + activeService + "\nالسعر: " + activePrice + "\nالرابط/الـ ID: " + link;
-    var url = "https://wa.me/9647815955995?text=" + encodeURIComponent(text);
-    
+    const message = `طلب جديد 🚀\nالخدمة: [${service.id}] ${service.name}\nالرابط/ID: ${link}\nالكمية: ${qty}\nالتكلفة: ${cost}`;
+    const url = `https://wa.me/9647815955995?text=${encodeURIComponent(message)}`;
     window.location.href = url;
   }
 
-  function toggleTheme() {
-    document.body.classList.toggle('light-theme');
-  }
+  window.onload = init;
 </script>
 
 </body>
