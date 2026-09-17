@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mustafa Khudhair - MSS STORE</title>
+  <title>MSS STORE - مصطفى خضير</title>
   <style>
     :root {
       --bg-color: #1a0933;
@@ -45,7 +45,7 @@
       margin-bottom: 5px;
       border-bottom: 2px solid var(--primary-orange);
       padding-bottom: 8px;
-      display: inline-block;
+      display: block;
       width: 100%;
     }
 
@@ -105,14 +105,15 @@
       flex-shrink: 0;
       border: 2px solid transparent;
       transition: all 0.2s;
+      font-size: 16px;
     }
 
     .platform-icon.active {
       border-color: #10b981;
-      transform: scale(1.05);
+      transform: scale(1.08);
     }
 
-    .p-all { background: #e5e7eb; color: #374151; font-weight: bold; font-size: 18px; }
+    .p-all { background: #e5e7eb; color: #374151; font-weight: bold; }
     .p-insta { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: white; }
     .p-tiktok { background: #000000; color: white; }
     .p-fb { background: #1877f2; color: white; }
@@ -145,23 +146,6 @@
       background-color: #ffffff;
     }
 
-    .service-select-wrapper {
-      position: relative;
-    }
-
-    .service-badge {
-      position: absolute;
-      left: 30px;
-      top: 50%;
-      transform: translateY(-50%);
-      background: #6b7280;
-      color: white;
-      font-size: 11px;
-      padding: 2px 8px;
-      border-radius: 12px;
-      pointer-events: none;
-    }
-
     .description-box {
       background-color: #f9fafb;
       border: 1px solid var(--border-color);
@@ -171,7 +155,7 @@
       color: #374151;
       line-height: 1.6;
       white-space: pre-line;
-      max-height: 160px;
+      max-height: 150px;
       overflow-y: auto;
     }
 
@@ -186,8 +170,8 @@
       border: 1px solid var(--border-color);
       border-radius: 10px;
       padding: 12px;
-      font-size: 13px;
-      font-weight: 600;
+      font-size: 14px;
+      font-weight: 700;
       color: var(--text-main);
     }
 
@@ -222,71 +206,120 @@
     <span>🔍</span>
   </div>
 
-  <!-- المنصات -->
+  <!-- شريط المنصات -->
   <div class="platforms-bar">
     <div class="platform-icon p-all active" onclick="selectPlatform('all', this)">☰</div>
     <div class="platform-icon p-insta" onclick="selectPlatform('insta', this)">📷</div>
-    <div class="platform-icon p-tiktok" onclick="selectPlatform('tiktok', this)">🎵</div>
-    <div class="platform-icon p-fb" onclick="selectPlatform('fb', this)">f</div>
-    <div class="platform-icon p-tg" onclick="selectPlatform('tg', this)">✈</div>
     <div class="platform-icon p-yt" onclick="selectPlatform('yt', this)">▶</div>
     <div class="platform-icon p-wa" onclick="selectPlatform('wa', this)">💬</div>
     <div class="platform-icon p-snap" onclick="selectPlatform('snap', this)">👻</div>
+    <div class="platform-icon p-fb" onclick="selectPlatform('fb', this)">f</div>
+    <div class="platform-icon p-tg" onclick="selectPlatform('tg', this)">✈</div>
+    <div class="platform-icon p-tiktok" onclick="selectPlatform('tiktok', this)">🎵</div>
   </div>
 
-  <!-- الفئة -->
+  <!-- اختيار الفئة -->
   <div class="field-group">
     <label class="field-label">الفئة</label>
     <select id="category-select" onchange="onCategoryChange()">
-      <option value="offers">💸 الأرخص مبيعاً اليوم</option>
-      <option value="insta">📷 خدمات إنستغرام</option>
-      <option value="tiktok">🎵 خدمات تيك توك</option>
-      <option value="fb">📘 خدمات فيسبوك</option>
-      <option value="tg">✈ خدمات تليجرام</option>
-      <option value="games">🎮 شحن الألعاب</option>
+      <!-- المجموعات كما بالصور -->
+      <optgroup label="📷 إنستغرام">
+        <option value="insta_update">انستقرام | متابعين تعمل على التحديث الجديد</option>
+        <option value="insta_story">انستقرام | متابعين طوارئ 🎂</option>
+        <option value="insta_new_update">انستقرام | متابعين تحديث الجديد</option>
+        <option value="insta_likes_new">انستقرام | لايكات تحديث الجديد</option>
+        <option value="insta_ar_likes">انستقرام | لايكات عربية</option>
+        <option value="insta_iq">انستقرام | متابعين دعم ممول عراقيين حقيقي</option>
+        <option value="insta_ar_support">انستقرام | خدمات الدعم الممول العربية</option>
+        <option value="insta_new">خدمات إنستغرام | جديد</option>
+        <option value="insta_views">انستقرام | مشاهدات بوست صورة</option>
+        <option value="insta_repost">انستقرام | إعادة نشر</option>
+        <option value="insta_channels">انستقرام | متابعين قنوات</option>
+        <option value="insta_reels">انستقرام | خدمات ريلز Reels</option>
+        <option value="insta_lifetime">انستقرام | لايكات ثابت مدى الحياة</option>
+      </optgroup>
+
+      <optgroup label="▶ يوتيوب">
+        <option value="yt_ads">يوتيوب | مشتركين - إعلانات</option>
+        <option value="yt_best_views">يوتيوب | مشاهدات (من اعلانات الأفضل)</option>
+        <option value="yt_hours">يوتيوب | مشاهدات (بالساعات)</option>
+        <option value="yt_live">يوتيوب | مشاهدات (بث مباشر)</option>
+        <option value="yt_views">يوتيوب | مشاهدات</option>
+        <option value="yt_shorts">يوتيوب | شورت</option>
+        <option value="yt_subs">يوتيوب | مشتركين</option>
+        <option value="yt_likes">يوتيوب | لايكات</option>
+        <option value="yt_combo">يوتيوب | 👍💬 لايكات + تعليقات + المشاركة</option>
+        <option value="yt_watch_hours">يوتيوب | ساعات مشاهدة [ جديد ]</option>
+        <option value="yt_ads_views">يوتيوب | مشاهدات عبر اعلانات</option>
+      </optgroup>
+
+      <optgroup label="💬 واتساب">
+        <option value="wa_main">واتساب - WhatsApp</option>
+        <option value="wa_members">واتساب | اعضاء</option>
+      </optgroup>
+
+      <optgroup label="👻 سناب شات">
+        <option value="snap_main">سناب شات</option>
+        <option value="snap_spotlight">سناب شات منصة الأضواء</option>
+        <option value="snap_followers">متابعين سناب شات 👻</option>
+        <option value="snap_views_ar">مشاهدات سناب شات عربي</option>
+      </optgroup>
+
+      <optgroup label="📘 فيسبوك">
+        <option value="fb_cheap">فيسبوك | خدمات جديدة رخيصه</option>
+        <option value="fb_page_new">فيسبوك | متابعين و اعجابات بيج جديد</option>
+        <option value="fb_new_date">فيسبوك | متابعين جديد 2026-07-12</option>
+        <option value="fb_likes_post">فيسبوك | لايكات على بوست تعمل على التحديث الجديد</option>
+        <option value="fb_reels">فيسبوك | مقاطع فيديو ريلز - جديد</option>
+        <option value="fb_page_profile">فيسبوك | متابعين بيج و بروفايل</option>
+        <option value="fb_followers_2">فيسبوك | متابعين 2</option>
+        <option value="fb_page_like_follow">فيسبوك | صفحات بيجات , متابعة و اعجاب</option>
+        <option value="fb_page_likes_gen">فيسبوك | اعجابات بيجات عامة</option>
+        <option value="fb_page_follows_gen">فيسبوك | متابعين بيجات عامة</option>
+        <option value="fb_profile">فيسبوك | متابعين بروفايل</option>
+        <option value="fb_groups">فيسبوك | مجموعات - كروبات</option>
+      </optgroup>
     </select>
   </div>
 
-  <!-- الخدمة -->
+  <!-- اختيار الخدمة -->
   <div class="field-group">
     <label class="field-label">الخدمة</label>
-    <div class="service-select-wrapper">
-      <select id="service-select" onchange="onServiceChange()">
-        <!-- يتم تحميل الخدمات تلقائياً -->
-      </select>
-    </div>
+    <select id="service-select" onchange="onServiceChange()">
+      <!-- تحميل ديناميكي للخدمات -->
+    </select>
   </div>
 
-  <!-- الوصف -->
+  <!-- مربع الوصف -->
   <div class="field-group">
     <label class="field-label">الوصف</label>
     <div class="description-box" id="service-desc">
-      اختر خدمة لعرض الوصف الخاص بها.
+      اختر الخدمة لعرض تفاصيلها.
     </div>
   </div>
 
   <!-- الرابط -->
   <div class="field-group">
     <label class="field-label">الرابط</label>
-    <input type="text" id="link-input" placeholder="https://... أو ID">
+    <input type="text" id="link-input" placeholder="ضع الرابط هنا...">
   </div>
 
   <!-- الكمية -->
   <div class="field-group">
     <label class="field-label">الكمية</label>
-    <input type="number" id="quantity-input" placeholder="أدخل الكمية" oninput="calculateCost()">
-    <div class="limit-text" id="limit-text">الحد الأدنى: - | الحد الأقصى: -</div>
+    <input type="number" id="quantity-input" placeholder="أدخل الكمية المطلوبة" oninput="calculateCost()">
+    <div class="limit-text" id="limit-text">الحد الادنى: - - الحد الاقصى: -</div>
   </div>
 
   <!-- متوسط الوقت -->
   <div class="field-group">
     <label class="field-label">متوسط وقت إكتمال الطلب 🕒</label>
-    <div class="readonly-box" id="time-box">سريع جداً / فوري</div>
+    <div class="readonly-box" id="time-box">1 الساعة 55 الدقائق</div>
   </div>
 
   <!-- التكلفة -->
   <div class="field-group">
-    <label class="field-label">التكلفة</label>
+    <label class="field-label">التكلفة (بالدينار العراقي)</label>
     <div class="readonly-box" id="cost-box">0 د.ع</div>
   </div>
 
@@ -295,72 +328,192 @@
 </div>
 
 <script>
+  // قائمة الخدمات مع تعديل السعر وإضافة 3,000 د.ع على كل 1000 قطعة
   const servicesData = [
+    // --- يوتيوب ---
     {
-      id: "15670",
-      cat: "insta",
-      platform: "insta",
-      name: "متابعين انستقرام تعويض تلقائي | ضمان 365 يوم",
-      min: 50,
-      max: 1000000,
-      ratePer1000: 15000,
-      time: "31 الساعات 19 الدقائق",
-      desc: "متابع انستقرام [الحد الأقصى: مليون 1]\n[ضمان: 365 يوم]\n[معدل النزول: 5-0%]\n[وقت البدء: 0-1 ساعة]\n[السرعة: 100k باليوم]\n\nمهم جداً اذا كنت تريد انشاء طلب جديد:\nتعطيل خيار 'تمييز للمراجعة'\n1. انتقل إلى إعدادات الحساب.\n2. اختر خيار 'متابعة ودعوة الأصدقاء'.\n3. ابحث عن خيار 'تمييز للمراجعة' وقام بتعطيله."
+      id: "12838",
+      cat: "yt_ads",
+      platform: "yt",
+      name: "مشاهدات فيديو يوتيوب عن طريق اعلان على يوتيوب | جميع دول العالم الحد الادنى 50 ألف | ضمان مدى الحياة ❤️🎥",
+      ratePer1000: 5500, // (1.67$ ≈ 2500) + 3000
+      min: 300000,
+      max: 217545811,
+      time: "سريع / إعلان رسمي",
+      desc: "مشاهدات إعلانية رسمية أمنة على القناة مع ضمان مدى الحياة."
     },
     {
-      id: "10201",
-      cat: "offers",
-      platform: "insta",
-      name: "ترويج متابعين إنستغرام 1k - عرض خاص",
-      min: 1000,
-      max: 1000,
-      ratePer1000: 15000,
+      id: "18077",
+      cat: "yt_ads",
+      platform: "yt",
+      name: "مشتركين قناة يوتيوب | بدون تعويض | 5k",
+      ratePer1000: 3050, // (0.03$ ≈ 50) + 3000
+      min: 100,
+      max: 5000,
+      time: "1-24 ساعة",
+      desc: "زيادة مشتركين يوتيوب بدون ضمان تعويض."
+    },
+
+    // --- واتساب ---
+    {
+      id: "18372",
+      cat: "wa_main",
+      platform: "wa",
+      name: "🧩 اعضاء قناة وتساب | الارخص | 10ك",
+      ratePer1000: 3720, // (0.48$ ≈ 720) + 3000
+      min: 10,
+      max: 10000,
+      time: "1 الساعة 55 الدقائق",
+      desc: "أعضاء قنوات واتساب سريعة ورخيصة."
+    },
+    {
+      id: "14314",
+      cat: "wa_main",
+      platform: "wa",
+      name: "أعضاء قناة واتساب [عالمياً 🌍] [بحد أقصى 50 ألفًا] | ملفات تعريف عالية الجودة | اليوم 10 آلاف",
+      ratePer1000: 4725, // (1.15$ ≈ 1725) + 3000
+      min: 100,
+      max: 50000,
+      time: "1-5 ساعات",
+      desc: "أعضاء قناة واتساب عالمي جودة عالية."
+    },
+    {
+      id: "14315",
+      cat: "wa_main",
+      platform: "wa",
+      name: "أعضاء قناة واتساب [عالمياً 🌍] [بحد أقصى 50 ألفًا] | ملفات تعريف عالية الجودة | اليوم 20 ألفًا",
+      ratePer1000: 9900, // (4.60$ ≈ 6900) + 3000
+      min: 100,
+      max: 50000,
+      time: "1-3 ساعات",
+      desc: "سرعة عالية 20k في اليوم."
+    },
+    {
+      id: "14316",
+      cat: "wa_main",
+      platform: "wa",
+      name: "أعضاء قناة واتساب [الهند 🇮🇳] [بحد أقصى 50 ألفًا] | ملفات تعريف عالية الجودة | 20 ألفًا في اليوم",
+      ratePer1000: 13350, // (6.90$ ≈ 10350) + 3000
+      min: 100,
+      max: 50000,
+      time: "2-6 ساعات",
+      desc: "أعضاء قنوات من الهند عالية الجودة."
+    },
+    {
+      id: "14317",
+      cat: "wa_main",
+      platform: "wa",
+      name: "أعضاء قناة واتساب [عرب 🇦🇪] [بحد أقصى 50 ألفًا] | ملفات تعريف عالية الجودة | 20 ألفًا في اليوم",
+      ratePer1000: 13350, // (6.90$ ≈ 10350) + 3000
+      min: 100,
+      max: 50000,
+      time: "1-4 ساعات",
+      desc: "أعضاء واتساب عرب جودة عالية."
+    },
+
+    // --- سناب شات ---
+    {
+      id: "13888",
+      cat: "snap_main",
+      platform: "snap",
+      name: "لايكات سناب شات عربي 10ك 👻👍",
+      ratePer1000: 23535, // (13.69$ ≈ 20535) + 3000
+      min: 5,
+      max: 10000,
       time: "فوري / غضون ساعات",
-      desc: "عرض خاص وسريع جداً لزيادة المتابعين مع الضمان الكامل."
+      desc: "إعجابات ولايكات سناب شات من حسابات عربية."
     },
     {
-      id: "20541",
-      cat: "tiktok",
-      platform: "tiktok",
-      name: "متابعين تيك توك حقيقيين High Quality",
-      min: 100,
-      max: 500000,
-      ratePer1000: 15000,
-      time: "0-24 ساعة",
-      desc: "متابعين تيك توك بجودة عالية وسرعة ممتازة."
+      id: "13889",
+      cat: "snap_main",
+      platform: "snap",
+      name: "لايكات سناب شات عربي 10ك 👻💟",
+      ratePer1000: 26985, // (15.99$ ≈ 23985) + 3000
+      min: 5,
+      max: 10000,
+      time: "فوري",
+      desc: "لايكات مفضلة وإعجابات سناب عربية ممتازة."
     },
+
+    // --- فيسبوك ---
     {
-      id: "30812",
-      cat: "fb",
+      id: "17007",
+      cat: "fb_cheap",
       platform: "fb",
-      name: "متابعين صفحة فيسبوك - حسابات حقيقية",
+      name: "متابعين فيسبوك | الارخص | 10ك 🔥",
+      ratePer1000: 4080, // (0.72$ ≈ 1080) + 3000
       min: 100,
-      max: 200000,
-      ratePer1000: 8000,
+      max: 10000,
       time: "1-12 ساعة",
-      desc: "زيادة متابعين البيجات والصفحات الشخصية في فيسبوك."
+      desc: "متابعين فيسبوك بأرخص سعر."
     },
     {
-      id: "40192",
-      cat: "tg",
-      platform: "tg",
-      name: "أعضاء قنوات ومجموعات تليجرام",
+      id: "17008",
+      cat: "fb_cheap",
+      platform: "fb",
+      name: "متابعين فيسبوك | الارخص | 10ك 🔥 (سريع)",
+      ratePer1000: 4155, // (0.77$ ≈ 1155) + 3000
+      min: 100,
+      max: 10000,
+      time: "1-6 ساعات",
+      desc: "متابعين فيسبوك سرعة عالية."
+    },
+    {
+      id: "17774",
+      cat: "fb_cheap",
+      platform: "fb",
+      name: "متابعين فيسبوك بيج و بروفايل الارخص | ثابت | 100ك ☀️",
+      ratePer1000: 4200, // (0.80$ ≈ 1200) + 3000
       min: 100,
       max: 100000,
-      ratePer1000: 10000,
       time: "فوري",
-      desc: "أعضاء لمجموعات وقنوات التليجرام مع ثبات عالي."
+      desc: "متابعين للبروفايل والصفحات مع ثبات ممتازة."
     },
     {
-      id: "50221",
-      cat: "games",
-      platform: "all",
-      name: "شدات ببجي Mobile - 325 UC",
-      min: 1,
-      max: 10,
-      ratePer1000: 7500000, // سعر القطعة 7500
-      time: "فوري (1-5 دقائق)",
-      desc: "شحن مباشر عبر الـ Player ID الخاص بك."
+      id: "17861",
+      cat: "fb_cheap",
+      platform: "fb",
+      name: "متابعين فيسبوك بيج و بروفايل | الارخص | 10ك 🚀",
+      ratePer1000: 3390, // (0.26$ ≈ 390) + 3000
+      min: 100,
+      max: 10000,
+      time: "فوري",
+      desc: "خدمة فائقة السرعة للفيسبوك."
+    },
+    {
+      id: "11484",
+      cat: "fb_cheap",
+      platform: "fb",
+      name: "متابعات صفحات فيسبوك عامه بيجات و برفايل شخصي - ميكس تعويض تلقائي 30 يوم ✨",
+      ratePer1000: 5385, // (1.59$ ≈ 2385) + 3000
+      min: 100,
+      max: 50000,
+      time: "12 ساعة",
+      desc: "متابعين ميكس مع ضمان تعويض تلقائي 30 يوم."
+    },
+    {
+      id: "11483",
+      cat: "fb_cheap",
+      platform: "fb",
+      name: "اعجابات صفحات فيسبوك بيج - حقيقية ميكس تعويض تلقائي 30 يوم ✨",
+      ratePer1000: 4995, // (1.33$ ≈ 1995) + 3000
+      min: 100,
+      max: 50000,
+      time: "12 ساعة",
+      desc: "إعجابات وتفاعلات حقيقية للصفحات."
+    },
+
+    // --- انستغرام ---
+    {
+      id: "15670",
+      cat: "insta_update",
+      platform: "insta",
+      name: "متابعين انستقرام تعويض تلقائي | ضمان 365 يوم",
+      ratePer1000: 18000, // 15000 + 3000
+      min: 50,
+      max: 1000000,
+      time: "31 الساعات 19 الدقائق",
+      desc: "متابع انستقرام [الحد الأقصى: مليون 1]\n[ضمان: 365 يوم]\n[معدل النزول: 5-0%]\n[وقت البدء: 0-1 ساعة]\n[السرعة: 100k باليوم]"
     }
   ];
 
@@ -374,6 +527,15 @@
     document.querySelectorAll('.platform-icon').forEach(el => el.classList.remove('active'));
     element.classList.add('active');
     currentPlatform = platform;
+    
+    // التبديل إلى الفئة الأولى المطابقة عند النقر على الأيقونة
+    const catSelect = document.getElementById('category-select');
+    if(platform === 'yt') catSelect.value = 'yt_ads';
+    else if(platform === 'wa') catSelect.value = 'wa_main';
+    else if(platform === 'snap') catSelect.value = 'snap_main';
+    else if(platform === 'fb') catSelect.value = 'fb_cheap';
+    else if(platform === 'insta') catSelect.value = 'insta_update';
+
     loadServices();
   }
 
@@ -389,7 +551,7 @@
     serviceSelect.innerHTML = '';
 
     const filtered = servicesData.filter(s => {
-      const matchCat = (catSelect === 'offers' || s.cat === catSelect);
+      const matchCat = (s.cat === catSelect || currentPlatform === 'all');
       const matchPlatform = (currentPlatform === 'all' || s.platform === currentPlatform);
       const matchSearch = s.name.toLowerCase().includes(searchValue) || s.id.includes(searchValue);
       return matchCat && matchPlatform && matchSearch;
@@ -397,14 +559,14 @@
 
     if (filtered.length === 0) {
       const opt = document.createElement('option');
-      opt.text = "لا توجد خدمات متاحة";
+      opt.text = "لا توجد خدمات لهذا القسم حالياً";
       opt.value = "";
       serviceSelect.appendChild(opt);
     } else {
       filtered.forEach(s => {
         const opt = document.createElement('option');
         opt.value = s.id;
-        opt.text = `[${s.id}] - ${s.name}`;
+        opt.text = `[${s.id}] - ${s.name} - ${s.ratePer1000.toLocaleString()} د.ع / 1000`;
         serviceSelect.appendChild(opt);
       });
     }
@@ -429,11 +591,11 @@
 
     if (service) {
       descBox.innerText = service.desc;
-      limitText.innerText = `الحد الادنى: ${service.min} - الحد الاقصى: ${service.max}`;
+      limitText.innerText = `الحد الادنى: ${service.min.toLocaleString()} - الحد الاقصى: ${service.max.toLocaleString()}`;
       timeBox.innerText = service.time;
     } else {
-      descBox.innerText = "لا توجد معلومات.";
-      limitText.innerText = "الحد الادنى: - | الحد الاقصى: -";
+      descBox.innerText = "لا توجد معلومات للخدمة.";
+      limitText.innerText = "الحد الادنى: - - الحد الاقصى: -";
       timeBox.innerText = "-";
     }
     calculateCost();
@@ -445,13 +607,8 @@
     const costBox = document.getElementById('cost-box');
 
     if (service && qty > 0) {
-      let total = 0;
-      if (service.cat === 'games') {
-        total = qty * (service.ratePer1000 / 1000);
-      } else {
-        total = (qty / 1000) * service.ratePer1000;
-      }
-      costBox.innerText = total.toLocaleString() + " د.ع";
+      const total = (qty / 1000) * service.ratePer1000;
+      costBox.innerText = Math.round(total).toLocaleString() + " د.ع";
     } else {
       costBox.innerText = "0 د.ع";
     }
@@ -468,7 +625,7 @@
       return;
     }
     if (!link) {
-      alert("يرجى أدخال الرابط أو الـ ID");
+      alert("يرجى أدخال الرابط أو اسم المستخدم");
       return;
     }
     if (!qty || qty < service.min || qty > service.max) {
@@ -476,13 +633,6 @@
       return;
     }
 
-    const message = `طلب جديد 🚀\nالخدمة: [${service.id}] ${service.name}\nالرابط/ID: ${link}\nالكمية: ${qty}\nالتكلفة: ${cost}`;
+    const message = `طلب جديد 🚀\nاسم المتجر: MSS STORE (مصطفى خضير)\nرقم الخدمة: [${service.id}]\nالخدمة: ${service.name}\nالرابط: ${link}\nالكمية: ${qty}\nالتكلفة الإجمالية: ${cost}`;
     const url = `https://wa.me/9647815955995?text=${encodeURIComponent(message)}`;
-    window.location.href = url;
-  }
-
-  window.onload = init;
-</script>
-
-</body>
-</html>
+    window.locati
