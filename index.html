@@ -6,16 +6,17 @@
   <title>MSS STORE - مصطفى خضير</title>
   <style>
     :root {
-      --bg-color: #f4f6f9;
+      --bg-color: #f0f4f9;
       --card-bg: #ffffff;
-      --card-border: #e2e8f0;
+      --card-border: #e1e8ed;
       --input-bg: #f8fafc;
       --input-border: #cbd5e1;
-      --text-main: #0f172a;
+      --text-main: #1e293b;
       --text-sub: #64748b;
-      --primary-blue: #2563eb;
-      --primary-hover: #1d4ed8;
+      --primary-blue: #0284c7;
+      --primary-hover: #0369a1;
       --error-red: #ef4444;
+      --success-green: #10b981;
     }
 
     body {
@@ -37,9 +38,9 @@
       border: 1px solid var(--card-border);
       width: 100%;
       max-width: 450px;
-      border-radius: 20px;
+      border-radius: 24px;
       padding: 25px 20px;
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.06);
       box-sizing: border-box;
     }
 
@@ -58,6 +59,7 @@
       margin-top: 4px;
       margin-bottom: 20px;
       text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
     .search-box {
@@ -81,6 +83,7 @@
     .search-box input:focus {
       border-color: var(--primary-blue);
       background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
     }
 
     .search-box span {
@@ -91,7 +94,6 @@
       color: var(--text-sub);
     }
 
-    /* تصميم أزرار التطبيقات الرسمية */
     .platforms-bar {
       display: flex;
       gap: 12px;
@@ -108,20 +110,20 @@
     .platform-icon {
       width: 48px;
       height: 48px;
-      border-radius: 14px;
+      border-radius: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       flex-shrink: 0;
       transition: all 0.25s ease;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      opacity: 0.75;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      opacity: 0.7;
     }
 
     .platform-icon svg {
-      width: 26px;
-      height: 26px;
+      width: 24px;
+      height: 24px;
       fill: #ffffff;
     }
 
@@ -132,11 +134,10 @@
 
     .platform-icon.active {
       opacity: 1;
-      transform: translateY(-4px) scale(1.05);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
     }
 
-    /* الألوان الرسمية للتطبيقات */
     .p-insta {
       background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
     }
@@ -189,6 +190,7 @@
     select:focus, input[type="text"]:focus, input[type="number"]:focus {
       border-color: var(--primary-blue);
       background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
     }
 
     input.input-error {
@@ -245,11 +247,13 @@
       font-weight: 800;
       cursor: pointer;
       margin-top: 10px;
-      transition: background 0.2s ease;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
     }
 
     .submit-btn:hover {
       background: var(--primary-hover);
+      transform: translateY(-1px);
     }
   </style>
 </head>
@@ -265,29 +269,23 @@
     <span>🔍</span>
   </div>
 
-  <!-- شريط منصات التطبيقات الرسمية -->
+  <!-- شريط التطبيقات -->
   <div class="platforms-bar">
-    <!-- إنستغرام -->
     <div class="platform-icon p-insta active" title="Instagram" onclick="safeExecute(() => selectPlatform('insta', this))">
       <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
     </div>
-    <!-- تيك توك -->
     <div class="platform-icon p-tiktok" title="TikTok" onclick="safeExecute(() => selectPlatform('tiktok', this))">
       <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.82.56-1.33 1.52-1.33 2.52.01 1.01.55 1.98 1.4 2.51.98.6 2.22.61 3.2.06.84-.46 1.4-1.35 1.48-2.32.06-2.64.02-5.28.03-7.92 0-3.53-.01-7.06.01-10.59z"/></svg>
     </div>
-    <!-- فيسبوك -->
     <div class="platform-icon p-fb" title="Facebook" onclick="safeExecute(() => selectPlatform('fb', this))">
       <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
     </div>
-    <!-- تليجرام -->
     <div class="platform-icon p-tg" title="Telegram" onclick="safeExecute(() => selectPlatform('tg', this))">
       <svg viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.121l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.458c.538-.196 1.006.128.832.941z"/></svg>
     </div>
-    <!-- يوتيوب -->
     <div class="platform-icon p-yt" title="YouTube" onclick="safeExecute(() => selectPlatform('yt', this))">
       <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
     </div>
-    <!-- واتساب -->
     <div class="platform-icon p-wa" title="WhatsApp" onclick="safeExecute(() => selectPlatform('wa', this))">
       <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
     </div>
@@ -297,7 +295,7 @@
   <div class="field-group">
     <label class="field-label">الفئة (التطبيق)</label>
     <select id="category-select" onchange="safeExecute(onCategoryChange)">
-      <option value="insta_main">📷 انستقرام | خدمات وتدعم الممول</option>
+      <option value="insta_main">📷 انستقرام | خدمات المتابعين والترويج</option>
       <option value="tiktok_main">🎵 تيك توك | المتابعين والترويج</option>
       <option value="fb_main">📘 فيسبوك | الإعلانات والمتابعين</option>
       <option value="tg_main">✈ تليجرام | أعضاء ومشاهدات</option>
@@ -351,9 +349,11 @@
 <script>
   function safeExecute(func) {
     try {
-      func();
+      if (typeof func === 'function') {
+        func();
+      }
     } catch (error) {
-      console.warn("تم اعتراض خطأ ومنع توقف التطبيق:", error);
+      console.warn("تم تصفيته بنجاح لمنع توقف التطبيق:", error);
     }
   }
 
@@ -371,7 +371,7 @@
       min: 1,
       max: 1,
       time: "خلال 24 ساعة",
-      desc: "حملة إعلانية ممولة حقيقية ورسمية عبر إدارة إعلانات ميتا لاستهداف جمهور حقيقي بالكامل."
+      desc: "حملة إعلانية ممولة حقيقية ورسمية عبر إدارة إعلانات ميتا لاستهداف جمهور حقيقي."
     },
     {
       id: "102",
@@ -420,17 +420,6 @@
       time: "فوري - 6 ساعات",
       desc: "متابعين حسابات نشطة وسريعة الإرسال."
     },
-    {
-      id: "203",
-      cat: "tiktok_main",
-      platform: "tiktok",
-      name: "تيك توك | مشاهدات فائقة السرعة",
-      ratePer1000: 0.1,
-      min: 1000,
-      max: 10000000,
-      time: "فوري",
-      desc: "إرسال مشاهدات سريعة جداً للمقاطع."
-    },
 
     // --- فيسبوك ---
     {
@@ -469,17 +458,6 @@
       time: "1-3 ساعات",
       desc: "أعضاء قنوات ومجموعات تليجرام جودة عالية."
     },
-    {
-      id: "402",
-      cat: "tg_main",
-      platform: "tg",
-      name: "تليجرام | مشاهدات أخر 5 منشورات",
-      ratePer1000: 0.3,
-      min: 500,
-      max: 200000,
-      time: "فوري",
-      desc: "مشاهدات سريعة تلقائية للمنشورات."
-    },
 
     // --- يوتيوب ---
     {
@@ -492,17 +470,6 @@
       max: 10000,
       time: "1-3 أيام",
       desc: "مشتركين حقيقيين وآمنين تماماً على القناة."
-    },
-    {
-      id: "502",
-      cat: "yt_main",
-      platform: "yt",
-      name: "يوتيوب | مشاهدات إعلانية رسمية",
-      ratePer1000: 1.8,
-      min: 1000,
-      max: 1000000,
-      time: "سريع",
-      desc: "مشاهدات إعلان آمنة مع نسبة مشاهدة عالية."
     },
 
     // --- واتساب ---
@@ -524,16 +491,19 @@
   }
 
   function selectPlatform(platform, element) {
-    document.querySelectorAll('.platform-icon').forEach(el => el.classList.remove('active'));
-    element.classList.add('active');
+    const icons = document.querySelectorAll('.platform-icon');
+    if (icons) icons.forEach(el => el.classList.remove('active'));
+    if (element) element.classList.add('active');
     
     const catSelect = document.getElementById('category-select');
-    if (platform === 'insta') catSelect.value = 'insta_main';
-    else if (platform === 'tiktok') catSelect.value = 'tiktok_main';
-    else if (platform === 'fb') catSelect.value = 'fb_main';
-    else if (platform === 'tg') catSelect.value = 'tg_main';
-    else if (platform === 'yt') catSelect.value = 'yt_main';
-    else if (platform === 'wa') catSelect.value = 'wa_main';
+    if (catSelect) {
+      if (platform === 'insta') catSelect.value = 'insta_main';
+      else if (platform === 'tiktok') catSelect.value = 'tiktok_main';
+      else if (platform === 'fb') catSelect.value = 'fb_main';
+      else if (platform === 'tg') catSelect.value = 'tg_main';
+      else if (platform === 'yt') catSelect.value = 'yt_main';
+      else if (platform === 'wa') catSelect.value = 'wa_main';
+    }
 
     loadServices();
   }
@@ -543,9 +513,14 @@
   }
 
   function loadServices() {
-    const selectedCat = document.getElementById('category-select').value;
+    const catSelect = document.getElementById('category-select');
     const serviceSelect = document.getElementById('service-select');
-    const searchValue = document.getElementById('search-input').value.toLowerCase().trim();
+    const searchInput = document.getElementById('search-input');
+
+    if (!catSelect || !serviceSelect) return;
+
+    const selectedCat = catSelect.value;
+    const searchValue = searchInput ? searchInput.value.toLowerCase().trim() : '';
 
     serviceSelect.innerHTML = '';
 
@@ -577,7 +552,9 @@
   }
 
   function getSelectedService() {
-    const id = document.getElementById('service-select').value;
+    const serviceSelect = document.getElementById('service-select');
+    if (!serviceSelect) return null;
+    const id = serviceSelect.value;
     return servicesData.find(s => s.id === id);
   }
 
@@ -589,27 +566,31 @@
     const qtyInput = document.getElementById('quantity-input');
 
     if (service) {
-      descBox.innerText = service.desc;
-      timeBox.innerText = service.time;
+      if (descBox) descBox.innerText = service.desc;
+      if (timeBox) timeBox.innerText = service.time;
       
       if (service.isFlatRate) {
-        limitText.innerText = `الخدمة سعر ثابت (حملة واحدة = 10$)`;
-        qtyInput.value = 1;
+        if (limitText) limitText.innerText = `الخدمة سعر ثابت (حملة واحدة = 10$)`;
+        if (qtyInput) qtyInput.value = 1;
       } else {
-        limitText.innerText = `الحد الأدنى: ${service.min.toLocaleString()} | الحد الأقصى: ${service.max.toLocaleString()}`;
+        if (limitText) limitText.innerText = `الحد الأدنى: ${service.min.toLocaleString()} | الحد الأقصى: ${service.max.toLocaleString()}`;
       }
     } else {
-      descBox.innerText = "اختر الخدمة لعرض تفاصيلها.";
-      limitText.innerText = "الحد الأدنى: - | الحد الأقصى: -";
-      timeBox.innerText = "-";
+      if (descBox) descBox.innerText = "اختر الخدمة لعرض تفاصيلها.";
+      if (limitText) limitText.innerText = "الحد الأدنى: - | الحد الأقصى: -";
+      if (timeBox) timeBox.innerText = "-";
     }
     calculateCost();
   }
 
   function calculateCost() {
     const service = getSelectedService();
-    const qty = parseFloat(document.getElementById('quantity-input').value) || 0;
+    const qtyInput = document.getElementById('quantity-input');
     const costBox = document.getElementById('cost-box');
+
+    if (!costBox) return;
+
+    const qty = qtyInput ? (parseFloat(qtyInput.value) || 0) : 0;
 
     if (service) {
       if (service.isFlatRate) {
@@ -618,4 +599,7 @@
       }
 
       if (qty > 0) {
-        let calcu
+        let calculated = (qty / 1000) * service.ratePer1000;
+        let finalCost = Math.max(calculated, MIN_ORDER_PRICE_USD);
+        costBox.innerText = "$" + finalCost.toFixed(2);
+      } else {
