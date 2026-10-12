@@ -6,24 +6,24 @@
   <title>MSS STORE - مصطفى خضير</title>
   <style>
     :root {
-      --bg-color: #f0f4f9;
-      --card-bg: #ffffff;
-      --card-border: #e1e8ed;
-      --input-bg: #f8fafc;
-      --input-border: #cbd5e1;
-      --text-main: #1e293b;
-      --text-sub: #64748b;
-      --primary-blue: #0284c7;
-      --primary-hover: #0369a1;
-      --error-red: #ef4444;
+      --bg-gradient: radial-gradient(circle at 50% 0%, #1e1b4b 0%, #0f172a 100%);
+      --card-bg: rgba(15, 23, 42, 0.75);
+      --card-border: rgba(255, 255, 255, 0.1);
+      --input-bg: rgba(30, 41, 59, 0.7);
+      --input-border: rgba(255, 255, 255, 0.12);
+      --text-main: #f8fafc;
+      --text-sub: #94a3b8;
+      --primary-blue: #38bdf8;
+      --primary-hover: #0ea5e9;
+      --error-red: #f87171;
     }
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--bg-color);
+      background: var(--bg-gradient);
       color: var(--text-main);
       margin: 0;
-      padding: 20px 10px;
+      padding: 25px 15px;
       direction: rtl;
       display: flex;
       justify-content: center;
@@ -34,58 +34,87 @@
 
     .app-card {
       background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       border: 1px solid var(--card-border);
       width: 100%;
-      max-width: 450px;
-      border-radius: 24px;
-      padding: 25px 20px;
-      box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.06);
+      max-width: 460px;
+      border-radius: 30px;
+      padding: 30px 24px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
       box-sizing: border-box;
+      position: relative;
+    }
+
+    /* عداد الطلبات الفخم */
+    .orders-badge {
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      border-radius: 20px;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: fit-content;
+      margin: 0 auto 16px auto;
+      font-size: 13px;
+      font-weight: 700;
+      color: #38bdf8;
+      box-shadow: 0 4px 15px rgba(56, 189, 248, 0.1);
+    }
+
+    .orders-badge .count {
+      color: #4ade80;
+      font-weight: 900;
     }
 
     .header-title {
       text-align: center;
-      font-size: 22px;
-      font-weight: 800;
+      font-size: 26px;
+      font-weight: 950;
       color: var(--text-main);
+      letter-spacing: -0.5px;
     }
 
     .store-brand {
       text-align: center;
       font-size: 13px;
       color: var(--primary-blue);
-      font-weight: 700;
-      margin-top: 4px;
-      margin-bottom: 20px;
+      font-weight: 800;
+      margin-top: 6px;
+      margin-bottom: 24px;
       text-transform: uppercase;
+      letter-spacing: 1.5px;
     }
 
     .search-box {
       position: relative;
-      margin-bottom: 15px;
+      margin-bottom: 18px;
     }
 
     .search-box input {
       width: 100%;
-      padding: 12px 15px 12px 40px;
+      padding: 14px 16px 14px 44px;
       background: var(--input-bg);
-      border: 1px solid var(--input-border);
-      border-radius: 12px;
-      font-size: 13px;
+      border: 1.5px solid var(--input-border);
+      border-radius: 16px;
+      font-size: 14px;
       color: var(--text-main);
       outline: none;
       box-sizing: border-box;
+      transition: all 0.3s ease;
     }
 
     .search-box input:focus {
       border-color: var(--primary-blue);
-      background: #ffffff;
-      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+      background: rgba(30, 41, 59, 0.95);
+      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.15);
     }
 
     .search-box span {
       position: absolute;
-      left: 12px;
+      left: 16px;
       top: 50%;
       transform: translateY(-50%);
       color: var(--text-sub);
@@ -95,133 +124,159 @@
       display: flex;
       gap: 12px;
       overflow-x: auto;
-      padding: 6px 2px 12px 2px;
-      margin-bottom: 15px;
+      padding: 6px 2px 14px 2px;
+      margin-bottom: 18px;
       scrollbar-width: none;
     }
 
     .platform-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 16px;
+      width: 52px;
+      height: 52px;
+      border-radius: 18px;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       flex-shrink: 0;
-      transition: all 0.25s ease;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-      opacity: 0.6;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      opacity: 0.5;
+      border: 1px solid rgba(255,255,255,0.05);
     }
 
     .platform-icon svg {
-      width: 24px;
-      height: 24px;
+      width: 26px;
+      height: 26px;
       fill: #ffffff;
     }
 
     .platform-icon.active {
       opacity: 1;
-      transform: translateY(-2px) scale(1.05);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+      transform: translateY(-4px) scale(1.08);
+      box-shadow: 0 8px 22px rgba(56, 189, 248, 0.3);
+      border-color: rgba(56, 189, 248, 0.5);
     }
 
     .p-insta { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
-    .p-tiktok { background: #000000; }
+    .p-tiktok { background: #000000; border-color: rgba(255,255,255,0.2); }
     .p-fb { background: #1877F2; }
     .p-tg { background: #24A1DE; }
     .p-yt { background: #FF0000; }
     .p-wa { background: #25D366; }
 
     .field-group {
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
 
     .field-label {
       font-size: 13px;
-      font-weight: 700;
+      font-weight: 750;
       color: var(--text-sub);
-      margin-bottom: 6px;
+      margin-bottom: 8px;
       display: block;
+      letter-spacing: 0.3px;
     }
 
     select, input[type="text"], input[type="number"] {
       width: 100%;
-      padding: 12px;
+      padding: 14px;
       background: var(--input-bg);
-      border: 1px solid var(--input-border);
-      border-radius: 12px;
-      font-size: 13px;
+      border: 1.5px solid var(--input-border);
+      border-radius: 16px;
+      font-size: 14px;
+      font-weight: 600;
       color: var(--text-main);
       box-sizing: border-box;
       outline: none;
+      transition: all 0.3s ease;
+    }
+
+    select option {
+      background: #0f172a;
+      color: #f8fafc;
     }
 
     select:focus, input[type="text"]:focus, input[type="number"]:focus {
       border-color: var(--primary-blue);
-      background: #ffffff;
+      background: rgba(30, 41, 59, 0.95);
+      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.15);
     }
 
     .error-text {
       color: var(--error-red);
-      font-size: 11px;
-      margin-top: 5px;
+      font-size: 12px;
+      margin-top: 6px;
       display: none;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .description-box {
-      background: #f1f5f9;
-      border: 1px solid var(--input-border);
-      border-radius: 12px;
-      padding: 12px;
-      font-size: 12px;
-      color: #334155;
+      background: rgba(15, 23, 42, 0.5);
+      border: 1.5px solid var(--input-border);
+      border-radius: 16px;
+      padding: 14px;
+      font-size: 13px;
+      color: #cbd5e1;
       line-height: 1.6;
       white-space: pre-line;
-      max-height: 100px;
+      max-height: 110px;
       overflow-y: auto;
+      font-weight: 500;
     }
 
     .limit-text {
-      font-size: 11px;
+      font-size: 12px;
       color: var(--primary-blue);
-      margin-top: 5px;
-      font-weight: 600;
+      margin-top: 6px;
+      font-weight: 700;
     }
 
     .readonly-box {
-      background: #f8fafc;
-      border: 1px solid var(--input-border);
-      border-radius: 12px;
-      padding: 12px;
-      font-size: 15px;
-      font-weight: 800;
+      background: rgba(15, 23, 42, 0.5);
+      border: 1.5px solid var(--input-border);
+      border-radius: 16px;
+      padding: 14px;
+      font-size: 17px;
+      font-weight: 900;
       color: var(--primary-blue);
+      letter-spacing: 0.5px;
     }
 
     .submit-btn {
       width: 100%;
-      background: var(--primary-blue);
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
       color: #ffffff;
       border: none;
-      padding: 15px;
-      border-radius: 14px;
-      font-size: 16px;
-      font-weight: 800;
+      padding: 16px;
+      border-radius: 16px;
+      font-size: 17px;
+      font-weight: 900;
       cursor: pointer;
-      margin-top: 10px;
-      transition: background 0.2s;
+      margin-top: 14px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 10px 25px -5px rgba(2, 132, 199, 0.5);
     }
 
     .submit-btn:hover {
-      background: var(--primary-hover);
+      background: linear-gradient(135deg, #0369a1 0%, #0284c7 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 15px 30px -5px rgba(2, 132, 199, 0.7);
+    }
+
+    .submit-btn:active {
+      transform: translateY(0);
     }
   </style>
 </head>
 <body>
 
 <div class="app-card">
+  <!-- عداد الطلبات الفخم -->
+  <div class="orders-badge">
+    <span>⚡ الطلبات المنفذة:</span>
+    <span class="count">+5,000 طلب مكتمل</span>
+  </div>
+
   <div class="header-title">طلب جديد</div>
   <div class="store-brand">MSS STORE | مصطفى خضير</div>
 
@@ -234,200 +289,4 @@
   <!-- شريط التطبيقات -->
   <div class="platforms-bar">
     <div class="platform-icon p-insta active" onclick="changePlatform('insta_main', this)">
-      <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-    </div>
-    <div class="platform-icon p-tiktok" onclick="changePlatform('tiktok_main', this)">
-      <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.82.56-1.33 1.52-1.33 2.52.01 1.01.55 1.98 1.4 2.51.98.6 2.22.61 3.2.06.84-.46 1.4-1.35 1.48-2.32.06-2.64.02-5.28.03-7.92 0-3.53-.01-7.06.01-10.59z"/></svg>
-    </div>
-    <div class="platform-icon p-fb" onclick="changePlatform('fb_main', this)">
-      <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-    </div>
-    <div class="platform-icon p-tg" onclick="changePlatform('tg_main', this)">
-      <svg viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.121l-6.871 4.326-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.458c.538-.196 1.006.128.832.941z"/></svg>
-    </div>
-    <div class="platform-icon p-yt" onclick="changePlatform('yt_main', this)">
-      <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-    </div>
-    <div class="platform-icon p-wa" onclick="changePlatform('wa_main', this)">
-      <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-    </div>
-  </div>
-
-  <!-- اختيار الفئة -->
-  <div class="field-group">
-    <label class="field-label">الفئة (التطبيق)</label>
-    <select id="category-select" onchange="renderServices()">
-      <option value="insta_main">📷 انستقرام | خدمات المتابعين والترويج</option>
-      <option value="tiktok_main">🎵 تيك توك | المتابعين والترويج</option>
-      <option value="fb_main">📘 فيسبوك | الإعلانات والمتابعين</option>
-      <option value="tg_main">✈ تليجرام | أعضاء ومشاهدات</option>
-      <option value="yt_main">▶ يوتيوب | المشتركين والمشاهدات</option>
-      <option value="wa_main">💬 واتساب | القنوات والأعضاء</option>
-    </select>
-  </div>
-
-  <!-- اختيار الخدمة -->
-  <div class="field-group">
-    <label class="field-label">الخدمة المطلوبة</label>
-    <select id="service-select" onchange="updateServiceInfo()"></select>
-  </div>
-
-  <!-- مربع الوصف -->
-  <div class="field-group">
-    <label class="field-label">تفاصيل الخدمة</label>
-    <div class="description-box" id="service-desc">اختر الخدمة لعرض التفاصيل.</div>
-  </div>
-
-  <!-- الرابط -->
-  <div class="field-group">
-    <label class="field-label">الرابط أو اسم الحساب</label>
-    <input type="text" id="link-input" placeholder="https://... أو @username">
-    <div class="error-text" id="link-error">⚠️ أدخل رابط صحيح يبدأ بـ (https://) أو يوزر يبدأ بـ (@)</div>
-  </div>
-
-  <!-- الكمية -->
-  <div class="field-group">
-    <label class="field-label">الكمية</label>
-    <input type="number" id="quantity-input" placeholder="أدخل الكمية" oninput="calculateCost()">
-    <div class="limit-text" id="limit-text">الحد الأدنى: - | الحد الأقصى: -</div>
-  </div>
-
-  <!-- متوسط الوقت -->
-  <div class="field-group">
-    <label class="field-label">الوقت المتوقع 🕒</label>
-    <div class="readonly-box" id="time-box">-</div>
-  </div>
-
-  <!-- التكلفة -->
-  <div class="field-group">
-    <label class="field-label">التكلفة (الحد الأدنى $1.00)</label>
-    <div class="readonly-box" id="cost-box">$1.00</div>
-  </div>
-
-  <!-- زر الطلب -->
-  <button class="submit-btn" onclick="submitOrder()">إرسال الطلب</button>
-</div>
-
-<script>
-  const MIN_PRICE = 1.00;
-
-  const services = [
-    { id: "101", cat: "insta_main", name: "🔥 ترويج ممول حقيقي 100% انستغرام ($10 ثابت)", rate: 10, isFlat: true, min: 1, max: 1, time: "خلال 24 ساعة", desc: "إعلان ممول حقيقي لاستهداف جمهور حقيقي عبر إدارة إعلانات ميتا." },
-    { id: "102", cat: "insta_main", name: "انستقرام | متابعين ضمان 365 يوم", rate: 2.5, min: 100, max: 500000, time: "1-12 ساعة", desc: "متابعين ثابتين مع ضمان التعويض تلقائياً." },
-    { id: "103", cat: "insta_main", name: "انستقرام | لايكات حقيقية وسريعة", rate: 0.8, min: 100, max: 100000, time: "فوري", desc: "إعجابات سريعة وفورية للمنشورات والريلز." },
-    { id: "201", cat: "tiktok_main", name: "🔥 ترويج ممول حقيقي 100% تيك توك ($10 ثابت)", rate: 10, isFlat: true, min: 1, max: 1, time: "خلال 24 ساعة", desc: "إعلان ممول حقيقي لجلب تفاعل ومتابعين لملفك." },
-    { id: "202", cat: "tiktok_main", name: "تيك توك | متابعين جودة عالية", rate: 3.0, min: 100, max: 200000, time: "فوري - 6 ساعات", desc: "متابعين بحسابات نشطة وسريعة الإرسال." },
-    { id: "301", cat: "fb_main", name: "🔥 ترويج ممول حقيقي 100% فيسبوك ($10 ثابت)", rate: 10, isFlat: true, min: 1, max: 1, time: "خلال 24 ساعة", desc: "ترويج إعلاني ممول لصفحتك لضمان وصول مستهدف." },
-    { id: "302", cat: "fb_main", name: "فيسبوك | متابعين صفحات وجروبات", rate: 1.5, min: 200, max: 100000, time: "1-24 ساعة", desc: "زيادة المتابعين للصفحات الحقيقية والحسابات." },
-    { id: "401", cat: "tg_main", name: "تليجرام | أعضاء قنوات ثبات ممتازة", rate: 2.0, min: 100, max: 100000, time: "1-3 ساعات", desc: "أعضاء قنوات ومجموعات تليجرام عالية الجودة." },
-    { id: "501", cat: "yt_main", name: "يوتيوب | مشتركين ضمان دائم", rate: 12.0, min: 50, max: 10000, time: "1-3 أيام", desc: "مشتركين آمنين تماماً على قناتك." },
-    { id: "601", cat: "wa_main", name: "واتساب | أعضاء قنوات واتساب", rate: 2.8, min: 100, max: 20000, time: "1-6 ساعات", desc: "إضافة أعضاء لقنوات الواتساب بسرعة." }
-  ];
-
-  function changePlatform(catVal, el) {
-    document.querySelectorAll('.platform-icon').forEach(icon => icon.classList.remove('active'));
-    if(el) el.classList.add('active');
-    document.getElementById('category-select').value = catVal;
-    renderServices();
-  }
-
-  function renderServices() {
-    const catVal = document.getElementById('category-select').value;
-    const searchVal = document.getElementById('search-input').value.toLowerCase().trim();
-    const serviceSelect = document.getElementById('service-select');
-    
-    serviceSelect.innerHTML = '';
-    
-    const filtered = services.filter(s => s.cat === catVal && s.name.toLowerCase().includes(searchVal));
-
-    if (filtered.length === 0) {
-      serviceSelect.innerHTML = '<option value="">لا توجد خدمات مطابقة</option>';
-    } else {
-      filtered.forEach(s => {
-        const opt = document.createElement('option');
-        opt.value = s.id;
-        opt.textContent = `[${s.id}] ${s.name}`;
-        serviceSelect.appendChild(opt);
-      });
-    }
-    updateServiceInfo();
-  }
-
-  function getSelectedService() {
-    const id = document.getElementById('service-select').value;
-    return services.find(s => s.id === id);
-  }
-
-  function updateServiceInfo() {
-    const s = getSelectedService();
-    const descBox = document.getElementById('service-desc');
-    const limitText = document.getElementById('limit-text');
-    const timeBox = document.getElementById('time-box');
-    const qtyInput = document.getElementById('quantity-input');
-
-    if (s) {
-      descBox.innerText = s.desc;
-      timeBox.innerText = s.time;
-      if (s.isFlat) {
-        limitText.innerText = "خدمة بسعر ثابت ($10)";
-        qtyInput.value = 1;
-      } else {
-        limitText.innerText = `الحد الأدنى: ${s.min} | الحد الأقصى: ${s.max}`;
-      }
-    } else {
-      descBox.innerText = "اختر الخدمة لعرض التفاصيل.";
-      limitText.innerText = "الحد الأدنى: - | الحد الأقصى: -";
-      timeBox.innerText = "-";
-    }
-    calculateCost();
-  }
-
-  function calculateCost() {
-    const s = getSelectedService();
-    const qty = parseFloat(document.getElementById('quantity-input').value) || 0;
-    const costBox = document.getElementById('cost-box');
-
-    if (!s) {
-      costBox.innerText = "$1.00";
-      return;
-    }
-
-    if (s.isFlat) {
-      costBox.innerText = "$10.00";
-      return;
-    }
-
-    if (qty > 0) {
-      let cost = (qty / 1000) * s.rate;
-      costBox.innerText = "$" + Math.max(cost, MIN_PRICE).toFixed(2);
-    } else {
-      costBox.innerText = "$1.00";
-    }
-  }
-
-  function submitOrder() {
-    const s = getSelectedService();
-    const link = document.getElementById('link-input').value.trim();
-    const qty = document.getElementById('quantity-input').value;
-    const cost = document.getElementById('cost-box').innerText;
-    const errText = document.getElementById('link-error');
-
-    if (!link) {
-      errText.style.display = 'block';
-      return;
-    } else {
-      errText.style.display = 'none';
-    }
-
-    if (!s) return alert("اختر خدمة أولاً");
-
-    const text = `طلب جديد 🟢\nالمتجر: MSS STORE\nالخدمة: ${s.name}\nالرابط: ${link}\nالكمية: ${s.isFlat ? '1' : qty}\nالتكلفة: ${cost}`;
-    window.location.href = `https://wa.me/9647815955995?text=${encodeURIComponent(text)}`;
-  }
-
-  // تشغيل الكود لأول مرة عند فتح الصفحة
-  window.onload = renderServices;
-</script>
-
-</body>
-</html>
+      <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44
